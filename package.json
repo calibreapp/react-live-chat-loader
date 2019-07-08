@@ -1,16 +1,25 @@
 {
-  "name": "fake-beacon",
-  "version": "1.0.0",
-  "description": "",
+  "name": "react-chat-beacon-loader",
+  "version": "0.0.1",
+  "description": "Implement a chat beacon in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "build": "babel ./src --out-dir ./dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "performance",
+    "react",
+    "chat",
+    "beacon"
+  ],
+  "author": "calibreapp.com",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calibreapp/react-chat-beacon-loader.git"
+  },
   "peerDependencies": {
     "styled-components": "^4.2.0",
     "react": "^16.8.5"
