@@ -8,19 +8,20 @@ Implement a chat beacon in your React app without taking a performance hit.
 2. [Usage](#usage)
 3. [Providers](#providers)
 4. [Options](#options)
+5. [Todo](#todo)
 
 ### Installation
 
-To download react-fake-beacon run:
+To download react-chat-beacon-loader run:
 
 ```bash
-npm install --save react-fake-beacon
+npm install --save react-chat-beacon-loader
 ```
 
 Or if you're using yarn, run:
 
 ```bash
-yarn add react-fake-beacon --dev
+yarn add react-chat-beacon-loader --dev
 ```
 
 ### Usage
@@ -93,9 +94,24 @@ export const LoadBeaconButton = () => {
 
 Currently supported providers are:
 
+#### HelpScout
+
+To use HelpScout set the `provider` prop as `helpScout` and set the
+`providerKey` prop as your Beacon API Key.
+
+#### Intercom
+
+To use Intercom set the `provider` as `intercom` and set the `providerKey` props
+as your Intercom App ID.
+
 - HelpScout: `helpScout`
 - Intercom: `intercom`
 
 ### Options
 
-TBD
+There are currently no customisation options.
+
+### Todo
+
+- Add customisation options for provider beacon's
+- Add tests
