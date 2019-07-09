@@ -4,11 +4,15 @@ import STATES from './utils/states'
 
 export const ChatBeaconLoaderContext = createContext()
 
-export const ChatBeaconLoaderProvider = ({ apiKey, provider, children }) => {
+export const ChatBeaconLoaderProvider = ({
+  providerKey,
+  provider,
+  children
+}) => {
   const [state, setState] = useState(STATES.INITIAL)
   const value = {
     provider,
-    apiKey,
+    providerKey,
     state,
     setState
   }

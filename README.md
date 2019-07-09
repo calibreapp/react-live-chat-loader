@@ -29,7 +29,7 @@ To allow you to trigger a single beacon within your application, React Chat
 Beacon Loader has a Context Provider which should be added at the root level of
 your application.
 
-You pass your `apiKey` and `provider` to the `ChatBeaconLoaderProvider`.
+You pass your `providerKey` and `provider` to the `ChatBeaconLoaderProvider`.
 
 For example, to add a `ChatBeaconLoaderProvider` for HelpScout you would do the
 following:
@@ -42,7 +42,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ChatBeaconLoaderProvider apiKey="asdjkasl123123" provider="helpScout">
+      <ChatBeaconLoaderProvider
+        providerKey="asdjkasl123123"
+        provider="helpScout"
+      >
         /* ... */
       </ChatBeaconLoaderProvider>
     )
@@ -91,6 +94,7 @@ export const LoadBeaconButton = () => {
 Currently supported providers are:
 
 - HelpScout: `helpScout`
+- Intercom: `intercom`
 
 ### Options
 

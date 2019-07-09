@@ -30,9 +30,9 @@ const loadScript = () => {
   })()
 }
 
-const load = ({ apiKey }) => {
+const load = ({ providerKey }) => {
   loadScript()
-  window.Intercom('boot', { app_id: apiKey })
+  window.Intercom('boot', { app_id: providerKey })
   open()
 }
 

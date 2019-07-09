@@ -21,9 +21,9 @@ const loadScript = () => {
   })(window, document, window.Beacon || function() {})
 }
 
-const load = ({ apiKey }) => {
+const load = ({ providerKey }) => {
   loadScript()
-  window.Beacon('init', apiKey)
+  window.Beacon('init', providerKey)
   open()
 }
 

@@ -5,11 +5,11 @@ import STATES from '../utils/states'
 import Providers from '../providers'
 
 const useBeacon = () => {
-  const { provider, apiKey, state, setState } = useContext(
+  const { provider, providerKey, state, setState } = useContext(
     ChatBeaconLoaderContext
   )
   const loadBeacon = useCallback(({ toggle = false }) => {
-    if (!apiKey) {
+    if (!providerKey) {
       //eslint-disable-next-line no-console
       console.error('No api key given to react-chat-beacon-loader')
       return
@@ -27,7 +27,7 @@ const useBeacon = () => {
 
     if (state === STATES.INITIAL) {
       setState(STATES.LOADING)
-      beaconProvider.load({ apiKey, state, setState })
+      beaconProvider.load({ providerKey, state, setState })
       setState(STATES.LOADED)
       setTimeout(() => setState(STATES.COMPLETE), 2000)
     } else {
