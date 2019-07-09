@@ -1,8 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { useBeacon } from '../../'
 import STATES from '../../utils/states'
+
+const animation = keyframes`
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+`
 
 const Wrapper = styled.div`
   border-radius: 55px;
@@ -11,7 +21,7 @@ const Wrapper = styled.div`
   width: 105px;
   z-index: 1050; // One more than the script Beacon
   bottom: 40px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+  jox-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
   position: fixed;
   right: 40px;
   top: auto;
@@ -21,6 +31,14 @@ const Wrapper = styled.div`
   border-image: initial;
   transition: box-shadow 250ms ease 0s, opacity 0.4s ease 0s,
     scale 1000ms ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  animation-delay: initial;
+  animation-iteration-count: initial;
+  animation-direction: initial;
+  animation-fill-mode: initial;
+  animation-play-state: initial;
+  animation-name: ${animation};
 
   @media (max-height: 740px) {
     bottom: 10px;
@@ -120,7 +138,7 @@ const Text = styled.span`
 `
 
 const HelpScout = () => {
-  const [state, loadBeacon] = useBeacon()
+  const [state, loadBeacon] = useBeacon({ toggle: true })
   if (state === STATES.COMPLETE) return null
   return (
     <Wrapper>

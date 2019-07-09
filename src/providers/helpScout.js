@@ -1,5 +1,3 @@
-import STATES from './states'
-
 const loadScript = () => {
   !(function(e, t, n) {
     function a() {
@@ -23,20 +21,17 @@ const loadScript = () => {
   })(window, document, window.Beacon || function() {})
 }
 
-const loadHelpScout = ({ apiKey, state, setState }) => {
-  if (state === STATES.LOADING) return
-  if (state === STATES.LOADED) return window.Beacon('close')
-
-  if (state === STATES.INITIAL) {
-    setState(STATES.LOADING)
-    loadScript()
-    window.Beacon('init', apiKey)
-    window.Beacon('open')
-    setState(STATES.LOADED)
-    setTimeout(() => setState(STATES.COMPLETE), 2000)
-  } else {
-    window.Beacon('open')
-  }
+const load = ({ apiKey }) => {
+  loadScript()
+  window.Beacon('init', apiKey)
+  open()
 }
 
-export default loadHelpScout
+const open = () => window.Beacon('open')
+const close = () => window.Beacon('close')
+
+export default {
+  load,
+  open,
+  close
+}

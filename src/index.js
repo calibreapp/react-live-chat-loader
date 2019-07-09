@@ -22,3 +22,4 @@ export const ChatBeaconLoaderProvider = ({ apiKey, provider, children }) => {
 
 export { default as useBeacon } from './hooks/useBeacon'
 export { default as HelpScout } from './components/HelpScout'
+export { default as Intercom } from './components/Intercom'
