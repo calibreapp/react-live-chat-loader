@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react'
 
 import { ChatBeaconLoaderContext } from '../'
-import loadHelpScout from './helpScout'
+import loadHelpScout from '../utils/helpScout'
 
 const useBeacon = () => {
   const { provider, apiKey, state, setState } = useContext(
