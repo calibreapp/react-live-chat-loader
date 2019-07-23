@@ -1,7 +1,7 @@
 {
-  "name": "react-chat-beacon-loader",
+  "name": "react-live-chat-loader",
   "version": "0.0.1",
-  "description": "Implement a chat beacon in your react app without taking a performance hit.",
+  "description": "Implement live chat in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,14 +13,13 @@
   "keywords": [
     "performance",
     "react",
-    "chat",
-    "beacon"
+    "chat"
   ],
   "author": "calibreapp.com",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/calibreapp/react-chat-beacon-loader.git"
+    "url": "https://github.com/calibreapp/react-live-chat-loader.git"
   },
   "peerDependencies": {
     "react": "^16.8.5",

@@ -2,13 +2,9 @@ import React, { createContext, useState } from 'react'
 
 import STATES from './utils/states'
 
-export const ChatBeaconLoaderContext = createContext()
+export const LiveChatLoaderContext = createContext()
 
-export const ChatBeaconLoaderProvider = ({
-  providerKey,
-  provider,
-  children
-}) => {
+export const LiveChatLoaderProvider = ({ providerKey, provider, children }) => {
   const [state, setState] = useState(STATES.INITIAL)
   const value = {
     provider,
@@ -18,12 +14,12 @@ export const ChatBeaconLoaderProvider = ({
   }
 
   return (
-    <ChatBeaconLoaderContext.Provider value={value}>
+    <LiveChatLoaderContext.Provider value={value}>
       {children}
-    </ChatBeaconLoaderContext.Provider>
+    </LiveChatLoaderContext.Provider>
   )
 }
 
-export { default as useBeacon } from './hooks/useBeacon'
+export { default as useChat } from './hooks/useChat'
 export { default as HelpScout } from './components/HelpScout'
 export { default as Intercom } from './components/Intercom'

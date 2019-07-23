@@ -1,41 +1,41 @@
 import { useContext, useCallback } from 'react'
 
-import { ChatBeaconLoaderContext } from '../'
+import { LiveChatLoaderContext } from '../'
 import STATES from '../utils/states'
 import Providers from '../providers'
 
-const useBeacon = () => {
+const useChat = () => {
   const { provider, providerKey, state, setState } = useContext(
-    ChatBeaconLoaderContext
+    LiveChatLoaderContext
   )
-  const loadBeacon = useCallback(({ toggle = false }) => {
+  const loadChat = useCallback(({ toggle = false }) => {
     if (!providerKey) {
       //eslint-disable-next-line no-console
-      console.error('No api key given to react-chat-beacon-loader')
+      console.error('No api key given to react-live-chat-loader')
       return
     }
 
-    const beaconProvider = Providers[provider]
+    const chatProvider = Providers[provider]
     if (!provider) {
       //eslint-disable-next-line no-console
-      console.error('No api key given to react-chat-beacon-loader')
+      console.error('No api key given to react-live-chat-loader')
       return
     }
 
     if (state === STATES.LOADING) return
-    if (state === STATES.LOADED && toggle) return beaconProvider.close()
+    if (state === STATES.LOADED && toggle) return chatProvider.close()
 
     if (state === STATES.INITIAL) {
       setState(STATES.LOADING)
-      beaconProvider.load({ providerKey, state, setState })
+      chatProvider.load({ providerKey, state, setState })
       setState(STATES.LOADED)
       setTimeout(() => setState(STATES.COMPLETE), 2000)
     } else {
-      beaconProvider.open()
+      chatProvider.open()
     }
   })
 
-  return [state, loadBeacon]
+  return [state, loadChat]
 }
 
-export default useBeacon
+export default useChat

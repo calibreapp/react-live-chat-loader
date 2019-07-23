@@ -3,17 +3,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import {
-  ChatBeaconLoaderProvider,
+  LiveChatLoaderProvider,
   HelpScout,
   Intercom,
-  useBeacon
+  useChat
 } from '../src'
 
 const Button = () => {
-  const [state, loadBeacon] = useBeacon()
+  const [state, loadChat] = useChat()
   return (
     <>
-      <button onClick={loadBeacon}>Load Beacon</button>
+      <button onClick={loadChat}>Load Chat</button>
       <br />
       Current state: {state}
     </>
@@ -23,33 +23,33 @@ const Button = () => {
 // You need to replace the providerKey prop with live keys to run these stories
 
 storiesOf('HelpScout', module)
-  .add('Beacon', () => (
-    <ChatBeaconLoaderProvider provider="helpScout" providerKey="1234">
+  .add('Chat', () => (
+    <LiveChatLoaderProvider provider="helpScout" providerKey="1234">
       <HelpScout />
-    </ChatBeaconLoaderProvider>
+    </LiveChatLoaderProvider>
   ))
   .add('hook', () =>
     React.createElement(() => {
       return (
-        <ChatBeaconLoaderProvider provider="helpScout" providerKey="1234">
+        <LiveChatLoaderProvider provider="helpScout" providerKey="1234">
           <Button />
-        </ChatBeaconLoaderProvider>
+        </LiveChatLoaderProvider>
       )
     })
   )
 
 storiesOf('Intercom', module)
-  .add('Beacon', () => (
-    <ChatBeaconLoaderProvider provider="intercom" providerKey="1234">
+  .add('Chat', () => (
+    <LiveChatLoaderProvider provider="intercom" providerKey="1234">
       <Intercom />
-    </ChatBeaconLoaderProvider>
+    </LiveChatLoaderProvider>
   ))
   .add('hook', () =>
     React.createElement(() => {
       return (
-        <ChatBeaconLoaderProvider provider="intercom" providerKey="1234">
+        <LiveChatLoaderProvider provider="intercom" providerKey="1234">
           <Button />
-        </ChatBeaconLoaderProvider>
+        </LiveChatLoaderProvider>
       )
     })
   )

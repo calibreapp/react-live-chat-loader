@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import { useBeacon } from '../../'
+import { useChat } from '../../'
 import STATES from '../../utils/states'
 
 const animation = keyframes`
@@ -138,11 +138,11 @@ const Text = styled.span`
 `
 
 const HelpScout = () => {
-  const [state, loadBeacon] = useBeacon({ toggle: true })
+  const [state, loadChat] = useChat({ toggle: true })
   if (state === STATES.COMPLETE) return null
   return (
     <Wrapper>
-      <Button onClick={loadBeacon}>
+      <Button onClick={loadChat}>
         <Icon state={state}>
           <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg">
             <path

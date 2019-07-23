@@ -1,6 +1,6 @@
-# React Chat Beacon Loader
+# React Live Chat Loader
 
-Implement a chat beacon in your React app without taking a performance hit.
+Implement live chat in your React app without taking a performance hit.
 
 ### Contents
 
@@ -12,55 +12,52 @@ Implement a chat beacon in your React app without taking a performance hit.
 
 ### Installation
 
-To download react-chat-beacon-loader run:
+To download react-live-chat-loader run:
 
 ```bash
-npm install --save react-chat-beacon-loader
+npm install --save react-live-chat-loader
 ```
 
 Or if you're using yarn, run:
 
 ```bash
-yarn add react-chat-beacon-loader --dev
+yarn add react-live-chat-loader --dev
 ```
 
 ### Usage
 
-To allow you to trigger a single beacon within your application, React Chat
-Beacon Loader has a Context Provider which should be added at the root level of
+To allow you to trigger a single live chat within your application, React Live
+Chat Loader has a Context Provider which should be added at the root level of
 your application.
 
-You pass your `providerKey` and `provider` to the `ChatBeaconLoaderProvider`.
+You pass your `providerKey` and `provider` to the `LiveChatLoaderProvider`.
 
-For example, to add a `ChatBeaconLoaderProvider` for HelpScout you would do the
+For example, to add a `LiveChatLoaderProvider` for HelpScout you would do the
 following:
 
 ```jsx
-import { ChatBeaconLoaderProvider } from 'react-chat-beacon-loader'
+import { LiveChatLoaderProvider } from 'react-live-chat-loader'
 
 export default class App extends React.Component {
   /* ... */
 
   render() {
     return (
-      <ChatBeaconLoaderProvider
-        providerKey="asdjkasl123123"
-        provider="helpScout"
-      >
+      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="helpScout">
         /* ... */
-      </ChatBeaconLoaderProvider>
+      </LiveChatLoaderProvider>
     )
   }
 }
 ```
 
-You can then include the relevant chat beacon where you would like it to appear.
+You can then include the relevant chat where you would like it to appear.
 
 For example, for HelpScout you would import the `HelpScout` component and add it
 to your application:
 
 ```jsx
-import { HelpScout } from 'react-chat-beacon-loader'
+import { HelpScout } from 'react-live-chat-loader'
 
 export default class Index extends React.Component {
   /* ... */
@@ -76,17 +73,17 @@ export default class Index extends React.Component {
 }
 ```
 
-And to load the beacon from a custom button you can import the `useBeacon`
-hook which has the current state of the beacon and a function to load the
-beacon.
+And to load the chat from a custom button you can import the `useChat`
+hook which has the current state of the chat and a function to load the
+chat.
 
 ```jsx
-import { useBeacon } from 'react-chat-beacon-loader'
+import { useChat } from 'react-live-chat-loader'
 
-export const LoadBeaconButton = () => {
-  const [state, loadBeacon] = useBeacon()
+export const LoadChatButton = () => {
+  const [state, loadChat] = useChat()
 
-  return <button onClick={loadBeacon}>Load Chat Beacon</button>
+  return <button onClick={loadChat}>Load Chat</button>
 }
 ```
 
@@ -113,5 +110,5 @@ There are currently no customisation options.
 
 ### Todo
 
-- Add customisation options for provider beacon's
+- Add customisation options for provider chat's
 - Add tests
