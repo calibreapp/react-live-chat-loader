@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   width: 105px;
   z-index: 1050; // One more than the script Beacon
   bottom: 40px;
-  jox-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
   position: fixed;
   right: 40px;
   top: auto;
