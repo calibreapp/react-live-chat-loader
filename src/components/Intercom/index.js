@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import { useChat } from '../../'
+import { useChat, LiveChatLoaderContext } from '../../'
 import STATES from '../../utils/states'
 
 const animation = keyframes`
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   background-attachment: initial;
   background-origin: initial;
   background-clip: initial;
-  background-color: rgb(0, 113, 178);
+  background-color: ${({ color }) => color};
   animation-duration: 250ms;
   animation-timing-function: ease;
   animation-delay: initial;
@@ -51,6 +51,9 @@ const Wrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.0588235) 0px 1px 6px 0px,
     rgba(0, 0, 0, 0.156863) 0px 2px 32px 0px;
 `
+Wrapper.defaultProps = {
+  color: 'rgb(0, 113, 178)'
+}
 
 const Region = styled.div`
   font-family: intercom-font, 'Helvetica Neue', 'Apple Color Emoji', Helvetica,
@@ -149,9 +152,11 @@ const Close = styled.div`
 
 const Intercom = () => {
   const [state, loadChat] = useChat({ toggle: true })
+  const { color } = useContext(LiveChatLoaderContext)
+
   if (state === STATES.COMPLETE) return null
   return (
-    <Wrapper>
+    <Wrapper color={color}>
       <Region>
         <Launcher onClick={loadChat}>
           <Logo state={state}>

@@ -89,7 +89,7 @@ export const LoadChatButton = () => {
 
 ### Providers
 
-Currently supported providers are:
+Currently there are two supported providers:
 
 #### HelpScout
 
@@ -101,14 +101,12 @@ To use HelpScout set the `provider` prop as `helpScout` and set the
 To use Intercom set the `provider` as `intercom` and set the `providerKey` props
 as your Intercom App ID.
 
-- HelpScout: `helpScout`
-- Intercom: `intercom`
-
 ### Options
 
-There are currently no customisation options.
+You can customise the color of the Intercom widget by passing a `color` prop to
+the `LiveChatLoaderProvider`.
 
 ### Todo
 
-- Add customisation options for provider chat's
+- Add customisation options for HelpScout
 - Add tests
