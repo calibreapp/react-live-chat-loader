@@ -88,7 +88,7 @@ const styles = {
 
 const Intercom = ({ color }) => {
   const [scale, setScale] = useState(0)
-  const [state, loadChat] = useChat()
+  const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   useEffect(() => {
     setScale(1)

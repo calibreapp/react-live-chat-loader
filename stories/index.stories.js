@@ -52,9 +52,10 @@ storiesOf('Intercom', module)
     <LiveChatLoaderProvider
       provider="intercom"
       providerKey="otpo7g1i"
-      idlePeriod={1000}
+      idlePeriod={100}
     >
       <Intercom color={text('color', '#333333')} />
+      <Button />
     </LiveChatLoaderProvider>
   ))
   .add('hook', () =>

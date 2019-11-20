@@ -147,7 +147,7 @@ const getIcon = icon => {
 
 const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
   const [scale, setScale] = useState(0)
-  const [state, loadChat] = useChat()
+  const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
 
   useEffect(() => {

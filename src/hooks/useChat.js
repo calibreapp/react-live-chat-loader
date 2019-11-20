@@ -11,16 +11,16 @@ const connection =
     ? window.navigator && window.navigator.connection
     : null
 
-const useChat = () => {
+let scriptLoaded = false
+
+const useChat = ({ loadWhenIdle } = {}) => {
   const { provider, providerKey, idlePeriod, state, setState } = useContext(
     LiveChatLoaderContext
   )
 
-  let scriptLoaded = false
-
   useEffect(() => {
     // Don't load if idlePeriod is 0, null or undefined
-    if (!idlePeriod) return
+    if (!loadWhenIdle || !idlePeriod) return
 
     // Don't load if 2g connection or save-data is enabled
     if (
@@ -36,22 +36,22 @@ const useChat = () => {
     // We want to ensure the page has been idle for a significant period of time
     // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
     let idleCounts = 0
-    const loadWhenIdle = deadline => {
+    const scheduleLoad = deadline => {
       if (idleCounts > idleCountThreshold) {
         loadChat({ open: false })
       } else if (deadline.timeRemaining() > 49) {
         // no activity has occurred, increment idle count
         idleCounts++
-        requestIdleCallback(loadWhenIdle)
+        requestIdleCallback(scheduleLoad)
       } else {
         // some activity has occurred, reset idle count
         idleCounts = 0
-        requestIdleCallback(loadWhenIdle)
+        requestIdleCallback(scheduleLoad)
       }
     }
 
     if (requestIdleCallback) {
-      requestIdleCallback(loadWhenIdle)
+      requestIdleCallback(scheduleLoad)
     } else {
       setTimeout(() => loadChat({ open: false }), idleCountThreshold)
     }
@@ -74,6 +74,7 @@ const useChat = () => {
 
     if (state === STATES.LOADING) return
     if (state === STATES.LOADED) return chatProvider.close()
+    if (state === STATES.COMPLETE) return chatProvider.open()
 
     if (!scriptLoaded) {
       scriptLoaded = true
