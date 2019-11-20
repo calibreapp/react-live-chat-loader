@@ -96,17 +96,23 @@ Currently there are two supported providers:
 To use HelpScout set the `provider` prop as `helpScout` and set the
 `providerKey` prop as your Beacon API Key.
 
+You can customise the HelpScout beacon by passing the following props to the
+`HelpScout` component:
+
+- `color`: The background color of the beacon
+- `icon`: Choose from `message`, `antenna`, `search`, `question`, `beacon`
+- `zIndex`: Changes the CSS index value of how the Beacon relates to other objects
+- `horizontalPosition`: Choose from `left` or `right`
+
 #### Intercom
 
 To use Intercom set the `provider` as `intercom` and set the `providerKey` props
 as your Intercom App ID.
 
-### Options
-
 You can customise the color of the Intercom widget by passing a `color` prop to
-the `LiveChatLoaderProvider`.
+the `Intercom` component.
 
 ### Todo
 
-- Add customisation options for HelpScout
+- Add further customisation options for HelpScout: `buttonStyle`, `text`, `textAlign`
 - Add tests

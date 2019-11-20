@@ -22,8 +22,7 @@
     "url": "https://github.com/calibreapp/react-live-chat-loader.git"
   },
   "peerDependencies": {
-    "react": "^16.8.5",
-    "styled-components": "^4.2.0"
+    "react": "^16.8.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -31,6 +30,7 @@
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-knobs": "^5.2.6",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
@@ -44,8 +44,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.0.1",
-    "react": "^16.8.5",
-    "styled-components": "^4.2.0"
+    "react": "^16.8.5"
   },
   "files": [
     "dist/*"

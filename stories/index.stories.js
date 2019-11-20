@@ -1,13 +1,9 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
+import { text } from '@storybook/addon-knobs'
 
-import {
-  LiveChatLoaderProvider,
-  HelpScout,
-  Intercom,
-  useChat
-} from '../src'
+import { LiveChatLoaderProvider, HelpScout, Intercom, useChat } from '../src'
 
 const Button = () => {
   const [state, loadChat] = useChat()
@@ -24,14 +20,25 @@ const Button = () => {
 
 storiesOf('HelpScout', module)
   .add('Chat', () => (
-    <LiveChatLoaderProvider provider="helpScout" providerKey="1234">
-      <HelpScout />
+    <LiveChatLoaderProvider
+      provider="helpScout"
+      providerKey="c99965b1-dd68-4fff-9f20-522402d0abe5"
+    >
+      <HelpScout
+        color={text('color', '#976ad4')}
+        icon={text('icon', 'message')}
+        zIndex={text('zIndex', '1050')}
+        horizontalPosition={text('horizontalPosition', 'left')}
+      />
     </LiveChatLoaderProvider>
   ))
   .add('hook', () =>
     React.createElement(() => {
       return (
-        <LiveChatLoaderProvider provider="helpScout" providerKey="1234">
+        <LiveChatLoaderProvider
+          provider="helpScout"
+          providerKey="c99965b1-dd68-4fff-9f20-522402d0abe5"
+        >
           <Button />
         </LiveChatLoaderProvider>
       )
@@ -40,14 +47,14 @@ storiesOf('HelpScout', module)
 
 storiesOf('Intercom', module)
   .add('Chat', () => (
-    <LiveChatLoaderProvider provider="intercom" providerKey="1234">
-      <Intercom />
+    <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
+      <Intercom color={text('color', '#333333')} />
     </LiveChatLoaderProvider>
   ))
   .add('hook', () =>
     React.createElement(() => {
       return (
-        <LiveChatLoaderProvider provider="intercom" providerKey="1234">
+        <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
           <Button />
         </LiveChatLoaderProvider>
       )
