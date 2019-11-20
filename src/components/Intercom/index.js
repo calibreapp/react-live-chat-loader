@@ -5,7 +5,7 @@ import STATES from '../../utils/states'
 
 const styles = {
   wrapper: {
-    zIndex: 2147483000,
+    zIndex: 2147483001, // 1 more than the actual widget
     position: 'fixed',
     bottom: '20px',
     display: 'block',
