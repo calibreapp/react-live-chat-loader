@@ -23,6 +23,7 @@ storiesOf('HelpScout', module)
     <LiveChatLoaderProvider
       provider="helpScout"
       providerKey="c99965b1-dd68-4fff-9f20-522402d0abe5"
+      idlePeriod={0}
     >
       <HelpScout
         color={text('color', '#976ad4')}
@@ -38,6 +39,7 @@ storiesOf('HelpScout', module)
         <LiveChatLoaderProvider
           provider="helpScout"
           providerKey="c99965b1-dd68-4fff-9f20-522402d0abe5"
+          idlePeriod={0}
         >
           <Button />
         </LiveChatLoaderProvider>
@@ -47,14 +49,22 @@ storiesOf('HelpScout', module)
 
 storiesOf('Intercom', module)
   .add('Chat', () => (
-    <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
+    <LiveChatLoaderProvider
+      provider="intercom"
+      providerKey="otpo7g1i"
+      idlePeriod={100}
+    >
       <Intercom color={text('color', '#333333')} />
     </LiveChatLoaderProvider>
   ))
   .add('hook', () =>
     React.createElement(() => {
       return (
-        <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
+        <LiveChatLoaderProvider
+          provider="intercom"
+          providerKey="otpo7g1i"
+          idlePeriod={0}
+        >
           <Button />
         </LiveChatLoaderProvider>
       )

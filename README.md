@@ -92,10 +92,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 - `provider`: Choose from `helpScout` or `intercom` ([see below](#providers))
 - `providerKey`: Provider API Key ([see below](#providers))
-- `strategy`: The loading strategy, choose from:
-  - `idle`: load when the page is idle or when a user hovers or clicks on the
-    widget
-  - `default`: only load when a user hovers or clicks on the widget
+- `idlePeriod`: How long to wait in ms before loading the provider. Default is 2000. Set to 0 to never load.
 
 ### Providers
 

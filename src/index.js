@@ -5,18 +5,16 @@ import STATES from './utils/states'
 export const LiveChatLoaderContext = createContext()
 
 export const LiveChatLoaderProvider = ({
-  strategy,
   providerKey,
   provider,
-  color,
+  idlePeriod = 2000,
   children
 }) => {
   const [state, setState] = useState(STATES.INITIAL)
   const value = {
-    strategy,
     provider,
     providerKey,
-    color,
+    idlePeriod,
     state,
     setState
   }
