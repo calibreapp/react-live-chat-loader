@@ -1,13 +1,33 @@
 # React Live Chat Loader
 
-Implement live chat in your React app without taking a performance hit.
+An npm module that allows you to mitigate the negative performance and user
+experience impact of chat tools. React-live-chat-loader shows a fake widget
+until the page has finished loading or users are ready to interact with chat.
+
+Currently works with [Intercom](#intercom) and [Help Scout](#help-scout).
 
 ### Contents
 
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Providers](#providers)
-4. [Todo](#todo)
+1. [How it works](#how-it-works)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Providers](#providers)
+5. [Examples](#examples)
+
+### How it works
+
+Chat widgets rely heavily on JavaScript which comes at a cost. Given the
+significant impact comes from the download, parse, compile and execution of the
+chat JavaScript, React Live Chat Loader implements a "fake", fast loading button
+and then wait for one of the following events before loading the actual widget:
+
+- User hovers over the fake button
+- User clicks the fake button
+- The page has been idle for a significant amount of time
+
+Under the hood we make use of `requestIdleCallback`, but there is no timeout
+option because if the main thread is not quiet then we should not be blocking it
+with a third party script.
 
 ### Installation
 
@@ -31,7 +51,7 @@ your application.
 
 You pass your `providerKey` and `provider` to the `LiveChatLoaderProvider`.
 
-For example, to add a `LiveChatLoaderProvider` for HelpScout you would do the
+For example, to add a `LiveChatLoaderProvider` for Help Scout you would do the
 following:
 
 ```jsx
@@ -52,7 +72,7 @@ export default class App extends React.Component {
 
 You can then include the relevant chat where you would like it to appear.
 
-For example, for HelpScout you would import the `HelpScout` component and add it
+For example, for Help Scout you would import the `HelpScout` component and add it
 to your application:
 
 ```jsx
@@ -86,24 +106,42 @@ export const LoadChatButton = () => {
 }
 ```
 
-### Options
+#### Options
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 - `provider`: Choose from `helpScout` or `intercom` ([see below](#providers))
 - `providerKey`: Provider API Key ([see below](#providers))
-- `idlePeriod`: How long to wait in ms before loading the provider. Default is 2000. Set to 0 to never load.
+- `idlePeriod`: How long to wait in ms before loading the provider. Default is
+  `2000`. Set to `0` to never load.
 
 ### Providers
 
 Currently there are two supported providers:
 
-#### HelpScout
+#### Help Scout
 
-To use HelpScout set the `provider` prop as `helpScout` and set the
-`providerKey` prop as your Beacon API Key.
+To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
+as `helpScout` and the `providerKey` prop as your Beacon API Key.
 
-You can customise the HelpScout beacon by passing the following props to the
+Then import the `HelpScout` component.
+
+```jsx
+import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="helpScout">
+        /* ... */
+        <HelpScout />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
+
+You can customise the Help Scout beacon by passing the following props to the
 `HelpScout` component:
 
 - `color`: The background color of the beacon
@@ -111,15 +149,36 @@ You can customise the HelpScout beacon by passing the following props to the
 - `zIndex`: Changes the CSS index value of how the Beacon relates to other objects
 - `horizontalPosition`: Choose from `left` or `right`
 
+Currently the Help Scout component only supports the icon button style.
+
 #### Intercom
 
-To use Intercom set the `provider` as `intercom` and set the `providerKey` props
-as your Intercom App ID.
+To use Intercom import the `Intercom` component and set the `provider` prop as
+`intercom` and the `providerKey` prop as your Intercom App ID.
+
+To use Intercom import the `LiveChatLoaderProvider` and set the `provider` prop
+as `intercom` and the `providerKey` prop as your Intercom App ID.
+
+Then import the `Intercom` component.
+
+```jsx
+import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider providerKey="asd239" provider="intercom">
+        /* ... */
+        <Intercom />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
 
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-### Todo
+### Examples
 
-- Add further customisation options for HelpScout: `buttonStyle`, `text`, `textAlign`
-- Add tests
+- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader-example-app): Example [Next.js](https://nextjs.org) app
