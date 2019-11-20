@@ -25,9 +25,14 @@ and then wait for one of the following events before loading the actual widget:
 - User clicks the fake button
 - The page has been idle for a significant amount of time
 
-Under the hood we make use of `requestIdleCallback`, but there is no timeout
-option because if the main thread is not quiet then we should not be blocking it
-with a third party script.
+Under the hood React Live Chat Loader makes use of `requestIdleCallback`, but
+there is no timeout option because if the main thread is not quiet for a
+significant amount of time the should not be blocked with a third party script.
+
+In addition to waiting for the page to become idle, React Live Chat Loader uses
+[react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
+to prevent loading the widget when the page has been idle if the user is on a
+slow connection or wants to save data.
 
 ### Installation
 
@@ -40,7 +45,7 @@ npm install --save react-live-chat-loader
 Or if you're using yarn, run:
 
 ```bash
-yarn add react-live-chat-loader --dev
+yarn add react-live-chat-loader
 ```
 
 ### Usage

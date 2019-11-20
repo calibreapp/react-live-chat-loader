@@ -1,4 +1,6 @@
 import { useContext, useCallback, useEffect } from 'react'
+import { useNetworkStatus } from 'react-adaptive-hooks/network'
+import { useSaveData } from 'react-adaptive-hooks/save-data'
 
 import { LiveChatLoaderContext } from '../'
 import STATES from '../utils/states'
@@ -8,6 +10,8 @@ const requestIdleCallback =
   typeof window !== 'undefined' ? window.requestIdleCallback : null
 
 const useChat = () => {
+  const { effectiveConnectionType } = useNetworkStatus()
+  const { saveData } = useSaveData()
   const { provider, providerKey, idlePeriod, state, setState } = useContext(
     LiveChatLoaderContext
   )
@@ -15,16 +19,20 @@ const useChat = () => {
   let scriptLoaded = false
 
   useEffect(() => {
-    // deadline.timeRemaining() has an upper limit of 50 milliseconds
-    // We want to ensure the page has been idle for a significant period of time
-    // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
+    if (
+      saveData ||
+      ['slow-2g', '2g'].includes(effectiveConnectionType) ||
+      !idlePeriod
+    )
+      return
 
-    if (!idlePeriod) return
     const idleCountThreshold = parseInt(idlePeriod, 10) / 50
     if (isNaN(idleCountThreshold)) return
 
+    // deadline.timeRemaining() has an upper limit of 50 milliseconds
+    // We want to ensure the page has been idle for a significant period of time
+    // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
     let idleCounts = 0
-
     const loadWhenIdle = deadline => {
       if (idleCounts > idleCountThreshold) {
         loadChat({ open: false })

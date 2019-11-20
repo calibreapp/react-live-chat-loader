@@ -6727,6 +6727,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-adaptive-hooks@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-adaptive-hooks/-/react-adaptive-hooks-0.0.5.tgz#7156e688f7164dca4866a5f78ad172c8ffeb3d04"
+  integrity sha512-voZSslyRG5qBJJka4lGivlEB+q8+1fjxmqznOq8K/+/LDlAu2bKx7NvihX85WdUhw3kOkQm6/oO7Ec0lHUutFg==
+
 react-clientside-effect@^1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.2.tgz#6212fb0e07b204e714581dd51992603d1accc837"
