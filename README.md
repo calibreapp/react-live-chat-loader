@@ -29,10 +29,11 @@ Under the hood React Live Chat Loader makes use of `requestIdleCallback`, but
 there is no timeout option because if the main thread is not quiet for a
 significant amount of time the should not be blocked with a third party script.
 
-In addition to waiting for the page to become idle, React Live Chat Loader uses
-[react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
-to prevent loading the widget when the page has been idle if the user is on a
-slow connection or wants to save data.
+In addition to waiting for the page to become idle, React Live Chat Loader
+checks if the user isn't on a slow connection (using
+`navigator.connection.effectiveType`) or has data-saver enabled (using
+`navigator.connection.saveData`) to prevent loading the widget when the page
+has been idle.
 
 ### Installation
 

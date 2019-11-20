@@ -1,6 +1,4 @@
 import { useContext, useCallback, useEffect } from 'react'
-import { useNetworkStatus } from 'react-adaptive-hooks/network'
-import { useSaveData } from 'react-adaptive-hooks/save-data'
 
 import { LiveChatLoaderContext } from '../'
 import STATES from '../utils/states'
@@ -8,10 +6,12 @@ import Providers from '../providers'
 
 const requestIdleCallback =
   typeof window !== 'undefined' ? window.requestIdleCallback : null
+const connection =
+  typeof window !== 'undefined'
+    ? window.navigator && window.navigator.connection
+    : null
 
 const useChat = () => {
-  const { effectiveConnectionType } = useNetworkStatus()
-  const { saveData } = useSaveData()
   const { provider, providerKey, idlePeriod, state, setState } = useContext(
     LiveChatLoaderContext
   )
@@ -19,10 +19,13 @@ const useChat = () => {
   let scriptLoaded = false
 
   useEffect(() => {
+    // Don't load if idlePeriod is 0, null or undefined
+    if (!idlePeriod) return
+
+    // Don't load if 2g connection or save-data is enabled
     if (
-      saveData ||
-      ['slow-2g', '2g'].includes(effectiveConnectionType) ||
-      !idlePeriod
+      connection &&
+      (connection.saveData || /2g/.test(connection.effectiveType))
     )
       return
 
@@ -50,7 +53,7 @@ const useChat = () => {
     if (requestIdleCallback) {
       requestIdleCallback(loadWhenIdle)
     } else {
-      loadChat({ open: false })
+      setTimeout(() => loadChat({ open: false }), idleCountThreshold)
     }
   }, [])
 
