@@ -5,6 +5,7 @@ import STATES from '../utils/states'
 import STRATEGIES from '../utils/strategies'
 import Providers from '../providers'
 
+const IDLE_COUNT_THRESHOLD = 4
 const requestIdleCallback =
   typeof window !== 'undefined' ? window.requestIdleCallback : null
 
@@ -14,11 +15,21 @@ const useChat = () => {
   )
 
   let scriptLoaded = false
+  let idleCounts = 0
 
   const loadWhenIdle = deadline => {
-    if (deadline.timeRemaining() > 45) {
+    // deadline.timeRemaining() has an upper limit of 50 milliseconds
+    // We want to ensure the page has been idle for a significant period of time
+    // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
+    if (idleCounts > IDLE_COUNT_THRESHOLD) {
       loadChat({ open: false })
+    } else if (deadline.timeRemaining() > 49) {
+      // no activity has occurred, increment idle count
+      idleCounts++
+      requestIdleCallback(loadWhenIdle)
     } else {
+      // some activity has occurred, reset idle count
+      idleCounts = 0
       requestIdleCallback(loadWhenIdle)
     }
   }
