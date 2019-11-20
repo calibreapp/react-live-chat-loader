@@ -24,7 +24,6 @@ const loadScript = () => {
 const load = ({ providerKey }) => {
   loadScript()
   window.Beacon('init', providerKey)
-  open()
 }
 
 const open = () => window.Beacon('open')

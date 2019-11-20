@@ -5,6 +5,7 @@ import STATES from './utils/states'
 export const LiveChatLoaderContext = createContext()
 
 export const LiveChatLoaderProvider = ({
+  strategy,
   providerKey,
   provider,
   color,
@@ -12,6 +13,7 @@ export const LiveChatLoaderProvider = ({
 }) => {
   const [state, setState] = useState(STATES.INITIAL)
   const value = {
+    strategy,
     provider,
     providerKey,
     color,

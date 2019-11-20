@@ -33,7 +33,6 @@ const loadScript = () => {
 const load = ({ providerKey }) => {
   loadScript()
   window.Intercom('boot', { app_id: providerKey })
-  open()
 }
 
 const open = () => window.Intercom('show')

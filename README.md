@@ -7,8 +7,7 @@ Implement live chat in your React app without taking a performance hit.
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Providers](#providers)
-4. [Options](#options)
-5. [Todo](#todo)
+4. [Todo](#todo)
 
 ### Installation
 
@@ -86,6 +85,17 @@ export const LoadChatButton = () => {
   return <button onClick={loadChat}>Load Chat</button>
 }
 ```
+
+### Options
+
+You can pass the following props to the `LiveChatLoaderProvider` provider:
+
+- `provider`: Choose from `helpScout` or `intercom` ([see below](#providers))
+- `providerKey`: Provider API Key ([see below](#providers))
+- `strategy`: The loading strategy, choose from:
+  - `idle`: load when the page is idle or when a user hovers or clicks on the
+    widget
+  - `default`: only load when a user hovers or clicks on the widget
 
 ### Providers
 

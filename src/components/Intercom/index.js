@@ -86,7 +86,7 @@ const styles = {
   }
 }
 
-const Intercom = ({ color = '#333333' }) => {
+const Intercom = ({ color }) => {
   const [scale, setScale] = useState(0)
   const [state, loadChat] = useChat()
 
@@ -104,7 +104,11 @@ const Intercom = ({ color = '#333333' }) => {
       }}
     >
       <div styles={styles.region}>
-        <div onClick={loadChat} style={styles.launcher}>
+        <div
+          onClick={() => loadChat({ open: true })}
+          onMouseEnter={() => loadChat({ open: false })}
+          style={styles.launcher}
+        >
           <div
             style={{
               ...styles.logo,
@@ -149,6 +153,10 @@ const Intercom = ({ color = '#333333' }) => {
       </div>
     </div>
   )
+}
+
+Intercom.defaultProps = {
+  color: '#333333'
 }
 
 export default Intercom

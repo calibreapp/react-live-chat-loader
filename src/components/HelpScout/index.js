@@ -178,7 +178,8 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
       }}
     >
       <button
-        onClick={loadChat}
+        onClick={() => loadChat({ open: true })}
+        onMouseEnter={() => loadChat({ open: false })}
         style={{
           ...styles.button,
           backgroundColor: color
