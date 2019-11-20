@@ -15,11 +15,19 @@ const useChat = () => {
 
   let scriptLoaded = false
 
+  const loadWhenIdle = deadline => {
+    if (deadline.timeRemaining() > 45) {
+      loadChat({ open: false })
+    } else {
+      requestIdleCallback(loadWhenIdle)
+    }
+  }
+
   useEffect(() => {
     if (strategy !== STRATEGIES.IDLE) return
 
     if (requestIdleCallback) {
-      requestIdleCallback(() => loadChat({ open: false }))
+      requestIdleCallback(loadWhenIdle)
     } else {
       loadChat({ open: false })
     }
