@@ -16,7 +16,7 @@ const styles = {
     top: 'auto',
     borderStyle: 'none',
     transition:
-      'box-shadow 250ms ease 0s, opacity 0.4s ease 0s, scale 1000ms ease-in-out 0s, transform 0.2s ease-in-out 0s'
+      'box-shadow 250ms ease 0s, opacity 0.4s ease 0s, transform 0.2s ease-in-out 0s'
   },
   button: {
     appearance: 'none',
@@ -146,13 +146,8 @@ const getIcon = icon => {
 }
 
 const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
-  const [scale, setScale] = useState(0)
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
-
-  useEffect(() => {
-    setScale(1)
-  }, [])
 
   if (state === STATES.COMPLETE) return null
 
@@ -173,7 +168,6 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
             : windowHeight < 740
             ? '20px'
             : '40px',
-        transform: `scale(${scale})`,
         zIndex
       }}
     >

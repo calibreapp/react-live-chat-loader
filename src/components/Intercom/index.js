@@ -13,8 +13,6 @@ const styles = {
     width: '60px',
     height: '60px',
     borderRadius: '50%',
-    transition: 'transform 0.3s ease',
-    transform: 'scale(1)',
     boxShadow:
       'rgba(0, 0, 0, 0.0588235) 0px 1px 6px 0px, rgba(0, 0, 0, 0.156863) 0px 2px 32px 0px'
   },
@@ -87,20 +85,14 @@ const styles = {
 }
 
 const Intercom = ({ color }) => {
-  const [scale, setScale] = useState(0)
   const [state, loadChat] = useChat({ loadWhenIdle: true })
-
-  useEffect(() => {
-    setScale(1)
-  }, [])
 
   if (state === STATES.COMPLETE) return null
   return (
     <div
       style={{
         ...styles.wrapper,
-        background: color,
-        transform: `scale(${scale})`
+        background: color
       }}
     >
       <div styles={styles.region}>
