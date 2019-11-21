@@ -29,31 +29,26 @@ const useChat = ({ loadWhenIdle } = {}) => {
     )
       return
 
-    const idleCountThreshold = parseInt(idlePeriod, 10) / 50
-    if (isNaN(idleCountThreshold)) return
+    const idleThreshold = parseInt(idlePeriod, 10)
+    if (isNaN(idleThreshold)) return
 
     // deadline.timeRemaining() has an upper limit of 50 milliseconds
     // We want to ensure the page has been idle for a significant period of time
     // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
-    let idleCounts = 0
+    let elapsedIdlePeriod = 0
     const scheduleLoadChat = deadline => {
-      if (idleCounts > idleCountThreshold) {
-        loadChat({ open: false })
-      } else if (deadline.timeRemaining() > 49) {
-        // no activity has occurred, increment idle count
-        idleCounts++
-        requestIdleCallback(scheduleLoadChat)
-      } else {
-        // some activity has occurred, reset idle count
-        idleCounts = 0
-        requestIdleCallback(scheduleLoadChat)
-      }
+      if (elapsedIdlePeriod > idleThreshold) return loadChat({ open: false })
+
+      const timeRemaining = deadline.timeRemaining()
+      if (timeRemaining > 49) elapsedIdlePeriod += timeRemaining
+
+      requestIdleCallback(scheduleLoadChat)
     }
 
     if (requestIdleCallback) {
       requestIdleCallback(scheduleLoadChat)
     } else {
-      setTimeout(() => loadChat({ open: false }), idleCountThreshold * 50)
+      setTimeout(() => loadChat({ open: false }), idleThreshold * 2)
     }
   }, [])
 

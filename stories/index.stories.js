@@ -49,11 +49,7 @@ storiesOf('HelpScout', module)
 
 storiesOf('Intercom', module)
   .add('Chat', () => (
-    <LiveChatLoaderProvider
-      provider="intercom"
-      providerKey="otpo7g1i"
-      idlePeriod={1000}
-    >
+    <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
       <Intercom color={text('color', '#333333')} />
       <Button />
     </LiveChatLoaderProvider>
