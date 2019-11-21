@@ -1,4 +1,6 @@
 const loadScript = () => {
+  if (window.Beacon) return
+
   !(function(e, t, n) {
     function a() {
       var e = t.getElementsByTagName('script')[0],

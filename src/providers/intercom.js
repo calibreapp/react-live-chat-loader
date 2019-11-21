@@ -1,4 +1,6 @@
 const loadScript = () => {
+  if (window.Intercom) return
+
   !(function() {
     var w = window
     var ic = w.Intercom
