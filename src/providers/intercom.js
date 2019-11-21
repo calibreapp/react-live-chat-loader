@@ -1,3 +1,5 @@
+const domain = 'https://widget.intercom.io'
+
 const loadScript = () => {
   if (window.Intercom) return
 
@@ -23,7 +25,7 @@ const loadScript = () => {
         var s = d.createElement('script')
         s.type = 'text/javascript'
         s.async = true
-        s.src = 'https://widget.intercom.io/widget/3qmk5gyg'
+        s.src = `${domain}/widget/3qmk5gyg`
         var x = d.getElementsByTagName('script')[0]
         x.parentNode.insertBefore(s, x)
       }
@@ -42,6 +44,7 @@ const open = () => window.Intercom('show')
 const close = () => window.Intercom('close')
 
 export default {
+  domain,
   load,
   open,
   close

@@ -53,7 +53,7 @@ const useChat = ({ loadWhenIdle } = {}) => {
     if (requestIdleCallback) {
       requestIdleCallback(scheduleLoadChat)
     } else {
-      setTimeout(() => loadChat({ open: false }), idleThreshold * 2)
+      setTimeout(() => loadChat({ open: false }), idleThreshold)
     }
   }, [])
 
@@ -68,7 +68,7 @@ const useChat = ({ loadWhenIdle } = {}) => {
 
     if (!provider) {
       //eslint-disable-next-line no-console
-      console.error('No api key given to react-live-chat-loader')
+      console.error('No provider given to react-live-chat-loader')
       return
     }
 

@@ -1,3 +1,5 @@
+const domain = 'https://beacon-v2.helpscout.net'
+
 const loadScript = () => {
   if (window.Beacon) return
 
@@ -5,9 +7,7 @@ const loadScript = () => {
     function a() {
       var e = t.getElementsByTagName('script')[0],
         n = t.createElement('script')
-      ;(n.async = !0),
-        (n.src = 'https://beacon-v2.helpscout.net'),
-        e.parentNode.insertBefore(n, e)
+      ;(n.async = !0), (n.src = domain), e.parentNode.insertBefore(n, e)
     }
     if (
       ((e.Beacon = n = function(t, n, a) {
@@ -32,6 +32,7 @@ const open = () => window.Beacon('open')
 const close = () => window.Beacon('close')
 
 export default {
+  domain,
   load,
   open,
   close
