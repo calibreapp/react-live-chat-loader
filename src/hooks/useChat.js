@@ -36,12 +36,17 @@ const useChat = ({ loadWhenIdle } = {}) => {
     // We want to ensure the page has been idle for a significant period of time
     // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
     let elapsedIdlePeriod = 0
+    let previousTimeRemaining = 0
     const scheduleLoadChat = deadline => {
       if (elapsedIdlePeriod > idleThreshold) return loadChat({ open: false })
 
       const timeRemaining = deadline.timeRemaining()
-      if (timeRemaining > 49) elapsedIdlePeriod += timeRemaining
+      // To ensure browser is idle, only accumalte elapsedIdlePeriod when
+      // two consecutive maximum timeRemaining's have been observed
+      if (previousTimeRemaining > 49 && timeRemaining > 49)
+        elapsedIdlePeriod += timeRemaining
 
+      previousTimeRemaining = timeRemaining
       requestIdleCallback(scheduleLoadChat)
     }
 
