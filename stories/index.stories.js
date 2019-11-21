@@ -52,7 +52,7 @@ storiesOf('Intercom', module)
     <LiveChatLoaderProvider
       provider="intercom"
       providerKey="otpo7g1i"
-      idlePeriod={100}
+      idlePeriod={1000}
     >
       <Intercom color={text('color', '#333333')} />
       <Button />
