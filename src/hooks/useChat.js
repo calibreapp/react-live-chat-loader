@@ -20,7 +20,7 @@ const useChat = ({ loadWhenIdle } = {}) => {
 
   useEffect(() => {
     // Don't load if idlePeriod is 0, null or undefined
-    if (!loadWhenIdle || !idlePeriod) return
+    if (typeof window === 'undefined' || !loadWhenIdle || !idlePeriod) return
 
     // Don't load if 2g connection or save-data is enabled
     if (
@@ -72,8 +72,8 @@ const useChat = ({ loadWhenIdle } = {}) => {
       return
     }
 
-    if (state === STATES.LOADING) return
-    if (state === STATES.LOADED) return chatProvider.close()
+    if (state === STATES.OPENING) return
+    if (state === STATES.OPEN) return chatProvider.close()
     if (state === STATES.COMPLETE) return chatProvider.open()
 
     if (!scriptLoaded) {
@@ -83,9 +83,9 @@ const useChat = ({ loadWhenIdle } = {}) => {
     }
 
     if (open) {
-      setState(STATES.LOADING)
+      setState(STATES.OPENING)
       chatProvider.open()
-      setState(STATES.LOADED)
+      setState(STATES.OPEN)
     }
   })
 

@@ -1,7 +1,7 @@
 const STATES = {
   INITIAL: 'initial',
-  LOADING: 'loading',
-  LOADED: 'loaded',
+  OPENING: 'opening',
+  OPEN: 'open',
   COMPLETE: 'complete'
 }
 
