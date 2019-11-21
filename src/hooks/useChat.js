@@ -14,9 +14,14 @@ const connection =
 let scriptLoaded = false
 
 const useChat = ({ loadWhenIdle } = {}) => {
-  const { provider, providerKey, idlePeriod, state, setState } = useContext(
-    LiveChatLoaderContext
-  )
+  const {
+    provider,
+    providerKey,
+    idlePeriod,
+    maxIdlePeriod,
+    state,
+    setState
+  } = useContext(LiveChatLoaderContext)
 
   useEffect(() => {
     // Don't load if idlePeriod is 0, null or undefined
@@ -30,30 +35,37 @@ const useChat = ({ loadWhenIdle } = {}) => {
       return
 
     const idleCountThreshold = parseInt(idlePeriod, 10) / 50
-    if (isNaN(idleCountThreshold)) return
+    const idleTimeout = parseInt(maxIdlePeriod, 10)
+    if (isNaN(idleCountThreshold) || isNaN(idleTimeout)) return
+
+    const options = {}
+    if (idleTimeout) options.timeout = idleTimeout
 
     // deadline.timeRemaining() has an upper limit of 50 milliseconds
     // We want to ensure the page has been idle for a significant period of time
     // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
     let idleCounts = 0
-    const scheduleLoad = deadline => {
+    const scheduleLoadChat = deadline => {
       if (idleCounts > idleCountThreshold) {
         loadChat({ open: false })
       } else if (deadline.timeRemaining() > 49) {
         // no activity has occurred, increment idle count
         idleCounts++
-        requestIdleCallback(scheduleLoad)
+        requestIdleCallback(scheduleLoadChat, options)
       } else {
         // some activity has occurred, reset idle count
         idleCounts = 0
-        requestIdleCallback(scheduleLoad)
+        requestIdleCallback(scheduleLoadChat, options)
       }
     }
 
     if (requestIdleCallback) {
-      requestIdleCallback(scheduleLoad)
+      requestIdleCallback(scheduleLoadChat, options)
     } else {
-      setTimeout(() => loadChat({ open: false }), idleCountThreshold)
+      setTimeout(
+        () => loadChat({ open: false }),
+        maxIdlePeriod || idleCountThreshold * 50
+      )
     }
   }, [])
 

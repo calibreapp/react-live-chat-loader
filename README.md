@@ -25,15 +25,10 @@ and then wait for one of the following events before loading the actual widget:
 - User clicks the fake button
 - The page has been idle for a significant amount of time
 
-Under the hood React Live Chat Loader makes use of `requestIdleCallback`, but
-there is no timeout option because if the main thread is not quiet for a
-significant amount of time the should not be blocked with a third party script.
-
-In addition to waiting for the page to become idle, React Live Chat Loader
-checks if the user isn't on a slow connection (using
-`navigator.connection.effectiveType`) or has data-saver enabled (using
-`navigator.connection.saveData`) to prevent loading the widget when the page
-has been idle.
+Under the hood React Live Chat Loader makes use of `requestIdleCallback` to
+track how long the page has been idle for and checks if the user is on a slow
+connection (using `navigator.connection.effectiveType`) or has data-saver enabled
+(using `navigator.connection.saveData`) to prevent loading.
 
 ### Installation
 
@@ -120,6 +115,10 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 - `providerKey`: Provider API Key ([see below](#providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load.
+- `maxIdlePeriod`: Maximum duration to wait in ms to load the provider in the
+  event `idlePeriod` is never detected. Default is `5000`. Set to `0` to never
+  timeout. This value is used in browsers that don't support
+  `requestIdleCallback`.
 
 ### Providers
 
