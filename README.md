@@ -114,11 +114,8 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 - `provider`: Choose from `helpScout` or `intercom` ([see below](#providers))
 - `providerKey`: Provider API Key ([see below](#providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
-  `2000`. Set to `0` to never load.
-- `maxIdlePeriod`: Maximum duration to wait in ms to load the provider in the
-  event `idlePeriod` is never detected. Default is `5000`. Set to `0` to never
-  timeout. This value is used in browsers that don't support
-  `requestIdleCallback`.
+  `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
+  browsers that don't support `requestIdleCallback`.
 
 ### Providers
 

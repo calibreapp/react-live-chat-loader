@@ -14,14 +14,9 @@ const connection =
 let scriptLoaded = false
 
 const useChat = ({ loadWhenIdle } = {}) => {
-  const {
-    provider,
-    providerKey,
-    idlePeriod,
-    maxIdlePeriod,
-    state,
-    setState
-  } = useContext(LiveChatLoaderContext)
+  const { provider, providerKey, idlePeriod, state, setState } = useContext(
+    LiveChatLoaderContext
+  )
 
   useEffect(() => {
     // Don't load if idlePeriod is 0, null or undefined
@@ -35,11 +30,7 @@ const useChat = ({ loadWhenIdle } = {}) => {
       return
 
     const idleCountThreshold = parseInt(idlePeriod, 10) / 50
-    const idleTimeout = parseInt(maxIdlePeriod, 10)
-    if (isNaN(idleCountThreshold) || isNaN(idleTimeout)) return
-
-    const options = {}
-    if (idleTimeout) options.timeout = idleTimeout
+    if (isNaN(idleCountThreshold)) return
 
     // deadline.timeRemaining() has an upper limit of 50 milliseconds
     // We want to ensure the page has been idle for a significant period of time
@@ -51,21 +42,18 @@ const useChat = ({ loadWhenIdle } = {}) => {
       } else if (deadline.timeRemaining() > 49) {
         // no activity has occurred, increment idle count
         idleCounts++
-        requestIdleCallback(scheduleLoadChat, options)
+        requestIdleCallback(scheduleLoadChat)
       } else {
         // some activity has occurred, reset idle count
         idleCounts = 0
-        requestIdleCallback(scheduleLoadChat, options)
+        requestIdleCallback(scheduleLoadChat)
       }
     }
 
     if (requestIdleCallback) {
-      requestIdleCallback(scheduleLoadChat, options)
+      requestIdleCallback(scheduleLoadChat)
     } else {
-      setTimeout(
-        () => loadChat({ open: false }),
-        maxIdlePeriod || idleCountThreshold * 50
-      )
+      setTimeout(() => loadChat({ open: false }), idleCountThreshold * 50)
     }
   }, [])
 

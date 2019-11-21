@@ -8,7 +8,6 @@ export const LiveChatLoaderProvider = ({
   providerKey,
   provider,
   idlePeriod = 2000,
-  maxIdlePeriod = 10000,
   children
 }) => {
   const [state, setState] = useState(STATES.INITIAL)
@@ -16,7 +15,6 @@ export const LiveChatLoaderProvider = ({
     provider,
     providerKey,
     idlePeriod,
-    maxIdlePeriod,
     state,
     setState
   }
