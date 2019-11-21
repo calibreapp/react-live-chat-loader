@@ -8,7 +8,7 @@ export const LiveChatLoaderContext = createContext()
 export const LiveChatLoaderProvider = ({
   providerKey,
   provider,
-  idlePeriod = 3000,
+  idlePeriod = 5000,
   children
 }) => {
   const [state, setState] = useState(STATES.INITIAL)
