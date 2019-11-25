@@ -2,9 +2,9 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has finished loading or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout). 
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout). 
 
-Made by team at [♠ Calibre](https://calibreapp.com/), your performance companion.
+Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
 ### Table of Contents
 
@@ -95,7 +95,7 @@ export default class Index extends React.Component {
 }
 ```
 
-And to load the chat from a custom button you can import the `useChat`
+To display chat from a custom button you can import the `useChat`
 hook which has the current state of the chat and a function to load the
 chat.
 
