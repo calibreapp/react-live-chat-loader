@@ -19,9 +19,9 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 ## How it works
 
 Chat widgets rely heavily on JavaScript which comes at a cost. Given the
-significant impact comes from the download, parse, compile and execution of the
+significant impact that comes from the download, parse, compile and execution of
 chat JavaScript, React Live Chat Loader implements a "fake", fast loading button
-and then wait for one of the following events before loading the actual widget:
+and waits for one of the following events before loading the actual widget:
 
 - User hovers over the fake button
 - User clicks the fake button
