@@ -1,6 +1,6 @@
 {
   "name": "react-live-chat-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implement live chat in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "chat"
   ],
   "author": "calibreapp.com",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/calibreapp/react-live-chat-loader.git"
