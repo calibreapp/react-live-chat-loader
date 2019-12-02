@@ -166,7 +166,7 @@ as `intercom` and the `providerKey` prop as your Intercom App ID.
 Then import the `Intercom` component.
 
 ```jsx
-import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
+import { LiveChatLoaderProvider, Intercom } from 'react-live-chat-loader'
 
 export default class App extends React.Component {
   render() {
