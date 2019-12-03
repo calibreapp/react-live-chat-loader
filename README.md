@@ -198,8 +198,41 @@ To contribute a new provider, follow these steps:
 
 #### 1. Create provider file
 
-Create a new provider file at `src/providers/providerName.js` which exports the
-following:
+Create a new provider file at `src/providers/providerName.js` using the
+following as a template:
+
+<details>
+<summary>Provider Template</summary>
+
+```js
+const domain = 'https://provider.domain.com'
+
+const loadScript = () => {
+  // Detect the provider is already loaded and return early
+  if (alreadyLoaded) return
+
+  // Call provider script here
+}
+
+const load = ({ providerKey }) => {
+  loadScript()
+  // Initialise provider script
+}
+
+const open = () => // Open provider
+const close = () => // Close provider
+
+export default {
+  domain,
+  load,
+  open,
+  close
+}
+```
+
+</details>
+
+The provider must export the following:
 
 - `domain`: A string of the domain where the provider script is loaded from
   that will be used in a `preconnect` link.
@@ -217,7 +250,55 @@ The name of this file will be the `providerKey` used in the
 #### 2. Create component
 
 Create a new component in `src/Components/ProviderName/index.js` which
-replicates the chat widget. Do not worry about loading animations as the widget
+replicates the chat widget, using the following as a template:
+
+<details>
+<summary>Component Template</summary>
+
+```jsx
+import React from 'react'
+
+import { useChat } from '../../'
+import STATES from '../../utils/states'
+
+const styles = {
+  // Add widget styles here
+  button: {
+    // Add button styles here
+  }
+}
+
+const Provider = ({ color }) => {
+  const [state, loadChat] = useChat({ loadWhenIdle: true })
+
+  if (state === STATES.COMPLETE) return null
+
+  return (
+    <div>
+      <button
+        onClick={() => loadChat({ open: true })}
+        onMouseEnter={() => loadChat({ open: false })}
+        style={{
+          ...styles.button,
+          backgroundColor: color
+        }}
+      >
+        Button
+      </button>
+    </div>
+  )
+}
+
+Provider.defaultProps = {
+  color: '#976ad4'
+}
+
+export default Provider
+```
+
+</details>
+
+Do not worry about loading animations as the widget
 will be shown instantly on page load. Increase the `z-index` by `1` so the fake
 widget sits immediately above the chat widget that is being replaced.
 
