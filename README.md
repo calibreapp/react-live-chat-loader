@@ -162,9 +162,6 @@ Currently the Help Scout component only supports the icon button style.
 <details>
 <summary>Intercom</summary>
 
-To use Intercom import the `Intercom` component and set the `provider` prop as
-`intercom` and the `providerKey` prop as your Intercom App ID.
-
 To use Intercom import the `LiveChatLoaderProvider` and set the `provider` prop
 as `intercom` and the `providerKey` prop as your Intercom App ID.
 
