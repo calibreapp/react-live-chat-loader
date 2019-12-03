@@ -218,7 +218,8 @@ The name of this file will be the `providerKey` used in the
 
 Create a new component in `src/Components/ProviderName/index.js` which
 replicates the chat widget. Do not worry about loading animations as the widget
-will be shown instantly on page load.
+will be shown instantly on page load. Increase the `z-index` by `1` so the fake
+widget sits immediately above the chat widget that is being replaced.
 
 Export the component from `src/index.js`
 
