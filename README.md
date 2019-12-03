@@ -11,8 +11,9 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 1. [How it works](#how-it-works)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Providers](#providers)
-5. [Examples](#examples)
+4. [Supported Providers](#providers)
+5. [Adding a provider](#adding-a-provider)
+6. [Examples](#examples)
 
 ---
 
@@ -183,23 +184,27 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-### Adding new providers
+## Adding a providers
 
 To add a new provider you need to add the following:
 
 #### 1. Create provider file
 
-Create a new provider file at `src/providers/ProviderName.js` which exports the
+Create a new provider file at `src/providers/providerName.js` which exports the
 following:
 
-- `domain`: A string of the domain where the providers script is loaded from
-  that is used in `preconnect` link.
-- `load`: Function which when called will load and initialize the providers
-  script. Ideally it should call a `loadScript` function.
-- `open`: Function which when called will open the providers chat.
-- `close`: Function which when called will close the providers chat.
+- `domain`: A string of the domain where the provider script is loaded from
+  that will be used in a `preconnect` link.
+- `load`: Function which when called will load and initialize the provider
+  script. It should accept props and use the `providerKey` as the `app_id` or
+  `api_key`. For consistency, it should call a `loadScript` function.
+- `open`: Function which when called will open the provider chat.
+- `close`: Function which when called will close the provider chat.
 
 Import that new file in `src/providers/index.js` and add it to `Providers`.
+
+The name of this file will be the `providerKey` used in the
+`LiveChatLoaderProvider`.
 
 #### 2. Create component
 
