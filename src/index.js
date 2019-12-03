@@ -11,7 +11,7 @@ export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
     provider,
     state,
     setState,
-    ...props
+    ...props,
   }
 
   const chatProvider = Providers[provider]
@@ -33,11 +33,12 @@ export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
 }
 
 LiveChatLoaderProvider.defaultProps = {
-  idlePeriod: 5000
+  idlePeriod: 5000,
 }
 
 export { default as useChat } from './hooks/useChat'
 export { default as useProvider } from './hooks/useProvider'
+export { default as Drift } from './components/Drift'
 export { default as HelpScout } from './components/HelpScout'
 export { default as Intercom } from './components/Intercom'
 export { default as Messenger } from './components/Messenger'
