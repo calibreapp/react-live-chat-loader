@@ -124,6 +124,9 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 Currently there are two supported providers:
 
+<details>
+<summary>Help Scout</summary>
+
 ### Help Scout
 
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
@@ -156,7 +159,10 @@ You can customise the Help Scout beacon by passing the following props to the
 
 Currently the Help Scout component only supports the icon button style.
 
-### Intercom
+</details>
+
+<details>
+<summary>Intercom</summary>
 
 To use Intercom import the `Intercom` component and set the `provider` prop as
 `intercom` and the `providerKey` prop as your Intercom App ID.
@@ -183,6 +189,8 @@ export default class App extends React.Component {
 
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
+
+</details>
 
 ## Adding a provider
 
