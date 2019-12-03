@@ -6,7 +6,7 @@ import STATES from '../../utils/states'
 
 const styles = {
   widgetContainer: {
-    zIndex: 2147483647,
+    zIndex: 2147483648,
     position: 'fixed',
     display: 'block',
     bottom: '24px',
