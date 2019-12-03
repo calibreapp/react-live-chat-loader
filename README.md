@@ -127,8 +127,6 @@ Currently there are two supported providers:
 <details>
 <summary>Help Scout</summary>
 
-### Help Scout
-
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
 as `helpScout` and the `providerKey` prop as your Beacon API Key.
 
@@ -306,7 +304,7 @@ Export the component from `src/index.js`
 
 #### 3. Update README
 
-Add your new provider to this README.
+Add your new provider to this README under [Supported Providers](#supported-providers).
 
 ## Examples
 
