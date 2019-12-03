@@ -201,7 +201,7 @@ following:
 - `open`: Function which when called will open the provider chat.
 - `close`: Function which when called will close the provider chat.
 
-Import that new file in `src/providers/index.js` and add it to `Providers`.
+Import the new file in `src/providers/index.js` and add it to `Providers`.
 
 The name of this file will be the `providerKey` used in the
 `LiveChatLoaderProvider`.
