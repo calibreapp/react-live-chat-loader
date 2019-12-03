@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { useChat } from '../../'
 import STATES from '../../utils/states'

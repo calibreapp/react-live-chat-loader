@@ -2,7 +2,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout). 
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -14,7 +14,7 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 4. [Providers](#providers)
 5. [Examples](#examples)
 
-***
+---
 
 ## How it works
 
@@ -183,11 +183,41 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
+### Adding new providers
+
+To add a new provider you need to add the following:
+
+#### 1. Create provider file
+
+Create a new provider file at `src/providers/ProviderName.js` which exports the
+following:
+
+- `domain`: A string of the domain where the providers script is loaded from
+  that is used in `preconnect` link.
+- `load`: Function which when called will load and initialize the providers
+  script. Ideally it should call a `loadScript` function.
+- `open`: Function which when called will open the providers chat.
+- `close`: Function which when called will close the providers chat.
+
+Import that new file in `src/providers/index.js` and add it to `Providers`.
+
+#### 2. Create component
+
+Create a new component in `src/Components/ProviderName/index.js` which
+replicates the chat widget. Do not worry about loading animations as the widget
+will be shown instantly on page load.
+
+Export the component from `src/index.js`
+
+#### 3. Update README
+
+Add your new provider to this README.
+
 ## Examples
 
 - [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader-example-app): example [Next.js](https://nextjs.org) application
 
 ## Resources
 
-* [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
-* [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
+- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
+- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
