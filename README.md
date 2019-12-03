@@ -11,7 +11,7 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 1. [How it works](#how-it-works)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Supported Providers](#providers)
+4. [Supported Providers](#supported-providers)
 5. [Adding a provider](#adding-a-provider)
 6. [Examples](#examples)
 
@@ -120,7 +120,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
 
-## Providers
+## Supported Providers
 
 Currently there are two supported providers:
 
@@ -184,7 +184,7 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-## Adding a providers
+## Adding a provider
 
 To add a new provider you need to add the following:
 
