@@ -5,7 +5,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout) and [Messenger](#messenger).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift) and [Messenger](#messenger).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -117,7 +117,7 @@ export const LoadChatButton = () => {
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
-- `provider`: Choose from `helpScout` or `intercom` ([see below](#providers))
+- `provider`: Choose from `helpScout`, `intercom` or `drift` ([see below](#providers))
 - `providerKey`: Provider API Key ([see below](#providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
@@ -125,7 +125,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## Supported Providers
 
-Currently there are two supported providers:
+Currently there are three supported providers:
 
 <details>
 <summary>Help Scout</summary>
@@ -215,6 +215,7 @@ export default class App extends React.Component {
       >
         /* ... */
         <Messenger />
+     
       </LiveChatLoaderProvider>
     )
   }
@@ -238,6 +239,33 @@ For a list of options, refer to [Facebook Customer Chat Plugin documentation](ht
 **Please note**: Facebook Messenger will not load on localhost and you will need
 to configure your domain through the setup wizard in Facebook for it to load
 correctly.
+
+</details>
+
+<details>
+<summary>Drift</summary>
+
+To use Drift import the `LiveChatLoaderProvider` and set the `provider` prop
+as `drift` and the `providerKey` prop as your Drift App ID.
+
+Then import the `Drift` component.
+
+```jsx
+import { LiveChatLoaderProvider, Drift } from 'react-live-chat-loader'
+
+export default () => (
+  <LiveChatLoaderProvider providerKey="asdhjg127s1s" provider="drift">
+    /* ... */
+    <Drift />
+  </LiveChatLoaderProvider>
+)
+```
+
+You can customise the Drift Messenger by passing the following props to the
+`Drift` component:
+
+- `color`: The background color of the messenger
+- `icon`: Choose from `A`, `B`, `C`, `D`; you're presented with these preset icons when signing up for Drift, or in the "Drift Widget > Design > Widget icon" entry under the "App Settings" header on the Drift settings page.
 
 </details>
 
