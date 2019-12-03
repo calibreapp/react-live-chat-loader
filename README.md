@@ -2,7 +2,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout). 
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -11,10 +11,11 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 1. [How it works](#how-it-works)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Providers](#providers)
-5. [Examples](#examples)
+4. [Supported Providers](#supported-providers)
+5. [Adding a provider](#adding-a-provider)
+6. [Examples](#examples)
 
-***
+---
 
 ## How it works
 
@@ -119,11 +120,12 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
 
-## Providers
+## Supported Providers
 
 Currently there are two supported providers:
 
-### Help Scout
+<details>
+<summary>Help Scout</summary>
 
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
 as `helpScout` and the `providerKey` prop as your Beacon API Key.
@@ -155,7 +157,10 @@ You can customise the Help Scout beacon by passing the following props to the
 
 Currently the Help Scout component only supports the icon button style.
 
-### Intercom
+</details>
+
+<details>
+<summary>Intercom</summary>
 
 To use Intercom import the `Intercom` component and set the `provider` prop as
 `intercom` and the `providerKey` prop as your Intercom App ID.
@@ -183,11 +188,129 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
+</details>
+
+## Adding a provider
+
+To contribute a new provider, follow these steps:
+
+#### 1. Create provider file
+
+Create a new provider file at `src/providers/providerName.js` using the
+following as a template:
+
+<details>
+<summary>Provider Template</summary>
+
+```js
+const domain = 'https://provider.domain.com'
+
+const loadScript = () => {
+  // Detect the provider is already loaded and return early
+  if (alreadyLoaded) return
+
+  // Call provider script here
+}
+
+const load = ({ providerKey }) => {
+  loadScript()
+  // Initialise provider script
+}
+
+const open = () => // Open provider
+const close = () => // Close provider
+
+export default {
+  domain,
+  load,
+  open,
+  close
+}
+```
+
+</details>
+
+The provider must export the following:
+
+- `domain`: A string of the domain where the provider script is loaded from
+  that will be used in a `preconnect` link.
+- `load`: Function which when called will load and initialize the provider
+  script. It should accept props and use the `providerKey` as the `app_id` or
+  `api_key`. For consistency, it should call a `loadScript` function.
+- `open`: Function which when called will open the provider chat.
+- `close`: Function which when called will close the provider chat.
+
+Import the new file in `src/providers/index.js` and add it to `Providers`.
+
+The name of this file will be the `providerKey` used in the
+`LiveChatLoaderProvider`.
+
+#### 2. Create component
+
+Create a new component in `src/Components/ProviderName/index.js` which
+replicates the chat widget, using the following as a template:
+
+<details>
+<summary>Component Template</summary>
+
+```jsx
+import React from 'react'
+
+import { useChat } from '../../'
+import STATES from '../../utils/states'
+
+const styles = {
+  // Add widget styles here
+  button: {
+    // Add button styles here
+  }
+}
+
+const Provider = ({ color }) => {
+  const [state, loadChat] = useChat({ loadWhenIdle: true })
+
+  if (state === STATES.COMPLETE) return null
+
+  return (
+    <div>
+      <button
+        onClick={() => loadChat({ open: true })}
+        onMouseEnter={() => loadChat({ open: false })}
+        style={{
+          ...styles.button,
+          backgroundColor: color
+        }}
+      >
+        Button
+      </button>
+    </div>
+  )
+}
+
+Provider.defaultProps = {
+  color: '#976ad4'
+}
+
+export default Provider
+```
+
+</details>
+
+Do not worry about loading animations as the widget
+will be shown instantly on page load. Increase the `z-index` by `1` so the fake
+widget sits immediately above the chat widget that is being replaced.
+
+Export the component from `src/index.js`
+
+#### 3. Update README
+
+Add your new provider to this README under [Supported Providers](#supported-providers).
+
 ## Examples
 
 - [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader-example-app): example [Next.js](https://nextjs.org) application
 
 ## Resources
 
-* [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
-* [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
+- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
+- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
