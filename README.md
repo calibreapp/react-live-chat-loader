@@ -186,7 +186,7 @@ the `Intercom` component.
 
 ## Adding a provider
 
-To add a new provider you need to add the following:
+To contribute a new provider, follow these steps:
 
 #### 1. Create provider file
 
