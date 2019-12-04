@@ -6,12 +6,10 @@ const loadScript = () => {
   !(function() {
     var t = (window.driftt = window.drift = window.driftt || []);
     if (!t.init) {
-      if (t.invoked)
-        return void (
-          window.console &&
-          console.error &&
-          console.error("Drift snippet included twice.")
-        );
+      if (t.invoked) {
+        //eslint-disable-next-line no-console
+        return void (window.console && console.error && console.error("Drift snippet included twice."));
+      }
       (t.invoked = !0),
         (t.methods = [
           "identify",
@@ -52,13 +50,13 @@ const loadScript = () => {
 
 const load = ({ providerKey }) => {
   loadScript();
-  drift.load(providerKey);
-  drift.SNIPPET_VERSION = "0.3.1";
+  window.drift.load(providerKey);
+  window.drift.SNIPPET_VERSION = "0.3.1";
 };
 
-const open = () => drift.on('ready', (api, payload) => api.showWelcomeMessage());
+const open = () => window.drift.on("ready", api => api.showWelcomeMessage());
 
-const close = () => drift.on('ready', (api, payload) => api.hideWelcomeMessage());
+const close = () => window.drift.on("ready", api => api.hideWelcomeMessage());
 
 export default {
   domain,
@@ -66,6 +64,3 @@ export default {
   open,
   close
 };
-
-
-
