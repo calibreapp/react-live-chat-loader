@@ -8,7 +8,7 @@ export const LiveChatLoaderContext = createContext()
 export const LiveChatLoaderProvider = ({
   providerKey,
   provider,
-  idlePeriod = 5000,
+  idlePeriod,
   children
 }) => {
   const [state, setState] = useState(STATES.INITIAL)
@@ -36,6 +36,10 @@ export const LiveChatLoaderProvider = ({
       {children}
     </LiveChatLoaderContext.Provider>
   )
+}
+
+LiveChatLoaderProvider.defaultProps = {
+  idlePeriod: 5000
 }
 
 export { default as useChat } from './hooks/useChat'
