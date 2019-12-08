@@ -165,7 +165,7 @@ Drift.propTypes = {
   /**
    * Change the style of the Drift messenger icon, one of the four default types available when setting up your Drift messenger or in the Drift Widget "Widget icon" settings. 
    */
-  icon: PropTypes.oneOf(['A', 'B', 'C', 'D']).isRequired
+  icon: PropTypes.oneOf(['A', 'B', 'C', 'D'])
 }
 
 Drift.defaultProps = {
