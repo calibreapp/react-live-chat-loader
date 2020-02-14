@@ -2,7 +2,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom) and [Help Scout](#help-scout).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout) and [Messenger](#messenger).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -184,6 +184,34 @@ export default class App extends React.Component {
 
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
+
+</details>
+
+<details>
+<summary>Messenger</summary>
+
+To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger`, the `providerKey` prop as your Facebook App ID, and the `pageID` prop as your Facebook Page ID.
+
+In addition, you can set an optional `locale` prop, and the default value is `en_US`.
+
+Then import the `Messenger` component.
+
+```jsx
+import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider provider="messenger" providerKey="1111222233334444" pageID="111222333444555">
+        /* ... */
+        <Messenger />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
+
+For list of locale option value, please refer to [Facebook Localization document](https://developers.facebook.com/docs/internationalization).
 
 </details>
 

@@ -5,20 +5,10 @@ import Providers from './providers'
 
 export const LiveChatLoaderContext = createContext()
 
-export const LiveChatLoaderProvider = ({
-  providerKey,
-  provider,
-  idlePeriod,
-  children
-}) => {
+export const LiveChatLoaderProvider = props => {
   const [state, setState] = useState(STATES.INITIAL)
-  const value = {
-    provider,
-    providerKey,
-    idlePeriod,
-    state,
-    setState
-  }
+  const { provider, children } = props;
+  const value = {state, setState, ...props }
 
   const chatProvider = Providers[provider]
 
@@ -45,3 +35,4 @@ LiveChatLoaderProvider.defaultProps = {
 export { default as useChat } from './hooks/useChat'
 export { default as HelpScout } from './components/HelpScout'
 export { default as Intercom } from './components/Intercom'
+export { default as Messenger } from './components/Messenger'
