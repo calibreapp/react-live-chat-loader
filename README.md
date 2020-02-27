@@ -213,6 +213,34 @@ export default class App extends React.Component {
 
 For a list of locale option values, refer to [Facebook Localization documentation](https://developers.facebook.com/docs/internationalization).
 
+You can customize your customer chat plugin as well, we recommend the `themeColor` you set to `Messenger` should be same as `themeColor` you set to `LiveChatLoaderProvider`.
+
+```jsx
+import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider 
+        provider="messenger" 
+        providerKey="1111222233334444" 
+        pageID="111222333444555"
+        themeColor="#40D058"
+        loggedInGreeting="Welcome"
+        loggedOutGreeting="Please sign in"
+        greetingDialogDisplay="hide"
+        greetingDialogDelay="0"
+        >
+        /* ... */
+        <Messenger themeColor="#40D058" />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
+
+For a list of optional customizations, refer to [Facebook Customer Chat Plugin documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin#customization).
+
 </details>
 
 ## Adding a provider

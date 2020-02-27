@@ -70,8 +70,19 @@ storiesOf('Intercom', module)
 
 storiesOf('Messenger', module)
   .add('Chat', () => (
-    <LiveChatLoaderProvider provider="messenger" providerKey="1111222233334444" pageID="111222333444555" locale="zh_TW">
-      <Messenger />
+    <LiveChatLoaderProvider 
+      provider="messenger" 
+      providerKey="1111222233334444" 
+      pageID="111222333444555"
+      // the following is optional 
+      locale="zh_TW"
+      themeColor="#40D058"
+      loggedInGreeting="Welcome"
+      loggedOutGreeting="Please sign in"
+      greetingDialogDisplay="hide"
+      greetingDialogDelay="0"
+      >
+      <Messenger themeColor="#40D058" />
       <Button />
     </LiveChatLoaderProvider>
   ))
