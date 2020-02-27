@@ -211,7 +211,7 @@ export default class App extends React.Component {
 }
 ```
 
-For list of locale option value, please refer to [Facebook Localization document](https://developers.facebook.com/docs/internationalization).
+For a list of locale option values, refer to [Facebook Localization documentation](https://developers.facebook.com/docs/internationalization).
 
 </details>
 

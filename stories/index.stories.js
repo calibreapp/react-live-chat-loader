@@ -3,7 +3,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text } from '@storybook/addon-knobs'
 
-import { LiveChatLoaderProvider, HelpScout, Intercom, useChat } from '../src'
+import { LiveChatLoaderProvider, HelpScout, Intercom, Messenger, useChat } from '../src'
 
 const Button = () => {
   const [state, loadChat] = useChat()
@@ -60,6 +60,28 @@ storiesOf('Intercom', module)
         <LiveChatLoaderProvider
           provider="intercom"
           providerKey="otpo7g1i"
+          idlePeriod={0}
+        >
+          <Button />
+        </LiveChatLoaderProvider>
+      )
+    })
+  )
+
+storiesOf('Messenger', module)
+  .add('Chat', () => (
+    <LiveChatLoaderProvider provider="messenger" providerKey="1111222233334444" pageID="111222333444555" locale="zh_TW">
+      <Messenger />
+      <Button />
+    </LiveChatLoaderProvider>
+  ))
+  .add('hook', () =>
+    React.createElement(() => {
+      return (
+        <LiveChatLoaderProvider
+          provider="messenger"
+          providerKey="1111222233334444"
+          pageID="111222333444555"
           idlePeriod={0}
         >
           <Button />

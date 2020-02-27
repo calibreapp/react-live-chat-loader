@@ -26,7 +26,7 @@ const styles = {
   }
 };
 
-const Provider = () => {
+const Messenger = () => {
   const [state, loadChat] = useChat({ loadWhenIdle: true });
 
   if (state === STATES.COMPLETE) return null;
@@ -73,4 +73,4 @@ const Provider = () => {
   );
 };
 
-export default Provider
+export default Messenger

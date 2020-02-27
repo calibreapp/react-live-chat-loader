@@ -9,7 +9,7 @@ const createCustomerchat = (pageID) => {
   }
 }
 
-const loadScript = (locale, pageID) => {
+const loadScript = (pageID, locale) => {
   if (window.FB) return
 
   !(function loadFacebookSDK(d, s, id) {
@@ -31,8 +31,15 @@ const loadScript = (locale, pageID) => {
   })(window.document, 'script', 'facebook-jssdk');
 }
 
-const load = ({ providerKey, locale, pageID }) => {
-  loadScript(locale, pageID);
+const load = ({ providerKey, pageID, locale = 'en_US' }) => {
+
+  if (!pageID) {
+    //eslint-disable-next-line no-console
+    console.error('No page id given to messenger provider')
+    return
+  }
+
+  loadScript(pageID, locale);
   window.fbAsyncInit = function() {
     window.FB.init({
       appId: providerKey,

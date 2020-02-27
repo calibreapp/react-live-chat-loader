@@ -5,10 +5,14 @@ import Providers from './providers'
 
 export const LiveChatLoaderContext = createContext()
 
-export const LiveChatLoaderProvider = props => {
+export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
   const [state, setState] = useState(STATES.INITIAL)
-  const { provider, children } = props;
-  const value = {state, setState, ...props }
+  const value = {
+    provider,
+    state,
+    setState,
+    ...props
+  }
 
   const chatProvider = Providers[provider]
 
