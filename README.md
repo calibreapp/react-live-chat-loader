@@ -190,7 +190,7 @@ the `Intercom` component.
 <details>
 <summary>Messenger</summary>
 
-To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger`, the `providerKey` prop as your Facebook App ID, and the `pageID` prop as your Facebook Page ID.
+To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger`, the `providerKey` prop as your Facebook Page ID.
 
 In addition, you can set an optional `locale` prop, and the default value is `en_US`.
 
@@ -202,7 +202,7 @@ import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
 export default class App extends React.Component {
   render() {
     return (
-      <LiveChatLoaderProvider provider="messenger" providerKey="1111222233334444" pageID="111222333444555">
+      <LiveChatLoaderProvider provider="messenger" providerKey="111222333444555" locale="en_US">
         /* ... */
         <Messenger />
       </LiveChatLoaderProvider>
@@ -212,6 +212,8 @@ export default class App extends React.Component {
 ```
 
 For a list of locale option values, refer to [Facebook Localization documentation](https://developers.facebook.com/docs/internationalization).
+
+if you are using other facebook features like share, you should set the `appID` prop as your Facebook App ID since customer chat SDK includes all features that facebook provide.
 
 You can customize your customer chat plugin as well, we recommend the `themeColor` you set to `Messenger` should be same as `themeColor` you set to `LiveChatLoaderProvider`.
 
@@ -223,8 +225,8 @@ export default class App extends React.Component {
     return (
       <LiveChatLoaderProvider 
         provider="messenger" 
-        providerKey="1111222233334444" 
-        pageID="111222333444555"
+        providerKey="111222333444555" 
+        appID="1111222233334444"
         themeColor="#40D058"
         loggedInGreeting="Welcome"
         loggedOutGreeting="Please sign in"

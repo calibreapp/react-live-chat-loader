@@ -1,24 +1,17 @@
 const domain = 'https://connect.facebook.net'
 
 const createCustomerchat = ({ 
-  pageID,
+  providerKey,
   themeColor = '',
   loggedInGreeting = '',
   loggedOutGreeting = '',
   greetingDialogDisplay = '',
   greetingDialogDelay = '',
 }) => {
-
-  if (!pageID) {
-    //eslint-disable-next-line no-console
-    console.error('No page id given to messenger provider')
-    return
-  }
-
   if(!document.querySelector('.fb-customerchat')) {
     const chat = window.document.createElement('div');
     chat.className = "fb-customerchat";
-    chat.setAttribute("page_id", pageID);
+    chat.setAttribute("page_id", providerKey);
     if(themeColor) chat.setAttribute('theme_color', themeColor);
     if(loggedInGreeting) chat.setAttribute('logged_in_greeting', loggedInGreeting);
     if(loggedOutGreeting) chat.setAttribute('logged_out_greeting', loggedOutGreeting);
@@ -50,15 +43,14 @@ const loadScript = ({ locale = 'en_US', ...options }) => {
   })(window.document, 'script', 'facebook-jssdk');
 }
 
-const load = ({ providerKey, ...options }) => {
+const load = ({ appID, ...options }) => {
   loadScript(options);
   window.fbAsyncInit = function() {
-    window.FB.init({
-      appId: providerKey,
+    window.FB.init(Object.assign({
       cookie: true,
       xfbml: true,
-      version: 'v3.2'
-    });
+      version: 'v6.0'
+    }, appID ? { appId: appID } : {}));
   };
 }
 

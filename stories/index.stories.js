@@ -72,9 +72,9 @@ storiesOf('Messenger', module)
   .add('Chat', () => (
     <LiveChatLoaderProvider 
       provider="messenger" 
-      providerKey="1111222233334444" 
-      pageID="111222333444555"
+      providerKey="111222333444555"
       // the following is optional 
+      appID="1111222233334444"
       locale="zh_TW"
       themeColor="#40D058"
       loggedInGreeting="Welcome"
@@ -91,8 +91,7 @@ storiesOf('Messenger', module)
       return (
         <LiveChatLoaderProvider
           provider="messenger"
-          providerKey="1111222233334444"
-          pageID="111222333444555"
+          providerKey="111222333444555"
           idlePeriod={0}
         >
           <Button />
