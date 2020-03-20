@@ -1,19 +1,23 @@
 import React from 'react'
 import Layout from '../layouts/main'
+import ExampleLinks from '../components/exampleLinks'
 import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
 
 const Page = () => (
   <LiveChatLoaderProvider provider="messenger" providerKey="100594861551567">
-    <Layout title="Messenger Example">
+    <Layout title="React Live Chat Loader: Facebook Messenger">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader</h1>
-          <p>Messenger example.</p>
+          <h1>React Live Chat Loader: Facebook Messenger</h1>
           <p>
+            This is an example implementation of the Facebook Messenger chat
+            widget using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
-              Check it out on GitHub <span>→</span>
+              react-live-chat-loader
             </a>
+            .
           </p>
+          <ExampleLinks />
         </div>
       </div>
       <Messenger
