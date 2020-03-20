@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react'
 
 const useWindowHeight = () => {
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  const [windowHeight, setWindowHeight] = useState(
+    typeof window !== 'undefined' ? window.innerHeight : 740
+  )
 
   const handleResize = () => setWindowHeight(window.innerHeight)
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    typeof window !== 'undefined'
+      ? window.addEventListener('resize', handleResize)
+      : null
     return () => {
-      window.removeEventListener('resize', handleResize)
+      typeof window !== 'undefined'
+        ? window.removeEventListener('resize', handleResize)
+        : null
     }
   }, [])
 
