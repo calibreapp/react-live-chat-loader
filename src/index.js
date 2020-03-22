@@ -37,6 +37,7 @@ LiveChatLoaderProvider.defaultProps = {
 }
 
 export { default as useChat } from './hooks/useChat'
+export { default as useProvider } from './hooks/useProvider'
 export { default as HelpScout } from './components/HelpScout'
 export { default as Intercom } from './components/Intercom'
 export { default as Messenger } from './components/Messenger'

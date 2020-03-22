@@ -3,7 +3,13 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text } from '@storybook/addon-knobs'
 
-import { LiveChatLoaderProvider, HelpScout, Intercom, Messenger, useChat } from '../src'
+import {
+  LiveChatLoaderProvider,
+  HelpScout,
+  Intercom,
+  Messenger,
+  useChat
+} from '../src'
 
 const Button = () => {
   const [state, loadChat] = useChat()
@@ -69,33 +75,5 @@ storiesOf('Intercom', module)
   )
 
 storiesOf('Messenger', module)
-  .add('Chat', () => (
-    <LiveChatLoaderProvider 
-      provider="messenger" 
-      providerKey="111222333444555"
-      // the following is optional 
-      appID="1111222233334444"
-      locale="zh_TW"
-      themeColor="#40D058"
-      loggedInGreeting="Welcome"
-      loggedOutGreeting="Please sign in"
-      greetingDialogDisplay="hide"
-      greetingDialogDelay="0"
-      >
-      <Messenger themeColor="#40D058" />
-      <Button />
-    </LiveChatLoaderProvider>
-  ))
-  .add('hook', () =>
-    React.createElement(() => {
-      return (
-        <LiveChatLoaderProvider
-          provider="messenger"
-          providerKey="111222333444555"
-          idlePeriod={0}
-        >
-          <Button />
-        </LiveChatLoaderProvider>
-      )
-    })
-  )
+  .add('Chat', () => <div>Messenger will not load on localhost.</div>)
+  .add('hook', () => <div>Messenger will not load on localhost.</div>)
