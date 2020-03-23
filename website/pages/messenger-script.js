@@ -36,6 +36,7 @@ const Page = () => (
       theme_color="#13cf13"
       logged_in_greeting="What's up?"
       logged_out_greeting="What's up?"
+      greeting_dialog_display="hide"
     ></div>
   </Layout>
 )
