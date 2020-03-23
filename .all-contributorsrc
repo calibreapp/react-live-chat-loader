@@ -13,6 +13,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "AshKyd",
+      "name": "Ash Kyd",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/49600?v=4",
+      "profile": "http://ash.ms",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
