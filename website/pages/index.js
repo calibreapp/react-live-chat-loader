@@ -12,9 +12,18 @@ const Page = () => (
           user experience impact of chat tools. React-live-chat-loader shows a
           fake widget until the page has finished loading or users are ready to
           interact with chat. Currently works with{' '}
-          <Link href="/intercom">Intercom</Link>,{' '}
-          <Link href="/helpscout">Help Scout</Link> and{' '}
-          <Link href="/messenger">Facebook Messenger</Link>.
+          <Link href="/intercom">
+            <a>Intercom</a>
+          </Link>
+          ,{' '}
+          <Link href="/helpscout">
+            <a>Help Scout</a>
+          </Link>{' '}
+          and{' '}
+          <Link href="/messenger">
+            <a>Facebook Messenger</a>
+          </Link>
+          .
         </p>
         <p>
           <a href="https://github.com/calibreapp/react-live-chat-loader">

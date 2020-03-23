@@ -1,21 +1,28 @@
 import React from 'react'
+import Link from 'next/link'
 
 const ExampleLinks = () => (
   <>
     <p>
-      <a href="/intercom">
-        Intercom example <span>→</span>
-      </a>
+      <Link href="/intercom">
+        <a>
+          Intercom example <span>→</span>
+        </a>
+      </Link>
     </p>
     <p>
-      <a href="/helpscout">
-        Help Scout example <span>→</span>
-      </a>
+      <Link href="/helpscout">
+        <a>
+          Help Scout example <span>→</span>
+        </a>
+      </Link>
     </p>
     <p>
-      <a href="/messenger">
-        Facebook Messenger example <span>→</span>
-      </a>
+      <Link href="/messenger">
+        <a>
+          Facebook Messenger example <span>→</span>
+        </a>
+      </Link>
     </p>
   </>
 )
