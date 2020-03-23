@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useChat } from '../../'
 import useWindowHeight from '../../hooks/useWindowHeight'
@@ -148,6 +148,28 @@ const getIcon = icon => {
 const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
+  const [positionStyles, setPositionStyles] = useState({
+    opacity: 0,
+    visibility: 'hidden'
+  })
+
+  useEffect(() => {
+    setPositionStyles({
+      bottom: windowHeight < 740 ? '10px' : '40px',
+      right:
+        horizontalPosition === 'left'
+          ? 'auto'
+          : windowHeight < 740
+          ? '20px'
+          : '40px',
+      left:
+        horizontalPosition === 'right'
+          ? 'auto'
+          : windowHeight < 740
+          ? '20px'
+          : '40px'
+    })
+  }, [windowHeight])
 
   if (state === STATES.COMPLETE) return null
 
@@ -155,19 +177,7 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
     <div
       style={{
         ...styles.wrapper,
-        bottom: windowHeight < 740 ? '10px' : '40px',
-        right:
-          horizontalPosition === 'left'
-            ? 'auto'
-            : windowHeight < 740
-            ? '20px'
-            : '40px',
-        left:
-          horizontalPosition === 'right'
-            ? 'auto'
-            : windowHeight < 740
-            ? '20px'
-            : '40px',
+        ...positionStyles,
         zIndex
       }}
     >
