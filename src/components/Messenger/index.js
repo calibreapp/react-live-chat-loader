@@ -31,8 +31,7 @@ const CustomerChat = ({
   loggedInGreeting,
   loggedOutGreeting,
   greetingDialogDisplay,
-  greetingDialogDelay,
-  ref
+  greetingDialogDelay
 }) => {
   const { providerKey } = useProvider()
 
@@ -46,7 +45,6 @@ const CustomerChat = ({
       logged_out_greeting={loggedOutGreeting}
       greeting_dialog_display={greetingDialogDisplay}
       greeting_dialog_delay={greetingDialogDelay}
-      ref={ref || 'react-live-chat-loader'}
     ></div>
   )
 }
