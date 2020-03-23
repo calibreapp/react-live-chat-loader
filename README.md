@@ -1,4 +1,7 @@
 # React Live Chat Loader
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
@@ -361,3 +364,22 @@ Add your new provider to this README under [Supported Providers](#supported-prov
 
 - [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
 - [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/FateXRebirth"><img src="https://avatars3.githubusercontent.com/u/11188616?v=4" width="100px;" alt=""/><br /><sub><b>Kevin Peng</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=FateXRebirth" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
