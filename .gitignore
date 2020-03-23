@@ -1,4 +1,8 @@
+.DS_Store
 node_modules
 *.log
 /tmp
 /dist
+website/.next
+website/node_modules
+website/out
