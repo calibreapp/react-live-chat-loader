@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { useChat, useProvider } from '../../'
 import STATES from '../../utils/states'
@@ -26,19 +26,17 @@ const styles = {
   }
 }
 
-const CustomerChat = ({
-  color,
-  loggedInGreeting,
-  loggedOutGreeting,
-  greetingDialogDisplay,
-  greetingDialogDelay
-}) => {
-  const { providerKey } = useProvider()
-
-  return (
+const CustomerChat = memo(
+  ({
+    providerKey,
+    color,
+    loggedInGreeting,
+    loggedOutGreeting,
+    greetingDialogDisplay,
+    greetingDialogDelay
+  }) => (
     <div
       className="fb-customerchat"
-      attribution="react-live-chat-loader"
       page_id={providerKey}
       theme_color={color}
       logged_in_greeting={loggedInGreeting}
@@ -47,7 +45,7 @@ const CustomerChat = ({
       greeting_dialog_delay={greetingDialogDelay}
     ></div>
   )
-}
+)
 
 const Widget = ({ color }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
@@ -102,12 +100,16 @@ const Widget = ({ color }) => {
   )
 }
 
-const Messenger = ({ color, ...props }) => (
-  <>
-    <CustomerChat color={color} {...props} />
-    <Widget color={color} />
-  </>
-)
+const Messenger = ({ color, ...props }) => {
+  const { providerKey } = useProvider()
+
+  return (
+    <>
+      <CustomerChat color={color} providerKey={providerKey} {...props} />
+      <Widget color={color} />
+    </>
+  )
+}
 
 Messenger.defaultProps = {
   color: ''
