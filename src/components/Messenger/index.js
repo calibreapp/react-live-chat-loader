@@ -16,7 +16,7 @@ const styles = {
     right: '18pt',
     top: 'auto',
     width: '45pt',
-    zIndex: '2147483646',
+    zIndex: '2147483647', // 1 more than the actual widget
     overflow: 'hidden',
     boxShadow: '0 3px 12px rgba(0, 0, 0, .15)',
     transition: 'box-shadow 150ms linear',
