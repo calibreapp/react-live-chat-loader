@@ -26,6 +26,7 @@ const load = ({ appID, locale = 'en_US' }) => {
     window.FB.init(
       Object.assign(
         {
+          cookie: false,
           xfbml: true,
           version: 'v6.0'
         },
