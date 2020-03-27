@@ -34,22 +34,17 @@ const CustomerChat = memo(
     loggedOutGreeting,
     greetingDialogDisplay,
     greetingDialogDelay
-  }) => {
-    //eslint-disable-next-line
-    console.log('Rendering CustomerChat')
-    return (
-      <div
-        className="fb-customerchat"
-        attribution="react-live-chat-loader"
-        page_id={providerKey}
-        theme_color={color}
-        logged_in_greeting={loggedInGreeting}
-        logged_out_greeting={loggedOutGreeting}
-        greeting_dialog_display={greetingDialogDisplay}
-        greeting_dialog_delay={greetingDialogDelay}
-      ></div>
-    )
-  }
+  }) => (
+    <div
+      className="fb-customerchat"
+      page_id={providerKey}
+      theme_color={color}
+      logged_in_greeting={loggedInGreeting}
+      logged_out_greeting={loggedOutGreeting}
+      greeting_dialog_display={greetingDialogDisplay}
+      greeting_dialog_delay={greetingDialogDelay}
+    ></div>
+  )
 )
 
 const Widget = ({ color }) => {
