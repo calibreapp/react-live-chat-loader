@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
+import { LiveChatLoaderProvider, Messenger } from '../components/src'
 
 const Page = () => (
   <LiveChatLoaderProvider provider="messenger" providerKey="100594861551567">
