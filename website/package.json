@@ -10,6 +10,6 @@
     "next": "^9.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-live-chat-loader": "^2.0.3"
+    "react-live-chat-loader": "^2.0.4"
   }
 }
