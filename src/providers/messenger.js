@@ -37,7 +37,7 @@ const load = ({ appID, locale = 'en_US' }) => {
 }
 
 const open = () => {
-  window.FB.CustomerChat.show(false)
+  window.FB.CustomerChat.show(true)
 }
 const close = () => {
   window.FB.CustomerChat.hide()
