@@ -1,3 +1,7 @@
+### 2.0.5 - 2020-03-30
+
+- Fix `Messenger` options missing [#25](https://github.com/calibreapp/react-live-chat-loader/pull/25)
+
 ### 2.0.3 - 2020-03-30
 
 - Fix `Messenger` loading error [#22](https://github.com/calibreapp/react-live-chat-loader/issues//22)
