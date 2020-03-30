@@ -195,6 +195,8 @@ the `Intercom` component.
 
 To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger` and the `providerKey` prop as your Facebook Page ID.
 
+If you are using other Facebook features like share, you should set the `appID` prop as your Facebook App ID as the Customer Chat SDK includes all the features that Facebook provide.
+
 You can optionally set the `locale` prop, the default value is `en_US`.
 
 Then import the `Messenger` component.
@@ -208,6 +210,7 @@ export default class App extends React.Component {
       <LiveChatLoaderProvider
         provider="messenger"
         providerKey="111222333444555"
+        appID="111222333444555"
         locale="en_US"
       >
         /* ... */
@@ -219,8 +222,6 @@ export default class App extends React.Component {
 ```
 
 For a list of locale option values, refer to [Facebook Localization documentation](https://developers.facebook.com/docs/internationalization).
-
-If you are using other Facebook features like share, you should set the `appID` prop as your Facebook App ID as the Customer Chat SDK includes all the features that Facebook provide.
 
 You can customise the Messenger widget by passing the following props to the
 `Messenger` component:
