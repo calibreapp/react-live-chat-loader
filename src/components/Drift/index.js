@@ -1,24 +1,14 @@
-import React from 'react'
-import PropTypes from "prop-types";
-
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
 import { useChat } from '../../'
+import useWindowWidth from '../../hooks/useWindowWidth'
 import STATES from '../../utils/states'
 
 const styles = {
-  widgetContainer: {
-    zIndex: 2147483648,
-    position: 'fixed',
-    display: 'block',
-    bottom: '24px',
-    right: '24px',
-    height: '76px !important',
-    width: '76px !important',
-  },
   container: {
     WebkitFontSmoothing: 'antialiased',
     fontSize: 16,
     display: 'flex',
-    justifyContent: 'flex-end',
     alignItems: 'flex-end',
     padding: '.75rem',
     flexDirection: 'column'
@@ -49,10 +39,26 @@ const styles = {
 
 const Drift = ({ color, icon }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
+  const windowWidth = useWindowWidth()
+  const [positionStyles, setPositionStyles] = useState({
+    zIndex: 2147483648,
+    position: 'fixed',
+    display: 'block',
+    height: '60px !important',
+    width: '76px !important'
+  })
+
+  useEffect(() => {
+    setPositionStyles(state => ({
+      ...state,
+      bottom: windowWidth < 768 ? 0 : '24px',
+      right: windowWidth < 768 ? 0 : '24px'
+    }))
+  }, [windowWidth])
 
   if (state === STATES.COMPLETE) return null
   return (
-    <div style={styles.widgetContainer}>
+    <div style={positionStyles}>
       <div style={styles.container}>
         <div
           onClick={() => loadChat({ open: true })}
@@ -62,13 +68,13 @@ const Drift = ({ color, icon }) => {
             ...styles.button
           }}
         >
-          <i 
+          <i
             style={{
               ...styles.iconWrapper,
               opacity: state === STATES.INITIAL ? 1 : 0.75
             }}
           >
-            {icon === "A" ? (
+            {icon === 'A' ? (
               <svg
                 width="20"
                 height="20"
@@ -76,7 +82,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? "initial" : "none"
+                  display: state === STATES.INITIAL ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -85,7 +91,7 @@ const Drift = ({ color, icon }) => {
                   fillRule="evenodd"
                 />
               </svg>
-            ) : icon === "B" ? (
+            ) : icon === 'B' ? (
               <svg
                 width="25"
                 height="23"
@@ -93,7 +99,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? "initial" : "none"
+                  display: state === STATES.INITIAL ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -102,7 +108,7 @@ const Drift = ({ color, icon }) => {
                   fillRule="evenodd"
                 />
               </svg>
-            ) : icon === "C" ? (
+            ) : icon === 'C' ? (
               <svg
                 width="25"
                 height="25"
@@ -110,16 +116,16 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? "initial" : "none"
+                  display: state === STATES.INITIAL ? 'initial' : 'none'
                 }}
               >
                 <path
-                  d="M22.814 12.25h-1.362v3.063a1.02 1.02 0 0 1-1.744.72L15.92 12.25H11.92c-.94 0-1.703-.785-1.703-1.75V1.75c0-.965.764-1.75 1.703-1.75h10.896c.938 0 1.702.785 1.702 1.75v8.75c0 .965-.764 1.75-1.702 1.75zm-.34-10.208H12.257v8.166h4.086a1.032 1.032 0 0 1 .723.3l2.342 2.34v-1.62c0-.562.456-1.02 1.02-1.02h2.043V2.042zM8.17 10.208h-6.13v8.167h2.044c.564 0 1.022.457 1.022 1.02v1.62l2.34-2.34a1.022 1.022 0 0 1 .724-.3h4.086V14.29a1.02 1.02 0 0 1 2.043 0v4.377c0 .965-.763 1.75-1.702 1.75H8.595L4.808 24.2a1.022 1.022 0 0 1-1.743-.72v-3.063H1.702c-.938 0-1.702-.785-1.702-1.75v-8.75c0-.965.764-1.75 1.702-1.75h6.47a1.022 1.022 0 0 1 0 2.04z" 
+                  d="M22.814 12.25h-1.362v3.063a1.02 1.02 0 0 1-1.744.72L15.92 12.25H11.92c-.94 0-1.703-.785-1.703-1.75V1.75c0-.965.764-1.75 1.703-1.75h10.896c.938 0 1.702.785 1.702 1.75v8.75c0 .965-.764 1.75-1.702 1.75zm-.34-10.208H12.257v8.166h4.086a1.032 1.032 0 0 1 .723.3l2.342 2.34v-1.62c0-.562.456-1.02 1.02-1.02h2.043V2.042zM8.17 10.208h-6.13v8.167h2.044c.564 0 1.022.457 1.022 1.02v1.62l2.34-2.34a1.022 1.022 0 0 1 .724-.3h4.086V14.29a1.02 1.02 0 0 1 2.043 0v4.377c0 .965-.763 1.75-1.702 1.75H8.595L4.808 24.2a1.022 1.022 0 0 1-1.743-.72v-3.063H1.702c-.938 0-1.702-.785-1.702-1.75v-8.75c0-.965.764-1.75 1.702-1.75h6.47a1.022 1.022 0 0 1 0 2.04z"
                   fill="rgb(255, 255, 255)"
                   fillRule="evenodd"
                 />
               </svg>
-            ) : icon === "D" ? (
+            ) : icon === 'D' ? (
               <svg
                 width="25"
                 height="25"
@@ -127,7 +133,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? "initial" : "none"
+                  display: state === STATES.INITIAL ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -145,7 +151,7 @@ const Drift = ({ color, icon }) => {
               focusable="false"
               aria-hidden="true"
               style={{
-                display: state === STATES.INITIAL ? 'none' : 'initial' 
+                display: state === STATES.INITIAL ? 'none' : 'initial'
               }}
             >
               <path
@@ -163,7 +169,7 @@ const Drift = ({ color, icon }) => {
 
 Drift.propTypes = {
   /**
-   * Change the style of the Drift messenger icon, one of the four default types available when setting up your Drift messenger or in the Drift Widget "Widget icon" settings. 
+   * Change the style of the Drift messenger icon, one of the four default types available when setting up your Drift messenger or in the Drift Widget "Widget icon" settings.
    */
   icon: PropTypes.oneOf(['A', 'B', 'C', 'D'])
 }
