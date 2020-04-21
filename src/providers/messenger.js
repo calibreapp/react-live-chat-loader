@@ -1,3 +1,5 @@
+import STATES from '../utils/states'
+
 const domain = 'https://connect.facebook.net'
 
 const loadScript = ({ locale }) => {
@@ -20,7 +22,7 @@ const loadScript = ({ locale }) => {
   })(window.document, 'script', 'facebook-jssdk')
 }
 
-const load = ({ appID, locale = 'en_US' }) => {
+const load = ({ appID, locale = 'en_US', setState }) => {
   loadScript({ locale })
   window.fbAsyncInit = function() {
     window.FB.init(
@@ -34,6 +36,7 @@ const load = ({ appID, locale = 'en_US' }) => {
       )
     )
   }
+  setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
 const open = () => {

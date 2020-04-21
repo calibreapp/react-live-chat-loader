@@ -14,9 +14,14 @@ const connection =
 let scriptLoaded = false
 
 const useChat = ({ loadWhenIdle } = {}) => {
-  const { provider, providerKey, idlePeriod, state, setState, ...options } = useContext(
-    LiveChatLoaderContext
-  )
+  const {
+    provider,
+    providerKey,
+    idlePeriod,
+    state,
+    setState,
+    ...options
+  } = useContext(LiveChatLoaderContext)
 
   useEffect(() => {
     // Don't load if idlePeriod is 0, null or undefined
@@ -79,7 +84,6 @@ const useChat = ({ loadWhenIdle } = {}) => {
     if (!scriptLoaded) {
       scriptLoaded = true
       chatProvider.load({ providerKey, state, setState, ...options })
-      setTimeout(() => setState(STATES.COMPLETE), 2000)
     }
 
     if (open) {

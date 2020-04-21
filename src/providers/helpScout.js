@@ -1,3 +1,5 @@
+import STATES from '../utils/states'
+
 const domain = 'https://beacon-v2.helpscout.net'
 
 const loadScript = () => {
@@ -23,9 +25,10 @@ const loadScript = () => {
   })(window, document, window.Beacon || function() {})
 }
 
-const load = ({ providerKey }) => {
+const load = ({ providerKey, setState }) => {
   loadScript()
   window.Beacon('init', providerKey)
+  setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
 const open = () => window.Beacon('open')

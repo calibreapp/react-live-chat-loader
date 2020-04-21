@@ -1,3 +1,5 @@
+import STATES from '../utils/states'
+
 const domain = 'https://widget.intercom.io'
 
 const loadScript = () => {
@@ -34,9 +36,10 @@ const loadScript = () => {
   })()
 }
 
-const load = ({ providerKey }) => {
+const load = ({ providerKey, setState }) => {
   loadScript()
   window.Intercom('boot', { app_id: providerKey })
+  setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
 const open = () => window.Intercom('show')
