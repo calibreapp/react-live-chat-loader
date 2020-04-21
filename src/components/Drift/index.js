@@ -10,6 +10,7 @@ const styles = {
     fontSize: 16,
     display: 'flex',
     alignItems: 'flex-end',
+    padding: '.75rem',
     flexDirection: 'column'
   },
   button: {
@@ -50,7 +51,7 @@ const Drift = ({ color, icon }) => {
   useEffect(() => {
     setPositionStyles(state => ({
       ...state,
-      bottom: windowWidth < 768 ? '10px' : '40px',
+      bottom: windowWidth < 768 ? 0 : '24px',
       right: windowWidth < 768 ? 0 : '24px'
     }))
   }, [windowWidth])
