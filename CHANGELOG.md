@@ -1,3 +1,7 @@
+### 2.1.0 - 2020-04-21
+
+- Add `Drift` component (thanks @mirshko)
+
 ### 2.0.5 - 2020-03-30
 
 - Fix `Messenger` options missing [#25](https://github.com/calibreapp/react-live-chat-loader/pull/25)
