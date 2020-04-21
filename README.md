@@ -1,6 +1,6 @@
 # React Live Chat Loader
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
@@ -405,7 +405,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/FateXRebirth"><img src="https://avatars3.githubusercontent.com/u/11188616?v=4" width="100px;" alt=""/><br /><sub><b>Kevin Peng</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=FateXRebirth" title="Code">💻</a></td>
     <td align="center"><a href="http://ash.ms"><img src="https://avatars3.githubusercontent.com/u/49600?v=4" width="100px;" alt=""/><br /><sub><b>Ash Kyd</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=AshKyd" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://reiner.design"><img src="https://avatars3.githubusercontent.com/u/8116716?v=4" width="100px;" alt=""/><br /><sub><b>Jeff Reiner</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Documentation">📖</a></td>    
+    <td align="center"><a href="https://reiner.design"><img src="https://avatars3.githubusercontent.com/u/8116716?v=4" width="100px;" alt=""/><br /><sub><b>Jeff Reiner</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Documentation">📖</a> <a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Code">💻</a></td>
   </tr>
 </table>
 
