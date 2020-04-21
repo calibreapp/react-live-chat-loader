@@ -1,6 +1,9 @@
 # React Live Chat Loader
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
@@ -117,7 +120,7 @@ export const LoadChatButton = () => {
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
-- `provider`: Choose from `helpScout`, `intercom` or `drift` ([see below](#providers))
+- `provider`: Choose from `helpScout`, `intercom`, `drift` or `messenger` ([see below](#providers))
 - `providerKey`: Provider API Key ([see below](#providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
@@ -125,7 +128,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## Supported Providers
 
-Currently there are three supported providers:
+Currently there are four supported providers:
 
 <details>
 <summary>Help Scout</summary>
@@ -215,7 +218,6 @@ export default class App extends React.Component {
       >
         /* ... */
         <Messenger />
-     
       </LiveChatLoaderProvider>
     )
   }
@@ -411,6 +413,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
