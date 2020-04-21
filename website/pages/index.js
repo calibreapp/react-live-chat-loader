@@ -19,7 +19,10 @@ const Page = () => (
           <Link href="/helpscout">
             <a>Help Scout</a>
           </Link>{' '}
-          and{' '}
+          <Link href="/drift">
+            <a>Drift</a>
+          </Link>
+          , and{' '}
           <Link href="/messenger">
             <a>Facebook Messenger</a>
           </Link>

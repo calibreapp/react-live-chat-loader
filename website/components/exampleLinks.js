@@ -18,6 +18,13 @@ const ExampleLinks = () => (
       </Link>
     </p>
     <p>
+      <Link href="/drift">
+        <a>
+          Drift example <span>→</span>
+        </a>
+      </Link>
+    </p>
+    <p>
       <Link href="/messenger">
         <a>
           Facebook Messenger example <span>→</span>
