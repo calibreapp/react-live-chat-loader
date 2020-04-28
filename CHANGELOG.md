@@ -1,3 +1,7 @@
+### 2.1.2 - 2020-04-28
+
+- Update appearance of messenger (thanks @FateXRebirth)
+
 ### 2.1.0 - 2020-04-21
 
 - Add `Drift` component (thanks @mirshko)
