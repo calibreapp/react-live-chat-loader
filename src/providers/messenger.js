@@ -40,12 +40,12 @@ const load = ({ appID, locale = 'en_US', setState }) => {
 }
 
 const open = () => {
-  if(window.FB) {
+  if (window.FB) {
     window.FB.CustomerChat.show(true)
   }
 }
 const close = () => {
-  if(window.FB) {
+  if (window.FB) {
     window.FB.CustomerChat.hide()
   }
 }
