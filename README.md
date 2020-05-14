@@ -389,7 +389,7 @@ Add your new provider to this README under [Supported Providers](#supported-prov
 
 ## Examples
 
-- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader-example-app): example [Next.js](https://nextjs.org) application
+- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
 
 ## Resources
 
