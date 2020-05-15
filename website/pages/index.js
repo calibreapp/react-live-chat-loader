@@ -18,7 +18,8 @@ const Page = () => (
           ,{' '}
           <Link href="/helpscout">
             <a>Help Scout</a>
-          </Link>{' '}
+          </Link>
+          ,{' '}
           <Link href="/drift">
             <a>Drift</a>
           </Link>
