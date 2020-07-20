@@ -1,3 +1,7 @@
+### 2.1.3 - 2020-07-21
+
+- Update dependencies
+
 ### 2.1.2 - 2020-04-28
 
 - Update appearance of messenger (thanks @FateXRebirth)
