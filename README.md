@@ -8,7 +8,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift) and [Messenger](#messenger).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger) and [Userlike](#userlike).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -268,6 +268,33 @@ You can customise the Drift Messenger by passing the following props to the
 
 - `color`: The background color of the messenger
 - `icon`: Choose from `A`, `B`, `C`, `D`; you're presented with these preset icons when signing up for Drift, or in the "Drift Widget > Design > Widget icon" entry under the "App Settings" header on the Drift settings page.
+
+</details>
+
+<details>
+<summary>Userlike</summary>
+
+To use Userlike import the `LiveChatLoaderProvider` and set the `provider` prop
+as `userlike` and the `providerKey` prop as your Userlike ID.
+
+Then import the `Userlike` component.
+
+```jsx
+import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
+
+export default () => (
+  <LiveChatLoaderProvider providerKey="x014e93c288445c0bf6f8a378a0b1af8e6e1125t71634124a88fe63e38hme701" provider="userlike">
+    /* ... */
+    <Userlike />
+  </LiveChatLoaderProvider>
+)
+```
+
+You can customise the Userlike Widget by passing the following props to the
+`Userlike` component:
+
+- `color`: The icon color
+- `backgroundColor`: The background color
 
 </details>
 
