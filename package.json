@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
+    "prepare": "npm run build",
     "build": "babel ./src --out-dir ./dist",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
   },
-  "prepare": "npm run build",
   "prettier": {
     "semi": false,
     "singleQuote": true
