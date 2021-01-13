@@ -9,7 +9,7 @@
     "prepare": "npm run build",
     "build": "babel ./src --out-dir ./dist",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook"
   },
   "prettier": {
     "semi": false,
