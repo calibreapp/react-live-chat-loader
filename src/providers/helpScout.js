@@ -31,12 +31,21 @@ const load = ({ providerKey, setState }) => {
   setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
+const reload = ({ setState }) => {
+  loadScript()
+  window.Beacon('close')
+  setTimeout(() => setState(STATES.COMPLETE), 2000)
+}
+
 const open = () => window.Beacon('open')
 const close = () => window.Beacon('close')
+const destroy = () => window.Beacon('destroy')
 
 export default {
   domain,
+  destroy,
   load,
+  reload,
   open,
   close
 }

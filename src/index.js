@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 import STATES from './utils/states'
 import Providers from './providers'
@@ -13,7 +13,6 @@ export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
     setState,
     ...props,
   }
-
   const chatProvider = Providers[provider]
 
   if (!chatProvider) {
@@ -23,8 +22,14 @@ export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
     )
     return
   }
+  useEffect(() => {
+    // remove chat beacon if there is a new initial state
+    if (state !== STATES.INITIAL) {
+      setState(STATES.INITIAL);
+      chatProvider.destroy();
+    }
+  }, [value.providerKey]);
 
-  console.log("value", value);
   return (
     <LiveChatLoaderContext.Provider value={value}>
       <link href={chatProvider.domain} rel="preconnect" crossOrigin="" />
