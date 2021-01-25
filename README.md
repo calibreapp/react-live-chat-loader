@@ -389,15 +389,11 @@ Add your new provider to this README under [Supported Providers](#supported-prov
 
 #### 4. Add an example page
 
-Add a new page to `website/pages/` which showcases the provider. If you don't
-want to include your `providerKey` leave this blank and the maintainers will set
-one up.
+Add a new page to `website/pages/` which showcases the provider. If you don't want to include your `providerKey` leave this blank and the maintainers will set one up.
 
-The new provider page can be tested locally by creating a distribution version
-of the package and referencing this from the `wesbite`.
+The new provider page can be tested locally by creating a distribution version of the package and referencing this from the `wesbite`.
 
-Unfortunately if you try to include the package locally from source you'll most likely run
-into a [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) error.
+Unfortunately if you try to include the package locally from source you'll most likely run into a [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) error.
 
 To create the distribution version and reference it, do the following:
 
