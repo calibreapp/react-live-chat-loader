@@ -275,7 +275,7 @@ You can customise the Drift Messenger by passing the following props to the
 <summary>Userlike</summary>
 
 To use Userlike import the `LiveChatLoaderProvider` and set the `provider` prop
-as `userlike` and the `providerKey` prop as your Userlike ID.
+as `userlike` and the `providerKey` prop as your Userlike Widget secret.
 
 Then import the `Userlike` component.
 
@@ -293,8 +293,8 @@ export default () => (
 You can customise the Userlike Widget by passing the following props to the
 `Userlike` component:
 
-- `color`: The icon color
-- `backgroundColor`: The background color
+- `color`: The contrasting color, can be `black` or `white`.
+- `backgroundColor`: The main color
 
 </details>
 
