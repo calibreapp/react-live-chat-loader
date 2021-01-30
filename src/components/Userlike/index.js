@@ -47,7 +47,6 @@ const Userlike = ({ color, backgroundColor }) => {
         onMouseEnter={() => loadChat({ open: false })}
         style={{
           ...styles.button,
-          color,
           backgroundColor
         }}
       >
