@@ -1,6 +1,8 @@
 import STATES from '../utils/states'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'
+const maxLoadAttempts = 10
+let currentLoadAttempt = 0
 
 const loadScript = (providerKey) => {
   if (window.userlike) return
@@ -17,14 +19,23 @@ const loadScript = (providerKey) => {
   l()
 }
 
+const attemptLoad = (setState) => {
+  if (currentLoadAttempt === maxLoadAttempts) {
+    return
+  }
+  if (!window.userlike) {
+    currentLoadAttempt += 1
+    setTimeout(() => attemptLoad(setState), 1000) // Try every second
+    return
+  }
+  
+  setState(STATES.OPEN)
+  setTimeout(() => setState(STATES.COMPLETE), 2000)
+}
+
 const load = ({ providerKey, setState }) => {
   loadScript(providerKey)
-  if (window.userlike) {
-    window.userlike.userlikeReady = () => {
-      setState(STATES.OPEN)
-      setTimeout(() => setState(STATES.COMPLETE), 2000)
-    };
-  }
+  attemptLoad(setState)
 }
 
 const open = () => window.userlike && window.userlike.userlikeStartChat()
