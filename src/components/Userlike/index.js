@@ -51,7 +51,7 @@ const Userlike = ({ color, backgroundColor }) => {
           backgroundColor
         }}
       >
-        <svg width="1em" height="1em" viewBox="0 0 36 36" fill="none" style={{ ...styles.icon }}>
+        <svg width="1em" height="1em" viewBox="0 0 36 36" fill="none" style={{ ...styles.icon, color }}>
           <path fillRule="evenodd" clipRule="evenodd" d="M18 36c2.893 0 5.626-.682 8.047-1.895h5.11a2 2 0 002-2v-4.393A17.916 17.916 0 0036 18c0-9.941-8.059-18-18-18S0 8.059 0 18s8.059 18 18 18zM9.5 22a1.5 1.5 0 000 3h17a1.5 1.5 0 000-3h-17zm1.5-4a1.5 1.5 0 011.5-1.5h14a1.5 1.5 0 010 3h-14A1.5 1.5 0 0111 18zm-1.5-7a1.5 1.5 0 000 3h17a1.5 1.5 0 000-3h-17z" fill="currentColor" />
         </svg>
       </button>
