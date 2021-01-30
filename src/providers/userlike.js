@@ -21,7 +21,6 @@ const load = ({ providerKey, setState }) => {
   loadScript(providerKey)
   if (window.userlike) {
     window.userlike.userlikeReady = () => {
-      setState(STATES.OPEN)
       setTimeout(() => setState(STATES.COMPLETE), 2000)
     };
   }
