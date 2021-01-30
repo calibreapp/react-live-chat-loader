@@ -293,8 +293,8 @@ export default () => (
 You can customise the Userlike Widget by passing the following props to the
 `Userlike` component:
 
-- `color`: The icon color
-- `backgroundColor`: The background color
+- `color`: The contrasting color, can be `black` or `white`.
+- `backgroundColor`: The main color
 
 </details>
 
