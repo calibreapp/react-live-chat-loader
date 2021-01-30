@@ -11,10 +11,7 @@ const styles = {
     width: '64px',
     height: '64px',
     boxShadow: 'rgba(0, 0, 0, 0.24) 0px 8px 16px 0px',
-    borderRadius: '50%',
-    left: 'auto',
-    right: 'calc(2% + 24px)',
-    bottom: '20px'
+    left: 'auto'
   },
   button: {
     position: 'relative',
@@ -27,26 +24,33 @@ const styles = {
     minHeight: '64px',
     padding: '0',
     cursor: 'pointer',
-    border: '0',
-    borderRadius: '50%'
+    border: '0'
   },
   icon: {
-    fontSize: '36px',
-    color: 'rgb(255, 255, 255)'
+    fontSize: '36px'
   }
 }
 
-const Userlike = ({ color, backgroundColor }) => {
+const Userlike = ({ color, backgroundColor, position, vOffset, hOffset, style }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
+  const positionStyles = {
+    bottom: vOffset,
+    right: position === 'left' ? 'auto' : hOffset,
+    left: position === 'right' ? 'auto' : hOffset
+  }
+  const shapeStyle = {
+    borderRadius: style === 'round' ? '50%' : '0'
+  }
 
   if (state === STATES.COMPLETE) return null
   return (
-    <div style={{ ...styles.container }}>
+    <div style={{ ...styles.container, ...positionStyles, ...shapeStyle }}>
       <button
         onClick={() => loadChat({ open: true })}
         onMouseEnter={() => loadChat({ open: false })}
         style={{
           ...styles.button,
+          ...shapeStyle,
           backgroundColor
         }}
       >
@@ -60,7 +64,11 @@ const Userlike = ({ color, backgroundColor }) => {
 
 Userlike.defaultProps = {
   color: 'white',
-  backgroundColor: '#0d8cff'
+  backgroundColor: '#0d8cff',
+  position: 'right',
+  vOffset: '24px',
+  hOffset: '24px',
+  style: 'round'
 }
 
 export default Userlike

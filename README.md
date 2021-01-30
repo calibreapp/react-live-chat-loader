@@ -295,6 +295,10 @@ You can customise the Userlike Widget by passing the following props to the
 
 - `color`: The contrasting color, can be `black` or `white`.
 - `backgroundColor`: The main color
+- `position`: The button position, can be `right` or `left`.
+- `vOffset`: The amount of vertical margin.
+- `hOffset`: The amount of horizontal margin.
+- `style`: The shape style, can be `round` or `square`.
 
 </details>
 
