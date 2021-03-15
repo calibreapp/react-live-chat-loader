@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
-import { useChat } from '../../'
-import useWindowWidth from '../../hooks/useWindowWidth'
-import STATES from '../../utils/states'
+import useChat from 'hooks/useChat'
+import React, { useState, useEffect, CSSProperties } from 'react'
+import { IDriftProps } from 'types'
+import useWindowWidth from 'hooks/useWindowWidth'
 
-const styles = {
+const styles: {
+  container: CSSProperties
+  button: CSSProperties
+  iconWrapper: CSSProperties
+} = {
   container: {
     WebkitFontSmoothing: 'antialiased',
     fontSize: 16,
@@ -37,10 +40,10 @@ const styles = {
   }
 }
 
-const Drift = ({ color, icon }) => {
+const Drift: React.FC<IDriftProps> = ({ color = '#0176ff', icon = 'A' }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowWidth = useWindowWidth()
-  const [positionStyles, setPositionStyles] = useState({
+  const [positionStyles, setPositionStyles] = useState<CSSProperties>({
     zIndex: 2147483648,
     position: 'fixed',
     display: 'block',
@@ -56,7 +59,7 @@ const Drift = ({ color, icon }) => {
     }))
   }, [windowWidth])
 
-  if (state === STATES.COMPLETE) return null
+  if (state === 'complete') return null
   return (
     <div style={positionStyles}>
       <div style={styles.container}>
@@ -71,7 +74,7 @@ const Drift = ({ color, icon }) => {
           <i
             style={{
               ...styles.iconWrapper,
-              opacity: state === STATES.INITIAL ? 1 : 0.75
+              opacity: state === 'initial' ? 1 : 0.75
             }}
           >
             {icon === 'A' ? (
@@ -82,7 +85,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? 'initial' : 'none'
+                  display: state === 'initial' ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -99,7 +102,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? 'initial' : 'none'
+                  display: state === 'initial' ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -116,7 +119,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? 'initial' : 'none'
+                  display: state === 'initial' ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -133,7 +136,7 @@ const Drift = ({ color, icon }) => {
                 focusable="false"
                 aria-hidden="true"
                 style={{
-                  display: state === STATES.INITIAL ? 'initial' : 'none'
+                  display: state === 'initial' ? 'initial' : 'none'
                 }}
               >
                 <path
@@ -151,7 +154,7 @@ const Drift = ({ color, icon }) => {
               focusable="false"
               aria-hidden="true"
               style={{
-                display: state === STATES.INITIAL ? 'none' : 'initial'
+                display: state === 'initial' ? 'none' : 'initial'
               }}
             >
               <path
@@ -165,18 +168,6 @@ const Drift = ({ color, icon }) => {
       </div>
     </div>
   )
-}
-
-Drift.propTypes = {
-  /**
-   * Change the style of the Drift messenger icon, one of the four default types available when setting up your Drift messenger or in the Drift Widget "Widget icon" settings.
-   */
-  icon: PropTypes.oneOf(['A', 'B', 'C', 'D'])
-}
-
-Drift.defaultProps = {
-  color: '#0176ff',
-  icon: 'A'
 }
 
 export default Drift

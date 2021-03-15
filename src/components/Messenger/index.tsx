@@ -1,31 +1,34 @@
-import React, { memo } from 'react'
+import React, { CSSProperties, memo } from 'react'
+import { IMessengerProps, Provider } from 'types'
+import useProvider from 'hooks/useProvider'
+import useChat from 'hooks/useChat'
 
-import { useChat, useProvider } from '../../'
-import STATES from '../../utils/states'
-
-const styles = {
-  button: {
-    appearance: 'none',
-    background: 'none',
-    borderRadius: '50%',
-    bottom: '18pt',
-    display: 'inline',
-    height: '45pt',
-    padding: '0px',
-    position: 'fixed',
-    right: '18pt',
-    top: 'auto',
-    width: '45pt',
-    zIndex: '2147483647', // 1 more than the actual widget
-    overflow: 'hidden',
-    boxShadow: '0 3px 12px rgba(0, 0, 0, .15)',
-    transition: 'box-shadow 150ms linear',
-    cursor: 'pointer',
-    outline: 'none',
-    userSelect: 'none'
-  }
+const styles: CSSProperties = {
+  appearance: 'none',
+  background: 'none',
+  borderRadius: '50%',
+  bottom: '18pt',
+  display: 'inline',
+  height: '45pt',
+  padding: '0px',
+  position: 'fixed',
+  right: '18pt',
+  top: 'auto',
+  width: '45pt',
+  zIndex: 2147483647, // 1 more than the actual widget
+  overflow: 'hidden',
+  boxShadow: '0 3px 12px rgba(0, 0, 0, .15)',
+  transition: 'box-shadow 150ms linear',
+  cursor: 'pointer',
+  outline: 'none',
+  userSelect: 'none'
 }
 
+interface Props extends IMessengerProps {
+  providerKey: Provider | undefined
+}
+
+// eslint-disable-next-line react/display-name
 const CustomerChat = memo(
   ({
     providerKey,
@@ -34,27 +37,28 @@ const CustomerChat = memo(
     loggedOutGreeting,
     greetingDialogDisplay,
     greetingDialogDelay
-  }) => (
-    <div
-      className="fb-customerchat"
-      page_id={providerKey}
-      theme_color={color}
-      logged_in_greeting={loggedInGreeting}
-      logged_out_greeting={loggedOutGreeting}
-      greeting_dialog_display={greetingDialogDisplay}
-      greeting_dialog_delay={greetingDialogDelay}
-    ></div>
-  )
+  }: Props) => {
+    const fields = {
+      page_id: providerKey,
+      theme_color: color,
+      logged_in_greeting: loggedInGreeting,
+      logged_out_greeting: loggedOutGreeting,
+      greeting_dialog_display: greetingDialogDisplay,
+      greeting_dialog_delay: greetingDialogDelay
+    }
+
+    return <div className="fb-customerchat" {...fields} />
+  }
 )
 
-const Widget = ({ color }) => {
+const Widget: React.FC<{ color: string }> = ({ color }) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
-  if (state === STATES.COMPLETE) return null
+  if (state === 'complete') return null
 
   return (
     <div
-      style={styles.button}
+      style={styles}
       onClick={() => loadChat({ open: true })}
       onMouseEnter={() => loadChat({ open: false })}
     >
@@ -78,7 +82,7 @@ const Widget = ({ color }) => {
   )
 }
 
-const Messenger = ({ color, ...props }) => {
+const Messenger: React.FC<IMessengerProps> = ({ color = '', ...props }) => {
   const { providerKey } = useProvider()
 
   return (
@@ -87,10 +91,6 @@ const Messenger = ({ color, ...props }) => {
       <Widget color={color} />
     </>
   )
-}
-
-Messenger.defaultProps = {
-  color: ''
 }
 
 export default Messenger

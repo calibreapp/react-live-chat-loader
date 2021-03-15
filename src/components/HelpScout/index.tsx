@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import useChat from 'hooks/useChat'
+import useWindowHeight from 'hooks/useWindowHeight'
+import React, { CSSProperties, useEffect, useState } from 'react'
+import { HelpScoutIcon, IHelpScoutProps } from 'types'
 
-import { useChat } from '../../'
-import useWindowHeight from '../../hooks/useWindowHeight'
-import STATES from '../../utils/states'
-
-const styles = {
+const styles: {
+  wrapper: CSSProperties
+  button: CSSProperties
+  icon: CSSProperties
+  close: CSSProperties
+} = {
   wrapper: {
     borderRadius: '55px',
     height: '60px',
@@ -26,7 +30,7 @@ const styles = {
     justifyContent: 'center',
     position: 'relative',
     userSelect: 'none',
-    zIndex: '999',
+    zIndex: 999,
     color: 'white',
     cursor: 'pointer',
     minWidth: '60px',
@@ -80,7 +84,7 @@ const styles = {
   }
 }
 
-const getIcon = icon => {
+const getIcon = (icon: HelpScoutIcon) => {
   switch (icon) {
     case 'message':
       return (
@@ -145,10 +149,15 @@ const getIcon = icon => {
   }
 }
 
-const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
+const HelpScout: React.FC<IHelpScoutProps> = ({
+  color = '#976ad4',
+  icon = 'beacon',
+  zIndex = '1050',
+  horizontalPosition = 'left'
+}) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
-  const [positionStyles, setPositionStyles] = useState({
+  const [positionStyles, setPositionStyles] = useState<CSSProperties>({
     opacity: 0,
     visibility: 'hidden'
   })
@@ -171,14 +180,14 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
     })
   }, [windowHeight])
 
-  if (state === STATES.COMPLETE) return null
+  if (state === 'complete') return null
 
   return (
     <div
       style={{
         ...styles.wrapper,
         ...positionStyles,
-        zIndex
+        zIndex: Number(zIndex)
       }}
     >
       <button
@@ -193,7 +202,7 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
           style={{
             ...styles.icon,
             transform:
-              state === STATES.INITIAL
+              state === 'initial'
                 ? 'rotate(0deg) scale(1)'
                 : 'rotate(30deg) scale(0)'
           }}
@@ -203,9 +212,9 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
         <span
           style={{
             ...styles.close,
-            opacity: state === STATES.INITIAL ? 0 : 1,
+            opacity: state === 'initial' ? 0 : 1,
             transform:
-              state === STATES.INITIAL
+              state === 'initial'
                 ? 'rotate(30deg) scale(0)'
                 : 'rotate(0deg) scale(1)'
           }}
@@ -215,13 +224,6 @@ const HelpScout = ({ color, icon, zIndex, horizontalPosition }) => {
       </button>
     </div>
   )
-}
-
-HelpScout.defaultProps = {
-  color: '#976ad4',
-  icon: 'beacon',
-  zIndex: '1050',
-  horizontalPosition: 'left'
 }
 
 export default HelpScout
