@@ -1,26 +1,30 @@
 import { useContext, useCallback, useEffect } from 'react'
-
-import { LiveChatLoaderContext } from '../'
-import STATES from '../utils/states'
-import Providers from '../providers'
+import { LiveChatLoaderContext, State } from 'types'
+import Providers from 'providers'
 
 const requestIdleCallback =
   typeof window !== 'undefined' ? window.requestIdleCallback : null
 const connection =
   typeof window !== 'undefined'
-    ? window.navigator && window.navigator.connection
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      window.navigator && (window.navigator as any).connection
     : null
 
 let scriptLoaded = false
 
-const useChat = ({ loadWhenIdle } = {}) => {
+const useChat = ({
+  loadWhenIdle
+}: {
+  loadWhenIdle: boolean
+}): [State, ({ open }: { open: boolean }) => void] => {
   const {
     provider,
     providerKey,
     idlePeriod,
     state,
     setState,
-    ...options
+    appID,
+    locale
   } = useContext(LiveChatLoaderContext)
 
   useEffect(() => {
@@ -34,16 +38,15 @@ const useChat = ({ loadWhenIdle } = {}) => {
     )
       return
 
-    const idleThreshold = parseInt(idlePeriod, 10)
-    if (isNaN(idleThreshold)) return
+    if (isNaN(idlePeriod)) return
 
     // deadline.timeRemaining() has an upper limit of 50 milliseconds
     // We want to ensure the page has been idle for a significant period of time
     // Therefore we count consecutive maximum timeRemaining counts and load chat when we reach our threshold
     let elapsedIdlePeriod = 0
     let previousTimeRemaining = 0
-    const scheduleLoadChat = deadline => {
-      if (elapsedIdlePeriod > idleThreshold) return loadChat({ open: false })
+    const scheduleLoadChat = (deadline: IdleDeadline) => {
+      if (elapsedIdlePeriod > idlePeriod) return loadChat({ open: false })
 
       const timeRemaining = deadline.timeRemaining()
       // To ensure browser is idle, only accumalte elapsedIdlePeriod when
@@ -52,46 +55,49 @@ const useChat = ({ loadWhenIdle } = {}) => {
         elapsedIdlePeriod += timeRemaining
 
       previousTimeRemaining = timeRemaining
-      requestIdleCallback(scheduleLoadChat)
+      requestIdleCallback?.(scheduleLoadChat)
     }
 
     if (requestIdleCallback) {
       requestIdleCallback(scheduleLoadChat)
     } else {
-      setTimeout(() => loadChat({ open: false }), idleThreshold)
+      setTimeout(() => loadChat({ open: false }), idlePeriod)
     }
   }, [])
 
   const chatProvider = Providers[provider]
 
-  const loadChat = useCallback(({ open = true }) => {
-    if (!providerKey) {
-      //eslint-disable-next-line no-console
-      console.error('No api key given to react-live-chat-loader')
-      return
-    }
+  const loadChat = useCallback<(args: { open: boolean }) => void>(
+    ({ open = true }) => {
+      if (!providerKey) {
+        //eslint-disable-next-line no-console
+        console.error('No api key given to react-live-chat-loader')
+        return
+      }
 
-    if (!provider) {
-      //eslint-disable-next-line no-console
-      console.error('No provider given to react-live-chat-loader')
-      return
-    }
+      if (!provider) {
+        //eslint-disable-next-line no-console
+        console.error('No provider given to react-live-chat-loader')
+        return
+      }
 
-    if (state === STATES.OPENING) return
-    if (state === STATES.OPEN) return chatProvider.close()
-    if (state === STATES.COMPLETE) return chatProvider.open()
+      if (state === 'opening') return
+      if (state === 'open') return chatProvider.close()
+      if (state === 'complete') return chatProvider.open()
 
-    if (!scriptLoaded) {
-      scriptLoaded = true
-      chatProvider.load({ providerKey, state, setState, ...options })
-    }
+      if (!scriptLoaded) {
+        scriptLoaded = true
+        chatProvider.load({ providerKey, setState, appID, locale })
+      }
 
-    if (open) {
-      setState(STATES.OPENING)
-      chatProvider.open()
-      setState(STATES.OPEN)
-    }
-  })
+      if (open) {
+        setState('opening')
+        chatProvider.open()
+        setState('open')
+      }
+    },
+    []
+  )
 
   return [state, loadChat]
 }
