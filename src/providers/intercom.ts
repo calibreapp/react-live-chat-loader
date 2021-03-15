@@ -1,45 +1,54 @@
-import STATES from '../utils/states'
+import { IIntercomLoader } from 'types'
 
 const domain = 'https://widget.intercom.io'
 
+declare global {
+  interface Window {
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Intercom: any
+    intercomSettings: () => void
+  }
+}
+
+/* eslint-disable */
 const loadScript = () => {
   if (window.Intercom) return
-
-  !(function() {
+  ;(function() {
     var w = window
     var ic = w.Intercom
     if (typeof ic === 'function') {
       ic('reattach_activator')
       //eslint-disable-next-line no-undef
-      ic('update', intercomSettings)
+      ic('update', window.intercomSettings)
     } else {
       var d = document
-      var i = function() {
+      var i: any = function() {
         i.c(arguments)
       }
       i.q = []
-      i.c = function(args) {
+      i.c = function(args: any) {
         i.q.push(args)
       }
       w.Intercom = i
       //eslint-disable-next-line no-inner-declarations
-      function l() {
+      const l = () => {
         var s = d.createElement('script')
         s.type = 'text/javascript'
         s.async = true
         s.src = `${domain}/widget/3qmk5gyg`
         var x = d.getElementsByTagName('script')[0]
-        x.parentNode.insertBefore(s, x)
+        x.parentNode?.insertBefore(s, x)
       }
       l()
     }
   })()
 }
+/* eslint:enable */
 
-const load = ({ providerKey, setState }) => {
+const load = ({ providerKey, setState }: IIntercomLoader) => {
   loadScript()
   window.Intercom('boot', { app_id: providerKey })
-  setTimeout(() => setState(STATES.COMPLETE), 2000)
+  setTimeout(() => setState('complete'), 2000)
 }
 
 const open = () => window.Intercom('show')
