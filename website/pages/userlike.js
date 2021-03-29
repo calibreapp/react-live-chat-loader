@@ -8,7 +8,7 @@ const Page = () => (
     provider="userlike"
     providerKey="bf05626502af40b6b1035d7e3c73d22cc8cc0e9c2dd94b73aac33b62e93efcfc"
   >
-    <Layout title="React Live Chat Loader: Facebook Messenger">
+    <Layout title="React Live Chat Loader: Userlike">
       <div className="wrapper">
         <div className="inner">
           <h1>React Live Chat Loader: Userlike</h1>
@@ -22,13 +22,7 @@ const Page = () => (
           <ExampleLinks />
         </div>
       </div>
-      <Userlike
-        backgroundColor="red"
-        style="sqaure"
-        color="purple"
-        vOffset="47px"
-        hOffset="49px"
-      />
+      <Userlike vOffset="47px" hOffset="49px" />
     </Layout>
   </LiveChatLoaderProvider>
 )

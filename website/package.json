@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "next": "^9.3.2",
-    "react": "file:../node_modules/react",
+    "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-live-chat-loader": "^2.2.0"
+    "react-live-chat-loader": "2.2.0"
   }
 }
