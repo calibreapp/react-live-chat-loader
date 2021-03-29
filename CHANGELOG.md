@@ -1,3 +1,7 @@
+### 2.2.0 - 2020-03-30
+
+- Add `Userlike` component (thanks @gazpachu)
+
 ### 2.1.3 - 2020-07-21
 
 - Update dependencies
