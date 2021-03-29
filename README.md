@@ -128,7 +128,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## Supported Providers
 
-Currently there are four supported providers:
+Currently there are five supported providers:
 
 <details>
 <summary>Help Scout</summary>
