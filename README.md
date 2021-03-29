@@ -1,7 +1,9 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
@@ -189,7 +191,7 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-User or Company context data can be set using `window.intercomSettings`. See the [offical Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details. 
+User or Company context data can be set using `window.intercomSettings`. See the [offical Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
 </details>
 
@@ -283,7 +285,10 @@ Then import the `Userlike` component.
 import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
 
 export default () => (
-  <LiveChatLoaderProvider providerKey="x014e93c288445c0bf6f8a378a0b1af8e6e1125t71634124a88fe63e38hme701" provider="userlike">
+  <LiveChatLoaderProvider
+    providerKey="x014e93c288445c0bf6f8a378a0b1af8e6e1125t71634124a88fe63e38hme701"
+    provider="userlike"
+  >
     /* ... */
     <Userlike />
   </LiveChatLoaderProvider>
@@ -428,7 +433,7 @@ Unfortunately if you try to include the package locally from source you'll most 
 
 To create the distribution version and reference it, do the following:
 
-- In the root of the project, run `yarn build` to build the package into `dist`
+- In the root of the project, run `npm run build` to build the package into `dist`
 - Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../dist"`
 - In the `website` directory run `npm install`
 - In the `website` directory run the server with `npm run dev`
