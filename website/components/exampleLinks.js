@@ -31,6 +31,13 @@ const ExampleLinks = () => (
         </a>
       </Link>
     </p>
+    <p>
+      <Link href="/userlike">
+        <a>
+          Userlike example <span>→</span>
+        </a>
+      </Link>
+    </p>
   </>
 )
 

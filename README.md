@@ -2,13 +2,13 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift) and [Messenger](#messenger).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger) and [Userlike](#userlike).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -128,7 +128,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## Supported Providers
 
-Currently there are four supported providers:
+Currently there are five supported providers:
 
 <details>
 <summary>Help Scout</summary>
@@ -191,7 +191,7 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-User or Company context data can be set using `window.intercomSettings`. See the [offical Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details. 
+User or Company context data can be set using `window.intercomSettings`. See the [offical Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
 </details>
 
@@ -270,6 +270,40 @@ You can customise the Drift Messenger by passing the following props to the
 
 - `color`: The background color of the messenger
 - `icon`: Choose from `A`, `B`, `C`, `D`; you're presented with these preset icons when signing up for Drift, or in the "Drift Widget > Design > Widget icon" entry under the "App Settings" header on the Drift settings page.
+
+</details>
+
+<details>
+<summary>Userlike</summary>
+
+To use Userlike import the `LiveChatLoaderProvider` and set the `provider` prop
+as `userlike` and the `providerKey` prop as your Userlike Widget secret.
+
+Then import the `Userlike` component.
+
+```jsx
+import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
+
+export default () => (
+  <LiveChatLoaderProvider
+    providerKey="x014e93c288445c0bf6f8a378a0b1af8e6e1125t71634124a88fe63e38hme701"
+    provider="userlike"
+  >
+    /* ... */
+    <Userlike />
+  </LiveChatLoaderProvider>
+)
+```
+
+You can customise the Userlike Widget by passing the following props to the
+`Userlike` component:
+
+- `color`: The contrasting color, can be `black` or `white`.
+- `backgroundColor`: The main color
+- `position`: The button position, can be `right` or `left`.
+- `vOffset`: The amount of vertical margin.
+- `hOffset`: The amount of horizontal margin.
+- `style`: The shape style, can be `round` or `square`.
 
 </details>
 
@@ -399,7 +433,7 @@ Unfortunately if you try to include the package locally from source you'll most 
 
 To create the distribution version and reference it, do the following:
 
-- In the root of the project, run `yarn build` to build the package into `dist`
+- In the root of the project, run `npm run build` to build the package into `dist`
 - Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../dist"`
 - In the `website` directory run `npm install`
 - In the `website` directory run the server with `npm run dev`
@@ -425,13 +459,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/FateXRebirth"><img src="https://avatars3.githubusercontent.com/u/11188616?v=4" width="100px;" alt=""/><br /><sub><b>Kevin Peng</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=FateXRebirth" title="Code">💻</a></td>
-    <td align="center"><a href="http://ash.ms"><img src="https://avatars3.githubusercontent.com/u/49600?v=4" width="100px;" alt=""/><br /><sub><b>Ash Kyd</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=AshKyd" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://reiner.design"><img src="https://avatars3.githubusercontent.com/u/8116716?v=4" width="100px;" alt=""/><br /><sub><b>Jeff Reiner</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Documentation">📖</a> <a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/FateXRebirth"><img src="https://avatars3.githubusercontent.com/u/11188616?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kevin Peng</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=FateXRebirth" title="Code">💻</a></td>
+    <td align="center"><a href="http://ash.ms"><img src="https://avatars3.githubusercontent.com/u/49600?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ash Kyd</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=AshKyd" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://reiner.design"><img src="https://avatars3.githubusercontent.com/u/8116716?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeff Reiner</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Documentation">📖</a> <a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=mirshko" title="Code">💻</a></td>
+    <td align="center"><a href="http://joanmira.com"><img src="https://avatars.githubusercontent.com/u/1721288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joan Mira</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=gazpachu" title="Code">💻</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
