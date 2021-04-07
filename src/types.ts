@@ -31,6 +31,10 @@ interface IDriftProviderProps extends IProviderProps {
   provider: 'drift'
 }
 
+interface IUserlikeProviderProps extends IProviderProps {
+  provider: 'userlike'
+}
+
 export interface IMessengerProps {
   themeColor?: string
   loggedInGreeting?: string
@@ -62,13 +66,27 @@ export interface IIntercomProps {
   color?: string
 }
 
+export interface IUserLikeProps {
+  color?: string
+  backgroundColor?: string
+  position?: string
+  vOffset?: string
+  hOffset?: string
+  style?: string
+}
+
 export interface IDriftProps {
   color?: string
   icon?: 'A' | 'B' | 'C' | 'D'
 }
 
 export type State = 'initial' | 'opening' | 'open' | 'complete'
-export type Provider = 'helpScout' | 'intercom' | 'messenger' | 'drift'
+export type Provider =
+  | 'helpScout'
+  | 'intercom'
+  | 'messenger'
+  | 'drift'
+  | 'userlike'
 
 export interface IMessengerLoader {
   appID: string
@@ -91,10 +109,16 @@ export interface IHelpScoutLoader {
   setState: (state: State) => void
 }
 
+export interface IUserLikeLoader {
+  providerKey: string
+  setState: (state: State) => void
+}
+
 export type ProviderProps =
   | IHelpScoutProviderProps
   | IIntercomProviderProps
   | IDriftProviderProps
   | IMessengerProviderProps
+  | IUserlikeProviderProps
 
 export const LiveChatLoaderContext = createContext<Context>({} as Context)
