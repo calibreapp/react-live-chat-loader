@@ -1,4 +1,4 @@
-import { IDriftLoader } from 'types'
+import { State } from 'types'
 
 const domain = 'https://js.driftt.com'
 
@@ -71,7 +71,13 @@ const loadScript = () => {
 }
 /* eslint:enable */
 
-const load = ({ providerKey, setState }: IDriftLoader): void => {
+const load = ({
+  providerKey,
+  setState
+}: {
+  providerKey: string
+  setState: (state: State) => void
+}): void => {
   loadScript()
   window.drift.load(providerKey)
   window.drift.SNIPPET_VERSION = '0.3.1'

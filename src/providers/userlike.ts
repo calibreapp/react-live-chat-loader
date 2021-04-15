@@ -1,4 +1,4 @@
-import { IUserLikeLoader, State } from 'types'
+import { State } from 'types'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'
 const maxAttempts = 10
@@ -46,7 +46,13 @@ const attemptLoad = (setState: (state: State) => void) => {
   setTimeout(() => setState('complete'), 2000)
 }
 
-const load = ({ providerKey, setState }: IUserLikeLoader): void => {
+const load = ({
+  providerKey,
+  setState
+}: {
+  providerKey: string
+  setState: (state: State) => void
+}): void => {
   loadScript(providerKey)
   attemptLoad(setState)
 }

@@ -1,4 +1,4 @@
-import { IHelpScoutLoader } from 'types'
+import { State } from 'types'
 
 const domain = 'https://beacon-v2.helpscout.net'
 
@@ -37,7 +37,13 @@ const loadScript = () => {
 }
 /* eslint:enable */
 
-const load = ({ providerKey, setState }: IHelpScoutLoader): void => {
+const load = ({
+  providerKey,
+  setState
+}: {
+  providerKey: string
+  setState: (state: State) => void
+}): void => {
   loadScript()
   window.Beacon('init', providerKey)
   setTimeout(() => setState('complete'), 2000)

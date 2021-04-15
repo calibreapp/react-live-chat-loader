@@ -1,4 +1,4 @@
-import { IMessengerLoader } from 'types'
+import { State } from 'types'
 
 const domain = 'https://connect.facebook.net'
 
@@ -36,7 +36,11 @@ const load = ({
   appID,
   locale = 'en_US',
   setState
-}: IMessengerLoader): void => {
+}: {
+  appID: string
+  locale?: string
+  setState: (state: State) => void
+}): void => {
   loadScript(locale)
   window.fbAsyncInit = function() {
     window.FB.init(

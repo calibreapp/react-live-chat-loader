@@ -1,4 +1,4 @@
-import { IIntercomLoader } from 'types'
+import { State } from 'types'
 
 const domain = 'https://widget.intercom.io'
 
@@ -45,7 +45,13 @@ const loadScript = () => {
 }
 /* eslint:enable */
 
-const load = ({ providerKey, setState }: IIntercomLoader) => {
+const load = ({
+  providerKey,
+  setState
+}: {
+  providerKey: string
+  setState: (state: State) => void
+}) => {
   loadScript()
   window.Intercom('boot', { app_id: providerKey })
   setTimeout(() => setState('complete'), 2000)
