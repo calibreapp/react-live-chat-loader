@@ -3,7 +3,7 @@ import { LiveChatLoaderContext, Provider } from 'types'
 
 const useProvider = (): {
   provider: Provider
-  providerKey: Provider | undefined
+  providerKey: string
 } => {
   const { provider, providerKey } = useContext(LiveChatLoaderContext)
 
