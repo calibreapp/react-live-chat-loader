@@ -1,5 +1,6 @@
 import { useContext, useCallback, useEffect } from 'react'
-import { LiveChatLoaderContext, State } from 'types'
+import { State } from 'types'
+import { LiveChatLoaderContext } from 'context'
 import Providers from 'providers'
 
 const requestIdleCallback =
