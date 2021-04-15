@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react'
 import useChat from 'hooks/useChat'
-import { IUserLikeProps } from 'types'
 
 const styles: {
   container: CSSProperties
@@ -34,14 +33,23 @@ const styles: {
   }
 }
 
-const Userlike: React.FC<IUserLikeProps> = ({
+interface IUserLikeProps {
+  color?: string
+  backgroundColor?: string
+  position?: string
+  vOffset?: string
+  hOffset?: string
+  style?: string
+}
+
+const Userlike = ({
   color = 'white',
   backgroundColor = '#0d8cff',
   position = 'right',
   vOffset = '24px',
   hOffset = '24px',
   style = 'round'
-}) => {
+}: IUserLikeProps): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const positionStyles = {
     bottom: vOffset,

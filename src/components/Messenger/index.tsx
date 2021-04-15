@@ -1,7 +1,7 @@
 import React, { CSSProperties, memo } from 'react'
-import { IMessengerProps, Provider } from 'types'
 import useProvider from 'hooks/useProvider'
 import useChat from 'hooks/useChat'
+import { Provider } from 'types'
 
 const styles: CSSProperties = {
   appearance: 'none',
@@ -24,8 +24,17 @@ const styles: CSSProperties = {
   userSelect: 'none'
 }
 
-interface Props extends IMessengerProps {
+interface Props {
   providerKey: Provider | undefined
+  themeColor?: string
+  loggedInGreeting?: string
+  loggedOutGreeting?: string
+  show?: string
+  hide?: string
+  fade?: string
+  greetingDialogDelay?: string
+  greetingDialogDisplay?: string
+  color?: string
 }
 
 // eslint-disable-next-line react/display-name
@@ -51,10 +60,12 @@ const CustomerChat = memo(
   }
 )
 
-const Widget: React.FC<{ color: string }> = ({ color }) => {
+const Widget = ({ color }: { color: string }): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
-  if (state === 'complete') return null
+  if (state === 'complete') {
+    return null
+  }
 
   return (
     <div
@@ -82,7 +93,7 @@ const Widget: React.FC<{ color: string }> = ({ color }) => {
   )
 }
 
-const Messenger: React.FC<IMessengerProps> = ({ color = '', ...props }) => {
+const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
   const { providerKey } = useProvider()
 
   return (

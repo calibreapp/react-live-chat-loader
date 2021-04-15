@@ -1,7 +1,6 @@
+import React, { CSSProperties, useEffect, useState } from 'react'
 import useChat from 'hooks/useChat'
 import useWindowHeight from 'hooks/useWindowHeight'
-import React, { CSSProperties, useEffect, useState } from 'react'
-import { HelpScoutIcon, IHelpScoutProps } from 'types'
 
 const styles: {
   wrapper: CSSProperties
@@ -84,7 +83,15 @@ const styles: {
   }
 }
 
-const getIcon = (icon: HelpScoutIcon) => {
+type HelpScoutIcon =
+  | 'message'
+  | 'antenna'
+  | 'search'
+  | 'question'
+  | 'beacon'
+  | 'close'
+
+const getIcon = (icon: HelpScoutIcon): JSX.Element => {
   switch (icon) {
     case 'message':
       return (
@@ -149,12 +156,19 @@ const getIcon = (icon: HelpScoutIcon) => {
   }
 }
 
-const HelpScout: React.FC<IHelpScoutProps> = ({
+interface HelpScoutProps {
+  color?: string
+  icon?: HelpScoutIcon
+  zIndex: string
+  horizontalPosition: 'left' | 'right'
+}
+
+const HelpScout = ({
   color = '#976ad4',
   icon = 'beacon',
   zIndex = '1050',
   horizontalPosition = 'left'
-}) => {
+}: HelpScoutProps): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
   const [positionStyles, setPositionStyles] = useState<CSSProperties>({
@@ -180,7 +194,9 @@ const HelpScout: React.FC<IHelpScoutProps> = ({
     })
   }, [windowHeight])
 
-  if (state === 'complete') return null
+  if (state === 'complete') {
+    return null
+  }
 
   return (
     <div

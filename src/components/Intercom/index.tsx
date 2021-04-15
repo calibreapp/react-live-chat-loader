@@ -1,6 +1,5 @@
-import useChat from 'hooks/useChat'
 import React, { CSSProperties } from 'react'
-import { IIntercomProps } from 'types'
+import useChat from 'hooks/useChat'
 
 const styles: {
   wrapper: CSSProperties
@@ -88,10 +87,17 @@ const styles: {
   }
 }
 
-const Intercom: React.FC<IIntercomProps> = ({ color }) => {
+interface IntercomProps {
+  color?: string
+}
+
+const Intercom = ({ color }: IntercomProps): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
-  if (state === 'complete') return null
+  if (state === 'complete') {
+    return null
+  }
+
   return (
     <div
       style={{

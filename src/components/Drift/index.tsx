@@ -1,6 +1,5 @@
 import useChat from 'hooks/useChat'
 import React, { useState, useEffect, CSSProperties } from 'react'
-import { IDriftProps } from 'types'
 import useWindowWidth from 'hooks/useWindowWidth'
 
 const styles: {
@@ -40,7 +39,15 @@ const styles: {
   }
 }
 
-const Drift: React.FC<IDriftProps> = ({ color = '#0176ff', icon = 'A' }) => {
+interface IDriftProps {
+  color?: string
+  icon?: 'A' | 'B' | 'C' | 'D'
+}
+
+const Drift = ({
+  color = '#0176ff',
+  icon = 'A'
+}: IDriftProps): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowWidth = useWindowWidth()
   const [positionStyles, setPositionStyles] = useState<CSSProperties>({
@@ -59,7 +66,10 @@ const Drift: React.FC<IDriftProps> = ({ color = '#0176ff', icon = 'A' }) => {
     }))
   }, [windowWidth])
 
-  if (state === 'complete') return null
+  if (state === 'complete') {
+    return null
+  }
+
   return (
     <div style={positionStyles}>
       <div style={styles.container}>
