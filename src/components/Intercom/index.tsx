@@ -87,11 +87,11 @@ const styles: {
   }
 }
 
-interface IntercomProps {
+interface Props {
   color?: string
 }
 
-const Intercom = ({ color }: IntercomProps): JSX.Element | null => {
+const Intercom = ({ color }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') {

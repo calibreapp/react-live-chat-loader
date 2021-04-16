@@ -156,7 +156,7 @@ const getIcon = (icon: HelpScoutIcon): JSX.Element => {
   }
 }
 
-interface HelpScoutProps {
+interface Props {
   color?: string
   icon?: HelpScoutIcon
   zIndex: string
@@ -168,7 +168,7 @@ const HelpScout = ({
   icon = 'beacon',
   zIndex = '1050',
   horizontalPosition = 'left'
-}: HelpScoutProps): JSX.Element | null => {
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
   const [positionStyles, setPositionStyles] = useState<CSSProperties>({

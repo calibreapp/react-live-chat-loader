@@ -39,7 +39,7 @@ const styles: {
   }
 }
 
-interface IDriftProps {
+interface Props {
   color?: string
   icon?: 'A' | 'B' | 'C' | 'D'
 }
@@ -47,7 +47,7 @@ interface IDriftProps {
 const Drift = ({
   color = '#0176ff',
   icon = 'A'
-}: IDriftProps): JSX.Element | null => {
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowWidth = useWindowWidth()
   const [positionStyles, setPositionStyles] = useState<CSSProperties>({

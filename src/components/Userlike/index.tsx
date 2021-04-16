@@ -33,7 +33,7 @@ const styles: {
   }
 }
 
-interface IUserLikeProps {
+interface Props {
   color?: string
   backgroundColor?: string
   position?: string
@@ -49,7 +49,7 @@ const Userlike = ({
   vOffset = '24px',
   hOffset = '24px',
   style = 'round'
-}: IUserLikeProps): JSX.Element | null => {
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const positionStyles = {
     bottom: vOffset,
