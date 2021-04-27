@@ -1,4 +1,8 @@
-### 2.2.0 - 2020-03-30
+### 2.3.0 - 2021-04-27
+
+- Convert library to Typescript (thanks @elmoeleven)
+
+### 2.2.0 - 2021-03-30
 
 - Add `Userlike` component (thanks @gazpachu)
 

@@ -1,6 +1,6 @@
 {
   "name": "react-live-chat-loader",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Implement live chat in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "scripts": {
