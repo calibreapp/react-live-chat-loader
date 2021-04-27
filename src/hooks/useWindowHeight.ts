@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const useWindowHeight = () => {
+const useWindowHeight = (): number => {
   const [windowHeight, setWindowHeight] = useState(
     typeof window !== 'undefined' ? window.innerHeight : 0
   )

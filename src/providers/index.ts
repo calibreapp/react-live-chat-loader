@@ -4,7 +4,7 @@ import intercom from './intercom'
 import messenger from './messenger'
 import userlike from './userlike'
 
-const Providers = {
+const providers = {
   drift,
   helpScout,
   intercom,
@@ -12,4 +12,4 @@ const Providers = {
   userlike
 }
 
-export default Providers
+export default providers

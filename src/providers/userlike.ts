@@ -1,11 +1,22 @@
-import STATES from '../utils/states'
+import { State } from 'types'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'
 const maxAttempts = 10
 let currentLoadAttempt = 0
 let currentOpenAttempt = 0
 
-const loadScript = (providerKey) => {
+declare global {
+  interface Window {
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+    userlike: {
+      userlikeStartChat: () => void
+      userlikeQuitChat: () => void
+    }
+  }
+}
+
+/* eslint-disable */
+const loadScript = (providerKey: string) => {
   if (window.userlike) return
 
   var d = document
@@ -15,42 +26,52 @@ const loadScript = (providerKey) => {
     s.async = true
     s.src = `${domain}/${providerKey}.js`
     var x = d.getElementsByTagName('script')[0]
-    x.parentNode.insertBefore(s, x)
+    x.parentNode?.insertBefore(s, x)
   }
   l()
 }
+/* eslint-enable */
 
-const attemptLoad = (setState) => {
+const attemptLoad = (setState: (state: State) => void) => {
   if (currentLoadAttempt === maxAttempts) {
     return
   }
+
   if (!window.userlike) {
     currentLoadAttempt += 1
     setTimeout(() => attemptLoad(setState), 1000) // Try every second
     return
   }
-  
-  setTimeout(() => setState(STATES.COMPLETE), 2000)
+
+  setTimeout(() => setState('complete'), 2000)
 }
 
-const load = ({ providerKey, setState }) => {
+const load = ({
+  providerKey,
+  setState
+}: {
+  providerKey: string
+  setState: (state: State) => void
+}): void => {
   loadScript(providerKey)
   attemptLoad(setState)
 }
 
-const open = () => {
+const open = (): void => {
   if (currentOpenAttempt === maxAttempts) {
     return
   }
+
   if (!window.userlike) {
     currentOpenAttempt += 1
     setTimeout(open, 1000) // Try every second
     return
   }
+
   window.userlike.userlikeStartChat()
 }
 
-const close = () => window.userlike && window.userlike.userlikeQuitChat()
+const close = (): void => window.userlike && window.userlike.userlikeQuitChat()
 
 export default {
   domain,

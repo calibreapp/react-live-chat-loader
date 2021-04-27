@@ -1,31 +1,43 @@
-import React, { memo } from 'react'
+import React, { CSSProperties, memo } from 'react'
+import useProvider from 'hooks/useProvider'
+import useChat from 'hooks/useChat'
+import { Provider } from 'types'
 
-import { useChat, useProvider } from '../../'
-import STATES from '../../utils/states'
-
-const styles = {
-  button: {
-    appearance: 'none',
-    background: 'none',
-    borderRadius: '50%',
-    bottom: '18pt',
-    display: 'inline',
-    height: '45pt',
-    padding: '0px',
-    position: 'fixed',
-    right: '18pt',
-    top: 'auto',
-    width: '45pt',
-    zIndex: '2147483647', // 1 more than the actual widget
-    overflow: 'hidden',
-    boxShadow: '0 3px 12px rgba(0, 0, 0, .15)',
-    transition: 'box-shadow 150ms linear',
-    cursor: 'pointer',
-    outline: 'none',
-    userSelect: 'none'
-  }
+const styles: CSSProperties = {
+  appearance: 'none',
+  background: 'none',
+  borderRadius: '50%',
+  bottom: '18pt',
+  display: 'inline',
+  height: '45pt',
+  padding: '0px',
+  position: 'fixed',
+  right: '18pt',
+  top: 'auto',
+  width: '45pt',
+  zIndex: 2147483647, // 1 more than the actual widget
+  overflow: 'hidden',
+  boxShadow: '0 3px 12px rgba(0, 0, 0, .15)',
+  transition: 'box-shadow 150ms linear',
+  cursor: 'pointer',
+  outline: 'none',
+  userSelect: 'none'
 }
 
+interface Props {
+  providerKey: Provider | undefined
+  themeColor?: string
+  loggedInGreeting?: string
+  loggedOutGreeting?: string
+  show?: string
+  hide?: string
+  fade?: string
+  greetingDialogDelay?: string
+  greetingDialogDisplay?: string
+  color?: string
+}
+
+// eslint-disable-next-line react/display-name
 const CustomerChat = memo(
   ({
     providerKey,
@@ -34,27 +46,30 @@ const CustomerChat = memo(
     loggedOutGreeting,
     greetingDialogDisplay,
     greetingDialogDelay
-  }) => (
-    <div
-      className="fb-customerchat"
-      page_id={providerKey}
-      theme_color={color}
-      logged_in_greeting={loggedInGreeting}
-      logged_out_greeting={loggedOutGreeting}
-      greeting_dialog_display={greetingDialogDisplay}
-      greeting_dialog_delay={greetingDialogDelay}
-    ></div>
-  )
+  }: Props) => {
+    const fields = {
+      page_id: providerKey,
+      theme_color: color,
+      logged_in_greeting: loggedInGreeting,
+      logged_out_greeting: loggedOutGreeting,
+      greeting_dialog_display: greetingDialogDisplay,
+      greeting_dialog_delay: greetingDialogDelay
+    }
+
+    return <div className="fb-customerchat" {...fields} />
+  }
 )
 
-const Widget = ({ color }) => {
+const Widget = ({ color }: { color: string }): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
-  if (state === STATES.COMPLETE) return null
+  if (state === 'complete') {
+    return null
+  }
 
   return (
     <div
-      style={styles.button}
+      style={styles}
       onClick={() => loadChat({ open: true })}
       onMouseEnter={() => loadChat({ open: false })}
     >
@@ -78,7 +93,7 @@ const Widget = ({ color }) => {
   )
 }
 
-const Messenger = ({ color, ...props }) => {
+const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
   const { providerKey } = useProvider()
 
   return (
@@ -87,10 +102,6 @@ const Messenger = ({ color, ...props }) => {
       <Widget color={color} />
     </>
   )
-}
-
-Messenger.defaultProps = {
-  color: ''
 }
 
 export default Messenger

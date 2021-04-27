@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
+import useChat from 'hooks/useChat'
 
-import { useChat } from '../../'
-import STATES from '../../utils/states'
-
-const styles = {
+const styles: {
+  wrapper: CSSProperties
+  region: CSSProperties
+  launcher: CSSProperties
+  logo: CSSProperties
+  close: CSSProperties
+} = {
   wrapper: {
     zIndex: 2147483001, // 1 more than the actual widget
     position: 'fixed',
@@ -37,7 +41,7 @@ const styles = {
     textShadow: 'none',
     textTransform: 'none',
     boxSizing: 'content-box',
-    WebkitTextEmphasisRtyle: 'none',
+    WebkitTextEmphasisStyle: 'none',
     WebkitTextEmphasisColor: 'initial',
     WebkitFontSmoothing: 'antialiased',
     lineHeight: 1
@@ -50,8 +54,7 @@ const styles = {
     height: '60px',
     borderRadius: '50%',
     cursor: 'pointer',
-    transformOriginX: 'center',
-    transformOriginY: 'center',
+    transformOrigin: 'center',
     overflowX: 'hidden',
     overflowY: 'hidden',
     WebkitBackfaceVisibility: 'hidden',
@@ -84,10 +87,17 @@ const styles = {
   }
 }
 
-const Intercom = ({ color }) => {
+interface Props {
+  color?: string
+}
+
+const Intercom = ({ color }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
-  if (state === STATES.COMPLETE) return null
+  if (state === 'complete') {
+    return null
+  }
+
   return (
     <div
       style={{
@@ -95,7 +105,7 @@ const Intercom = ({ color }) => {
         background: color
       }}
     >
-      <div styles={styles.region}>
+      <div style={styles.region}>
         <div
           onClick={() => loadChat({ open: true })}
           onMouseEnter={() => loadChat({ open: false })}
@@ -104,7 +114,7 @@ const Intercom = ({ color }) => {
           <div
             style={{
               ...styles.logo,
-              opacity: state === STATES.INITIAL ? 1 : 0
+              opacity: state === 'initial' ? 1 : 0
             }}
           >
             <svg
@@ -123,9 +133,8 @@ const Intercom = ({ color }) => {
           <div
             style={{
               ...styles.close,
-              opacity: state === STATES.INITIAL ? 0 : 1,
-              transform:
-                state === STATES.INITIAL ? 'rotate(-30deg)' : 'rotate(0deg)'
+              opacity: state === 'initial' ? 0 : 1,
+              transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
             }}
           >
             <svg
