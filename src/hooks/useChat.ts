@@ -13,11 +13,13 @@ const connection =
 
 let scriptLoaded = false
 
-const useChat = ({
-  loadWhenIdle
-}: {
-  loadWhenIdle: boolean
-}): [State, ({ open }: { open: boolean }) => void] => {
+const useChat = (
+  {
+    loadWhenIdle
+  }: {
+    loadWhenIdle: boolean
+  } = { loadWhenIdle: true }
+): [State, ({ open }: { open: boolean }) => void] => {
   const {
     provider,
     providerKey,
