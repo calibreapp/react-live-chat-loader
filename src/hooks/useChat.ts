@@ -18,7 +18,7 @@ const useChat = (
     loadWhenIdle
   }: {
     loadWhenIdle: boolean
-  } = { loadWhenIdle: true }
+  } = { loadWhenIdle: false }
 ): [State, ({ open }: { open: boolean }) => void] => {
   const {
     provider,
