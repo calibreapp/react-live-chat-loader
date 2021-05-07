@@ -13,7 +13,7 @@ export const LiveChatLoaderProvider = ({
   children: JSX.Element
   idlePeriod?: number
   providerKey: string
-  appID: string
+  appID?: string
 }): JSX.Element | null => {
   const [state, setState] = useState<State>('initial')
   const value = {

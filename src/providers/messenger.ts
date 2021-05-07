@@ -37,7 +37,7 @@ const load = ({
   locale = 'en_US',
   setState
 }: {
-  appID: string
+  appID?: string
   locale?: string
   setState: (state: State) => void
 }): void => {
