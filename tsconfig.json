@@ -12,10 +12,10 @@
     "isolatedModules": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "outDir": "dist"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist"]
