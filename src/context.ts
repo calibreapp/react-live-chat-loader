@@ -4,9 +4,9 @@ import { Provider, State } from 'types'
 interface Context {
   provider: Provider
   providerKey: string
-  appID: string
   state: State
   setState: (state: State) => void
+  appID?: string
   locale?: string
   idlePeriod?: number
 }

@@ -110,7 +110,7 @@ import { useChat } from 'react-live-chat-loader'
 export const LoadChatButton = () => {
   const [state, loadChat] = useChat()
 
-  return <button onClick={loadChat}>Load Chat</button>
+  return <button onClick={() => loadChat({ open: true })}>Load Chat</button>
 }
 ```
 

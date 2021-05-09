@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "build": "npm run lint && tsc && babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build": "npm run lint && tsc --emitDeclarationOnly && babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "dev": "tsc --noEmit --watch"
