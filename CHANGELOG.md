@@ -1,3 +1,8 @@
+### 2.3.3 - 2021-05-10
+
+- Fix default params for `useChat` hook (thanks @elmoeleven)
+- Bundle Type Definitions (thanks @elmoeleven)
+
 ### 2.3.0 - 2021-04-27
 
 - Convert library to Typescript (thanks @elmoeleven)
