@@ -4,7 +4,11 @@ import ExampleLinks from '../components/exampleLinks'
 import { LiveChatLoaderProvider, Intercom } from 'react-live-chat-loader'
 
 const Page = () => (
-  <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
+  <LiveChatLoaderProvider
+    provider="intercom"
+    providerKey="otpo7g1i"
+    idlePeriod={5000}
+  >
     <Layout title="React Live Chat Loader: Intercom">
       <div className="wrapper">
         <div className="inner">
