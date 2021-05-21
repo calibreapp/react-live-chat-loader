@@ -1,7 +1,7 @@
 import { useContext, useCallback, useEffect } from 'react'
 import { State } from 'types'
 import { LiveChatLoaderContext } from 'context'
-import Providers from 'providers'
+import * as Providers from 'providers'
 
 const requestIdleCallback =
   typeof window !== 'undefined' ? window.requestIdleCallback : null
