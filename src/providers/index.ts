@@ -1,15 +1,5 @@
-import drift from './drift'
-import helpScout from './helpScout'
-import intercom from './intercom'
-import messenger from './messenger'
-import userlike from './userlike'
-
-const providers = {
-  drift,
-  helpScout,
-  intercom,
-  messenger,
-  userlike
-}
-
-export default providers
+export { default as drift } from './drift'
+export { default as helpScout } from './helpScout'
+export { default as intercom } from './intercom'
+export { default as messenger } from './messenger'
+export { default as userlike } from './userlike'
