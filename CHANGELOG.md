@@ -1,3 +1,7 @@
+### 2.4.0 - 2021-05-24
+
+- Build additional module version of the package (thanks @jaska120)
+
 ### 2.3.3 - 2021-05-10
 
 - Fix default params for `useChat` hook (thanks @elmoeleven)
