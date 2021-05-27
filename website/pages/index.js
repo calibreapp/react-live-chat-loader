@@ -27,6 +27,11 @@ const Page = () => (
           View demos:{' '}
           <ul>
             <li>
+              <Link href="/chatwoot">
+                <a>Chatwoot</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/intercom">
                 <a>Intercom</a>
               </Link>
