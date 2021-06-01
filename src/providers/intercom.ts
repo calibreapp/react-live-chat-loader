@@ -54,7 +54,12 @@ const load = ({
 }) => {
   loadScript()
   window.Intercom('boot', { app_id: providerKey })
-  setTimeout(() => setState('complete'), 2000)
+  const interval = setInterval(() => {
+    if (!window.Intercom.booted) return
+    
+    clearInterval(interval)
+    setState('complete')
+  }, 100)
 }
 
 const open = () => window.Intercom('show')
