@@ -2,7 +2,7 @@
   "name": "react-live-chat-loader-example-app",
   "version": "0.0.1",
   "scripts": {
-    "dev": "next -p 3000",
+    "dev": "next -p 5000",
     "build": "next build",
     "start": "next start"
   },
