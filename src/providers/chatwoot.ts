@@ -34,17 +34,17 @@ const load = ({
   setState: (state: State) => void
 }) => {
   loadScript(function() {
+    setTimeout(() => setState('complete'), 1000)
     window.chatwootSDK.run({
       websiteToken: providerKey,
       baseUrl: domain
     })
   })
-  setTimeout(() => setState('complete'), 2000)
 }
 
-const open = () => window.$chatwoot.toggle()
+const open = () => window.$chatwoot && window.$chatwoot.toggle()
 
-const close = () => window.$chatwoot.toggle()
+const close = () => window.$chatwoot && window.$chatwoot.toggle()
 
 export default {
   domain,

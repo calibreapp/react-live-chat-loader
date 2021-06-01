@@ -6,3 +6,4 @@ export type Provider =
   | 'messenger'
   | 'drift'
   | 'userlike'
+  | 'chatwoot'
