@@ -1,5 +1,5 @@
 import useChat from 'hooks/useChat'
-import React, { useState, useEffect, CSSProperties } from 'react'
+import React, { CSSProperties } from 'react'
 
 const styles: {
   button: CSSProperties
@@ -28,7 +28,7 @@ interface Props {
   color?: string
 }
 
-const Provider = ({ color }: Props) => {
+const Provider = ({ color }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') return null

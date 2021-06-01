@@ -6,6 +6,7 @@ declare global {
   interface Window {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     chatwootSettings: any
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     $chatwoot: any
     chatwootSDK: {
       run: (options: { websiteToken: string; baseUrl: string }) => void
