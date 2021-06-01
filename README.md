@@ -432,7 +432,7 @@ Unfortunately if you try to include the package locally from source you'll most 
 To create the distribution version and reference it, do the following:
 
 - In the root of the project, run `npm run build` to build the package into `dist`
-- Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../dist"`
+- Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../"`
 - In the `website` directory run `npm install`
 - In the `website` directory run the server with `npm run dev`
 - Add a new page to `website/pages/` which includes the new component
