@@ -11,8 +11,6 @@ const connection =
       window.navigator && (window.navigator as any).connection
     : null
 
-let scriptLoaded = false
-
 const useChat = (
   {
     loadWhenIdle
@@ -85,10 +83,7 @@ const useChat = (
         return
       }
 
-      if (!scriptLoaded) {
-        scriptLoaded = true
-        chatProvider.load({ providerKey, setState, appID, locale, baseUrl })
-      }
+      chatProvider.load({ providerKey, setState, appID, locale, baseUrl })
 
       if (open) {
         chatProvider.open()

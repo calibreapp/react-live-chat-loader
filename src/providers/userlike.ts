@@ -1,9 +1,7 @@
 import { State } from 'types'
+import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'
-const maxAttempts = 10
-let currentLoadAttempt = 0
-let currentOpenAttempt = 0
 
 declare global {
   interface Window {
@@ -16,8 +14,8 @@ declare global {
 }
 
 /* eslint-disable */
-const loadScript = (providerKey: string) => {
-  if (window.userlike) return
+const loadScript = (providerKey: string): boolean => {
+  if (window.userlike) return false
 
   var d = document
   function l() {
@@ -29,22 +27,10 @@ const loadScript = (providerKey: string) => {
     x.parentNode?.insertBefore(s, x)
   }
   l()
+
+  return true
 }
 /* eslint-enable */
-
-const attemptLoad = (setState: (state: State) => void) => {
-  if (currentLoadAttempt === maxAttempts) {
-    return
-  }
-
-  if (!window.userlike) {
-    currentLoadAttempt += 1
-    setTimeout(() => attemptLoad(setState), 1000) // Try every second
-    return
-  }
-
-  setTimeout(() => setState('complete'), 2000)
-}
 
 const load = ({
   providerKey,
@@ -52,23 +38,26 @@ const load = ({
 }: {
   providerKey: string
   setState: (state: State) => void
-}): void => {
-  loadScript(providerKey)
-  attemptLoad(setState)
+}): boolean => {
+  const loaded = loadScript(providerKey)
+
+  if (loaded) {
+    waitForLoad(
+      () => (window.userlike ? true : false),
+      // Allow userlike to complete loading before removing fake widget
+      () => setTimeout(() => setState('complete'), 2000)
+    )
+  }
+
+  return true
 }
 
 const open = (): void => {
-  if (currentOpenAttempt === maxAttempts) {
-    return
-  }
-
-  if (!window.userlike) {
-    currentOpenAttempt += 1
-    setTimeout(open, 1000) // Try every second
-    return
-  }
-
-  window.userlike.userlikeStartChat()
+  waitForLoad(
+    () => (window.userlike ? true : false),
+    // Allow userlike to complete loading before removing fake widget
+    () => window.userlike && window.userlike.userlikeStartChat()
+  )
 }
 
 const close = (): void => window.userlike && window.userlike.userlikeQuitChat()
