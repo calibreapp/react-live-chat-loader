@@ -86,8 +86,14 @@ const useChat = (
       }
 
       if (state === 'opening') return
-      if (state === 'open') return chatProvider.close()
-      if (state === 'complete') return chatProvider.open()
+      if (state === 'open') {
+        if (open) chatProvider.close()
+        return
+      }
+      if (state === 'complete') {
+        if (open) chatProvider.open()
+        return
+      }
 
       if (!scriptLoaded) {
         scriptLoaded = true
