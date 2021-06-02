@@ -8,9 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "build": "npm run lint && tsc --emitDeclarationOnly && npm run build:cjs && npm run build:module",
+    "build": "npm run lint && tsc --emitDeclarationOnly && npm run build:cjs && npm run build:module && npm run website",
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "build:module": "BABEL_ENV=module babel src --out-dir module --extensions \".ts,.tsx\" --source-maps inline",
+    "website": "cd website && npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "dev": "tsc --noEmit --watch"
