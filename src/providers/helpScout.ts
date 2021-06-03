@@ -59,11 +59,9 @@ const load = ({
 }
 
 const open = (): void => window.Beacon('open')
-const close = (): void => window.Beacon('close')
 
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }

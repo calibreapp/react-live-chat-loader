@@ -76,6 +76,5 @@ const open = (): void => {
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }

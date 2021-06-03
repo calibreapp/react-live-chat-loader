@@ -72,6 +72,5 @@ const open = (): void => window.Intercom('show')
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }
