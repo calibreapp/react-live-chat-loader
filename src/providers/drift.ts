@@ -76,6 +76,7 @@ const load = ({
 }): boolean => {
   const loaded = loadScript()
 
+  // Continue as long as drift hasn’t already been initialised.
   if (loaded) {
     window.drift.load(providerKey)
     window.drift.SNIPPET_VERSION = '0.3.1'

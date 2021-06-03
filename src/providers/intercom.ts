@@ -54,6 +54,7 @@ const load = ({
 }): boolean => {
   const loaded = loadScript()
 
+  // Continue as long as userlike hasn’t already been initialised.
   if (loaded) {
     window.Intercom('boot', { app_id: providerKey })
     waitForLoad(

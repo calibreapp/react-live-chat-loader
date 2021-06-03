@@ -42,6 +42,7 @@ const load = ({
   setState: (state: State) => void
 }): boolean => {
   const loaded = loadScript(locale)
+  // Continue as long as messenger hasn’t already been initialised.
   if (loaded) {
     window.fbAsyncInit = function() {
       window.FB.init(

@@ -41,7 +41,7 @@ const load = ({
   setState: (state: State) => void
 }): boolean => {
   const loaded = loadScript(providerKey)
-
+  // Continue as long as userlike hasn’t already been initialised.
   if (loaded) {
     waitForLoad(
       () => (window.userlike ? true : false),
@@ -56,7 +56,9 @@ const load = ({
 const open = (): void => {
   waitForLoad(
     () => (window.userlike ? true : false),
-    () => setTimeout(() => window.userlike.userlikeStartChat(), 100)
+    () => {
+      window.userlike.userlikeReady = () => window.userlike.userlikeStartChat()
+    }
   )
 }
 

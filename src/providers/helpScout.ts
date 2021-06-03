@@ -46,6 +46,7 @@ const load = ({
 }): boolean => {
   const loaded = loadScript()
 
+  // Continue as long as helpscout hasn’t already been initialised.
   if (loaded) {
     window.Beacon('init', providerKey)
     window.Beacon('once', 'ready', () =>
