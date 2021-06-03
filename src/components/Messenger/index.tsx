@@ -99,7 +99,9 @@ const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
   return (
     <>
       <CustomerChat color={color} providerKey={providerKey} {...props} />
-      <Widget color={color} />
+      <div>
+        <Widget color={color} />
+      </div>
     </>
   )
 }
