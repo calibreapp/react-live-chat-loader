@@ -56,7 +56,7 @@ const load = ({
 const open = (): void => {
   waitForLoad(
     () => (window.userlike ? true : false),
-    () => window.userlike.userlikeStartChat()
+    () => setTimeout(() => window.userlike.userlikeStartChat(), 100)
   )
 }
 
