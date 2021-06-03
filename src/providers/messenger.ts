@@ -68,8 +68,8 @@ const load = ({
 
 const open = (): void => {
   waitForLoad(
-    () => !!window.FB.CustomerChat,
-    () => window.FB.CustomerChat.show(true)
+    () => !!window.FB?.CustomerChat?.show,
+    () => setTimeout(() => window.FB.CustomerChat.show(true), 500)
   )
 }
 
