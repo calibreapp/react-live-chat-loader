@@ -54,7 +54,10 @@ const load = ({
 }
 
 const open = (): void => {
-  window.userlike.userlikeReady = () => window.userlike.userlikeStartChat()
+  waitForLoad(
+    () => (window.userlike ? true : false),
+    () => window.userlike.userlikeStartChat()
+  )
 }
 
 const close = (): void => window.userlike && window.userlike.userlikeQuitChat()
