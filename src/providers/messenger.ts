@@ -69,7 +69,8 @@ const load = ({
 const open = (): void => {
   waitForLoad(
     () => !!window.FB?.CustomerChat?.show,
-    () => setTimeout(() => window.FB.CustomerChat.show(true), 500)
+    // messenger is slow to show once it has loaded
+    () => setTimeout(() => window.FB.CustomerChat.show(true), 2000)
   )
 }
 

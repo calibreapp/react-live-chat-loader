@@ -56,7 +56,8 @@ const load = ({
 const open = (): void => {
   waitForLoad(
     () => !!window.userlike?.userlikeStartChat,
-    () => setTimeout(window.userlike.userlikeStartChat, 500)
+    // userlike is slow to show once it has loaded
+    () => setTimeout(window.userlike.userlikeStartChat, 1000)
   )
 }
 
