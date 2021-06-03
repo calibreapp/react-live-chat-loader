@@ -6,7 +6,7 @@ import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
 const Page = () => (
   <LiveChatLoaderProvider
     provider="helpScout"
-    providerKey="d2e33afd-95c7-41d5-aa48-f1cca534c946"
+    providerKey="b9ae6939-6c02-41de-b270-7f492379dc50"
   >
     <Layout title="React Live Chat Loader: Help Scout">
       <div className="wrapper">
