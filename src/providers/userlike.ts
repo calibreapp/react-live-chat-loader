@@ -62,8 +62,6 @@ const open = (): void => {
   )
 }
 
-const close = (): void => window.userlike && window.userlike.userlikeQuitChat()
-
 export default {
   domain,
   load,

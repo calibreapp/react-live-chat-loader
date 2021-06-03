@@ -93,11 +93,6 @@ const open = (): void =>
     api.showWelcomeMessage()
   )
 
-const close = (): void =>
-  window.drift.on('ready', (api: { hideWelcomeMessage: () => void }) =>
-    api.hideWelcomeMessage()
-  )
-
 export default {
   domain,
   load,

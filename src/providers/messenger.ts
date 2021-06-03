@@ -1,4 +1,5 @@
 import { State } from 'types'
+import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://connect.facebook.net'
 
@@ -66,14 +67,10 @@ const load = ({
 }
 
 const open = (): void => {
-  if (window.FB) {
-    window.FB.CustomerChat.show(true)
-  }
-}
-const close = (): void => {
-  if (window.FB) {
-    window.FB.CustomerChat.hide()
-  }
+  waitForLoad(
+    () => !!window.FB.CustomerChat,
+    () => window.FB.CustomerChat.show(true)
+  )
 }
 
 export default {
