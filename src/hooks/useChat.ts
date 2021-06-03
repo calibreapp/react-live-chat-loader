@@ -71,7 +71,6 @@ const useChat = (
 
   const loadChat = useCallback<(args: { open: boolean }) => void>(
     ({ open = true }) => {
-      console.log({ open })
       if (!providerKey) {
         //eslint-disable-next-line no-console
         console.error('No api key given to react-live-chat-loader')
