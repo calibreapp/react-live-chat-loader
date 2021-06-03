@@ -42,24 +42,20 @@ const load = ({
   setState: (state: State) => void
 }): boolean => {
   const loaded = loadScript(locale)
-  if (loaded) {
-    window.fbAsyncInit = function() {
-      window.FB.init(
-        Object.assign(
-          {
-            cookie: true,
-            xfbml: true,
-            version: 'v6.0'
-          },
-          appID ? { appId: appID } : {}
-        )
-      )
-      window.FB.Event.subscribe(
-        'customerchat.load',
-        // Allow messenger to complete loading before removing fake widget
-        setTimeout(() => setState('complete'), 2000)
-      )
-    }
+  console.log({ loaded })
+  window.fbAsyncInit = function() {
+    window.FB.init(
+      Object.assign({
+        cookie: true,
+        xfbml: true,
+        version: 'v6.0'
+      })
+    )
+    window.FB.Event.subscribe(
+      'customerchat.load',
+      // Allow messenger to complete loading before removing fake widget
+      setTimeout(() => setState('complete'), 2000)
+    )
   }
 
   return loaded
