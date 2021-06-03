@@ -7,7 +7,6 @@ declare global {
   interface Window {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     userlike: {
-      userlikeReady: () => void
       userlikeStartChat: () => void
       userlikeQuitChat: () => void
     }
@@ -56,9 +55,7 @@ const load = ({
 const open = (): void => {
   waitForLoad(
     () => (window.userlike ? true : false),
-    () => {
-      window.userlike.userlikeReady = () => window.userlike.userlikeStartChat()
-    }
+    () => window.userlike.userlikeStartChat()
   )
 }
 
