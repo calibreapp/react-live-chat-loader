@@ -66,7 +66,10 @@ const load = ({
   return loaded
 }
 
-const open = (): void => window.Intercom('show')
+const open = (): void => {
+  console.log('called open')
+  window.Intercom('show')
+}
 
 const close = (): void => window.Intercom('close')
 
