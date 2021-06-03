@@ -58,7 +58,7 @@ const load = ({
       )
       window.FB.Event.subscribe('customerchat.load', () =>
         // Allow messenger to complete loading before removing fake widget
-        setTimeout(() => setState('complete'), 2000)
+        setTimeout(() => setState('complete'), 3000)
       )
     }
   }
