@@ -56,7 +56,7 @@ const CustomerChat = memo(
       greeting_dialog_delay: greetingDialogDelay
     }
 
-    return <div className="fb-customerchat" {...fields} />
+    return <div><div className="fb-customerchat" {...fields} /></div>
   }
 )
 
@@ -99,9 +99,7 @@ const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
   return (
     <>
       <CustomerChat color={color} providerKey={providerKey} {...props} />
-      <div>
-        <Widget color={color} />
-      </div>
+      <Widget color={color} />
     </>
   )
 }
