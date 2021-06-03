@@ -56,7 +56,7 @@ const CustomerChat = memo(
       greeting_dialog_delay: greetingDialogDelay
     }
 
-    return <div className="fb-customer-chat" {...fields} />
+    return <div className="fb-customerchat" {...fields} />
   }
 )
 
