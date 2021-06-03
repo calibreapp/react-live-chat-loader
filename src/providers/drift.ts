@@ -80,9 +80,7 @@ const load = ({
     window.drift.load(providerKey)
     window.drift.SNIPPET_VERSION = '0.3.1'
     window.drift.on('ready', () => {
-      setState('open')
-      // Allow drift to complete loading before removing fake widget
-      setTimeout(() => setState('complete'), 2000)
+      setState('complete')
     })
   }
 

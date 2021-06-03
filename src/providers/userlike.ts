@@ -7,6 +7,7 @@ declare global {
   interface Window {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     userlike: {
+      userlikeReady: () => void
       userlikeStartChat: () => void
       userlikeQuitChat: () => void
     }
@@ -53,11 +54,7 @@ const load = ({
 }
 
 const open = (): void => {
-  waitForLoad(
-    () => (window.userlike ? true : false),
-    // Allow userlike to complete loading before removing fake widget
-    () => window.userlike && window.userlike.userlikeStartChat()
-  )
+  window.userlike.userlikeReady = () => window.userlike.userlikeStartChat()
 }
 
 const close = (): void => window.userlike && window.userlike.userlikeQuitChat()
