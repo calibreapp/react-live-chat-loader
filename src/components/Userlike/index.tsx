@@ -7,7 +7,7 @@ const styles: {
   icon: CSSProperties
 } = {
   container: {
-    zIndex: 1,
+    zIndex: 2147483648, // one more than provider
     position: 'fixed',
     border: '0',
     width: '64px',
