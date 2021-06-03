@@ -25,7 +25,7 @@ const loadScript = (onload: () => void) => {
     script.onload = onload
   })(document)
 }
-/* eslint:enable */
+/* eslint-enable */
 
 const load = ({
   providerKey,
