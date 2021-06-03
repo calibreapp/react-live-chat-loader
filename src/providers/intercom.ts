@@ -59,7 +59,7 @@ const load = ({
 
 const open = () => window.Intercom('show')
 
-const close = () => window.Intercom('close')
+const close = () => window.Intercom('hide')
 
 export default {
   domain,
