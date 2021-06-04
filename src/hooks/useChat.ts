@@ -27,7 +27,8 @@ const useChat = (
     state,
     setState,
     appID,
-    locale
+    locale,
+    baseUrl
   } = useContext(LiveChatLoaderContext)
 
   useEffect(() => {
@@ -90,7 +91,7 @@ const useChat = (
 
       if (!scriptLoaded) {
         scriptLoaded = true
-        chatProvider.load({ providerKey, setState, appID, locale })
+        chatProvider.load({ providerKey, setState, appID, locale, baseUrl })
       }
 
       if (open) {

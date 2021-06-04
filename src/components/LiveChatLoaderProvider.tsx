@@ -7,6 +7,7 @@ export const LiveChatLoaderProvider = ({
   provider,
   children,
   idlePeriod = 5000,
+  baseUrl,
   ...props
 }: {
   provider: Provider
@@ -14,6 +15,7 @@ export const LiveChatLoaderProvider = ({
   idlePeriod?: number
   providerKey: string
   appID?: string
+  baseUrl?: string
 }): JSX.Element | null => {
   const [state, setState] = useState<State>('initial')
   const value = {
@@ -21,6 +23,7 @@ export const LiveChatLoaderProvider = ({
     idlePeriod,
     state,
     setState,
+    baseUrl,
     ...props
   }
 
@@ -36,7 +39,11 @@ export const LiveChatLoaderProvider = ({
 
   return (
     <LiveChatLoaderContext.Provider value={value}>
-      <link href={chatProvider.domain} rel="preconnect" crossOrigin="" />
+      <link
+        href={baseUrl || chatProvider.domain}
+        rel="preconnect"
+        crossOrigin=""
+      />
       {children}
     </LiveChatLoaderContext.Provider>
   )

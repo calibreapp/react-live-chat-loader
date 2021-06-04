@@ -9,18 +9,24 @@ declare global {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     $chatwoot: any
     chatwootSDK: {
-      run: (options: { websiteToken: string; baseUrl: string }) => void
+      run: (options: {
+        websiteToken: string
+        baseUrl: string
+        locale?: string
+        type?: 'standard' | 'expanded_bubble'
+        position?: 'left' | 'right'
+      }) => void
     }
   }
 }
 
 /* eslint-disable */
-const loadScript = (onload: () => void) => {
+const loadScript = (onload: () => void, baseUrl: string): void => {
   if (window.$chatwoot) return
   ;(function(d, t) {
     var script: HTMLScriptElement = d.createElement('script')
     var fisrtScript = d.getElementsByTagName('script')[0]
-    script.src = domain + '/packs/js/sdk.js'
+    script.src = baseUrl + '/packs/js/sdk.js'
     fisrtScript.parentNode?.insertBefore(script, fisrtScript)
     script.onload = onload
   })(document)
@@ -29,23 +35,28 @@ const loadScript = (onload: () => void) => {
 
 const load = ({
   providerKey,
-  setState
+  locale = 'en',
+  setState,
+  baseUrl = domain
 }: {
   providerKey: string
+  locale?: string
   setState: (state: State) => void
-}) => {
+  baseUrl?: string
+}): void => {
   loadScript(function() {
     setTimeout(() => setState('complete'), 1000)
     window.chatwootSDK.run({
       websiteToken: providerKey,
-      baseUrl: domain
+      baseUrl,
+      locale
     })
-  })
+  }, baseUrl)
 }
 
-const open = () => window.$chatwoot && window.$chatwoot.toggle()
+const open = (): void => window.$chatwoot && window.$chatwoot.toggle()
 
-const close = () => window.$chatwoot && window.$chatwoot.toggle()
+const close = (): void => window.$chatwoot && window.$chatwoot.toggle()
 
 export default {
   domain,
