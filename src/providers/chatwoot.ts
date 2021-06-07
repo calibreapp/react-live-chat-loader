@@ -54,13 +54,14 @@ const load = ({
   }, baseUrl)
 }
 
-const open = (): void => window.$chatwoot && window.$chatwoot.toggle()
-
-const close = (): void => window.$chatwoot && window.$chatwoot.toggle()
+const open = (): void => {
+  window.addEventListener('chatwoot:ready', function() {
+    window.$chatwoot.toggle()
+  })
+}
 
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }
