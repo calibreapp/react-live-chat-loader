@@ -1,7 +1,9 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
@@ -126,7 +128,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## Supported Providers
 
-Currently there are five supported providers:
+Currently there are six supported providers:
 
 <details>
 <summary>Help Scout</summary>
@@ -302,6 +304,35 @@ You can customise the Userlike Widget by passing the following props to the
 - `vOffset`: The amount of vertical margin.
 - `hOffset`: The amount of horizontal margin.
 - `style`: The shape style, can be `round` or `square`.
+
+</details>
+
+<details>
+<summary> Chatwoot </summary>
+
+To use Chatwoot import the `LiveChatLoaderProvider` and set the `provider` prop
+as `chatwoot` and the `providerKey` prop as your Chatwoot secret.
+
+Then import the `Chatwoot` component.
+
+```jsx
+import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
+
+export default () => (
+  <LiveChatLoaderProvider
+    providerKey="E33wn9ftxMDHZx18AaBkfPvY"
+    provider="chatwoot"
+  >
+    /* ... */
+    <Chatwoot />
+  </LiveChatLoaderProvider>
+)
+```
+
+You can customise the Chatwoot Widget by passing the following props to the
+`Chatwoot` component:
+
+- `color`: The background color, set to same color value you choose in Chatwoot dashboard.
 
 </details>
 
