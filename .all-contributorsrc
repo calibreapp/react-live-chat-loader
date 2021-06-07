@@ -59,6 +59,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "motiko",
+      "name": "Moti Korets",
+      "avatar_url": "https://avatars.githubusercontent.com/u/875618?v=4",
+      "profile": "https://motiko.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
