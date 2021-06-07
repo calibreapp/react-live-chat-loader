@@ -1,7 +1,7 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An npm module that allows you to mitigate the negative performance and user
@@ -463,6 +463,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://joanmira.com"><img src="https://avatars.githubusercontent.com/u/1721288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joan Mira</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=gazpachu" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/elmoeleven"><img src="https://avatars.githubusercontent.com/u/1560770?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nathan Collman</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=elmoeleven" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/jaska120"><img src="https://avatars.githubusercontent.com/u/23189620?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jaakko Mustalahti</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=jaska120" title="Code">💻</a></td>
+    <td align="center"><a href="https://motiko.me"><img src="https://avatars.githubusercontent.com/u/875618?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Moti Korets</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=motiko" title="Code">💻</a></td>
   </tr>
 </table>
 
