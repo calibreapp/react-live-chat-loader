@@ -9,6 +9,7 @@ interface Context {
   appID?: string
   locale?: string
   idlePeriod?: number
+  baseUrl?: string
 }
 
 export const LiveChatLoaderContext = createContext<Context>({} as Context)
