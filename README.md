@@ -316,6 +316,8 @@ You can customise the Userlike Widget by passing the following props to the
 To use Chatwoot import the `LiveChatLoaderProvider` and set the `provider` prop
 as `chatwoot` and the `providerKey` prop as your Chatwoot secret.
 
+You can optionally set the `locale` and `baseUrl` props.
+
 Then import the `Chatwoot` component.
 
 ```jsx
