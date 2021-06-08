@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../layouts/main'
 import Link from 'next/link'
+import ExampleLinks from '../components/exampleLinks'
 
 const Page = () => (
   <Layout title="React Live Chat Loader">
@@ -24,39 +25,7 @@ const Page = () => (
           </a>
         </p>
         <p>
-          View demos:{' '}
-          <ul>
-            <li>
-              <Link href="/chatwoot">
-                <a>Chatwoot</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/intercom">
-                <a>Intercom</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/helpscout">
-                <a>Help Scout</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/drift">
-                <a>Drift</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/messenger">
-                <a>Facebook Messenger</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/userlike">
-                <a>Userlike</a>
-              </Link>
-            </li>
-          </ul>
+          View demos: <ExampleLinks />
         </p>
       </div>
     </div>

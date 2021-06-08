@@ -16,7 +16,9 @@ const Page = () => (
             </a>
             .
           </p>
-          <ExampleLinks />
+          <p>
+            View other demos: <ExampleLinks />
+          </p>
         </div>
       </div>
       <Intercom color="#333333" />

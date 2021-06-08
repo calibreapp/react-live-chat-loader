@@ -4,7 +4,10 @@ import ExampleLinks from '../components/exampleLinks'
 import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
 
 const Page = () => (
-  <LiveChatLoaderProvider provider="chatwoot" providerKey="E33wn9ftxMDHZx18AaBkfPvY">
+  <LiveChatLoaderProvider
+    provider="chatwoot"
+    providerKey="E33wn9ftxMDHZx18AaBkfPvY"
+  >
     <Layout title="React Live Chat Loader: Chatwoot">
       <div className="wrapper">
         <div className="inner">
@@ -16,7 +19,9 @@ const Page = () => (
             </a>
             .
           </p>
-          <ExampleLinks />
+          <p>
+            View other demos: <ExampleLinks />
+          </p>
         </div>
       </div>
       <Chatwoot />

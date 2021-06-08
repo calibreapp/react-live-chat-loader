@@ -19,7 +19,9 @@ const Page = () => (
             </a>
             .
           </p>
-          <ExampleLinks />
+          <p>
+            View other demos: <ExampleLinks />
+          </p>
         </div>
       </div>
       <Userlike vOffset="47px" hOffset="49px" />
