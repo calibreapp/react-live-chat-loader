@@ -9,7 +9,7 @@ const styles: {
   close: CSSProperties
 } = {
   wrapper: {
-    zIndex: 2147483001, // 1 more than the actual widget
+    zIndex: 2147483004, // 1 more than the actual widget
     position: 'fixed',
     bottom: '20px',
     display: 'block',
@@ -137,16 +137,12 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
               transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
             }}
           >
-            <svg
-              height="14px"
-              width="14px"
-              focusable="false"
-              aria-hidden="true"
-            >
+            <svg focusable="false" viewBox="0 0 16 14" width="28" height="25" style={{ width : '16px' }}>
               <path
                 fill="rgb(255, 255, 255)"
-                d="M13.978 12.637l-1.341 1.341L6.989 8.33l-5.648 5.648L0 12.637l5.648-5.648L0 1.341 1.341 0l5.648 5.648L12.637 0l1.341 1.341L8.33 6.989l5.648 5.648z"
                 fillRule="evenodd"
+                clipRule="evenodd"
+                d="M.116 4.884l1.768-1.768L8 9.232l6.116-6.116 1.768 1.768L8 12.768.116 4.884z"
               />
             </svg>
           </div>

@@ -1,4 +1,5 @@
 import { State } from 'types'
+import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://widget.intercom.io'
 
@@ -11,14 +12,13 @@ declare global {
 }
 
 /* eslint-disable */
-const loadScript = () => {
-  if (window.Intercom) return
+const loadScript = (): boolean => {
+  if (window.Intercom) return false
   ;(function() {
     var w = window
     var ic = w.Intercom
     if (typeof ic === 'function') {
       ic('reattach_activator')
-      //eslint-disable-next-line no-undef
       ic('update', window.intercomSettings)
     } else {
       var d = document
@@ -30,7 +30,6 @@ const loadScript = () => {
         i.q.push(args)
       }
       w.Intercom = i
-      //eslint-disable-next-line no-inner-declarations
       const l = () => {
         var s = d.createElement('script')
         s.type = 'text/javascript'
@@ -42,8 +41,9 @@ const loadScript = () => {
       l()
     }
   })()
+  return true
 }
-/* eslint:enable */
+/* eslint-enable */
 
 const load = ({
   providerKey,
@@ -51,19 +51,26 @@ const load = ({
 }: {
   providerKey: string
   setState: (state: State) => void
-}) => {
-  loadScript()
-  window.Intercom('boot', { app_id: providerKey })
-  setTimeout(() => setState('complete'), 2000)
+}): boolean => {
+  const loaded = loadScript()
+
+  // Continue as long as userlike hasn’t already been initialised.
+  if (loaded) {
+    window.Intercom('boot', { app_id: providerKey })
+    waitForLoad(
+      () => window.Intercom.booted,
+      // Allow intercom to complete loading before removing fake widget
+      () => setTimeout(() => setState('complete'), 2000)
+    )
+  }
+
+  return loaded
 }
 
-const open = () => window.Intercom('show')
-
-const close = () => window.Intercom('close')
+const open = (): void => window.Intercom('show')
 
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }

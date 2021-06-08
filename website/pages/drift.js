@@ -16,7 +16,9 @@ const Page = () => (
             </a>
             .
           </p>
-          <ExampleLinks />
+          <p>
+            View other demos: <ExampleLinks />
+          </p>
         </div>
       </div>
       <Drift icon="A" color="#0176ff" />

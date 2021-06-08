@@ -2,43 +2,38 @@ import React from 'react'
 import Link from 'next/link'
 
 const ExampleLinks = () => (
-  <>
-    <p>
+  <ul>
+    <li>
       <Link href="/intercom">
-        <a>
-          Intercom example <span>→</span>
-        </a>
+        <a>Intercom</a>
       </Link>
-    </p>
-    <p>
+    </li>
+    <li>
       <Link href="/helpscout">
-        <a>
-          Help Scout example <span>→</span>
-        </a>
+        <a>Help Scout</a>
       </Link>
-    </p>
-    <p>
+    </li>
+    <li>
       <Link href="/drift">
-        <a>
-          Drift example <span>→</span>
-        </a>
+        <a>Drift</a>
       </Link>
-    </p>
-    <p>
+    </li>
+    <li>
       <Link href="/messenger">
-        <a>
-          Facebook Messenger example <span>→</span>
-        </a>
+        <a>Facebook Messenger</a>
       </Link>
-    </p>
-    <p>
+    </li>
+    <li>
       <Link href="/userlike">
-        <a>
-          Userlike example <span>→</span>
-        </a>
+        <a>Userlike</a>
       </Link>
-    </p>
-  </>
+    </li>
+    <li>
+      <Link href="/chatwoot">
+        <a>Chatwoot</a>
+      </Link>
+    </li>
+  </ul>
 )
 
 export default ExampleLinks

@@ -11,8 +11,9 @@ declare global {
   }
 }
 
-const loadScript = () => {
-  if (window.drift) return
+/* eslint-disable */
+const loadScript = (): boolean => {
+  if (window.drift) return false
 
   !(function() {
     const t = (window.driftt = window.drift = window.driftt || [])
@@ -20,9 +21,7 @@ const loadScript = () => {
       if (t.invoked) {
         return void (
           window.console &&
-          //eslint-disable-next-line no-console
           console.error &&
-          //eslint-disable-next-line no-console
           console.error('Drift snippet included twice.')
         )
       }
@@ -41,22 +40,17 @@ const loadScript = () => {
           'off',
           'on'
         ]),
-        //eslint-disable-next-line @typescript-eslint/no-explicit-any
         (t.factory = function(e: any) {
           return function() {
-            //eslint-disable-next-line prefer-rest-params
             const n = Array.prototype.slice.call(arguments)
             return n.unshift(e), t.push(n), t
           }
         }),
-        //eslint-disable-next-line @typescript-eslint/no-explicit-any
         t.methods.forEach(function(e: any) {
           t[e] = t.factory(e)
         }),
-        //eslint-disable-next-line @typescript-eslint/no-explicit-any
         (t.load = function(t: any) {
           const e = 3e5,
-            //eslint-disable-next-line @typescript-eslint/no-explicit-any
             n = Math.ceil((new Date() as any) / e) * e,
             o = document.createElement('script')
           ;(o.type = 'text/javascript'),
@@ -68,8 +62,10 @@ const loadScript = () => {
         })
     }
   })()
+
+  return true
 }
-/* eslint:enable */
+/* eslint-enable */
 
 const load = ({
   providerKey,
@@ -77,14 +73,19 @@ const load = ({
 }: {
   providerKey: string
   setState: (state: State) => void
-}): void => {
-  loadScript()
-  window.drift.load(providerKey)
-  window.drift.SNIPPET_VERSION = '0.3.1'
-  window.drift.on('ready', () => {
-    setState('open')
-    setTimeout(() => setState('complete'), 2000)
-  })
+}): boolean => {
+  const loaded = loadScript()
+
+  // Continue as long as drift hasn’t already been initialised.
+  if (loaded) {
+    window.drift.load(providerKey)
+    window.drift.SNIPPET_VERSION = '0.3.1'
+    window.drift.on('ready', () => {
+      setState('complete')
+    })
+  }
+
+  return loaded
 }
 
 const open = (): void =>
@@ -92,14 +93,8 @@ const open = (): void =>
     api.showWelcomeMessage()
   )
 
-const close = (): void =>
-  window.drift.on('ready', (api: { hideWelcomeMessage: () => void }) =>
-    api.hideWelcomeMessage()
-  )
-
 export default {
   domain,
   load,
-  open,
-  close
+  open
 }
