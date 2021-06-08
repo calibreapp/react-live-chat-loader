@@ -1,6 +1,7 @@
-import useChat from 'hooks/useChat'
 import React, { useState, useEffect, CSSProperties } from 'react'
-import useWindowWidth from 'hooks/useWindowWidth'
+
+import useChat from '../../hooks/useChat'
+import useWindowWidth from '../../hooks/useWindowWidth'
 
 const styles: {
   container: CSSProperties

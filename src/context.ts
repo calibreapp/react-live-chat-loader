@@ -1,5 +1,6 @@
 import { createContext } from 'react'
-import { Provider, State } from 'types'
+
+import { Provider, State } from './types'
 
 interface Context {
   provider: Provider

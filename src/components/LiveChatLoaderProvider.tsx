@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import * as Providers from 'providers'
-import { State, Provider } from 'types'
-import { LiveChatLoaderContext } from 'context'
+import * as Providers from '../providers'
+import { State, Provider } from '../types'
+import { LiveChatLoaderContext } from '../context'
 
 export const LiveChatLoaderProvider = ({
   provider,

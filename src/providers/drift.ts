@@ -1,4 +1,4 @@
-import { State } from 'types'
+import { State } from '../types'
 
 const domain = 'https://js.driftt.com'
 

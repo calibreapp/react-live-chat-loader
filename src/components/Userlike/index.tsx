@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
-import useChat from 'hooks/useChat'
+
+import useChat from '../../hooks/useChat'
 
 const styles: {
   container: CSSProperties

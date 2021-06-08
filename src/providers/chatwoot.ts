@@ -1,4 +1,4 @@
-import { State } from 'types'
+import { State } from '../types'
 import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://app.chatwoot.com'

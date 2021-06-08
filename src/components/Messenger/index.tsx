@@ -1,7 +1,8 @@
 import React, { CSSProperties, memo } from 'react'
-import useProvider from 'hooks/useProvider'
-import useChat from 'hooks/useChat'
-import { Provider } from 'types'
+
+import { Provider } from '../../types'
+import useProvider from '../../hooks/useProvider'
+import useChat from '../../hooks/useChat'
 
 const styles: CSSProperties = {
   appearance: 'none',
