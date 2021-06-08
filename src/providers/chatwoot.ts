@@ -1,4 +1,5 @@
 import { State } from 'types'
+import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://app.chatwoot.com'
 
@@ -21,8 +22,8 @@ declare global {
 }
 
 /* eslint-disable */
-const loadScript = (onload: () => void, baseUrl: string): void => {
-  if (window.$chatwoot) return
+const loadScript = (onload: () => void, baseUrl: string): boolean => {
+  if (window.$chatwoot) return false
   ;(function(d, t) {
     var script: HTMLScriptElement = d.createElement('script')
     var fisrtScript = d.getElementsByTagName('script')[0]
@@ -30,6 +31,7 @@ const loadScript = (onload: () => void, baseUrl: string): void => {
     fisrtScript.parentNode?.insertBefore(script, fisrtScript)
     script.onload = onload
   })(document)
+  return true
 }
 /* eslint-enable */
 
@@ -44,7 +46,7 @@ const load = ({
   setState: (state: State) => void
   baseUrl?: string
 }): void => {
-  loadScript(function() {
+  const loaded = loadScript(function() {
     setTimeout(() => setState('complete'), 1000)
     window.chatwootSDK.run({
       websiteToken: providerKey,
@@ -52,9 +54,20 @@ const load = ({
       locale
     })
   }, baseUrl)
+
+  // Continue as long as userlike hasn’t already been initialised.
+  if (loaded) {
+    waitForLoad(
+      () => !!window.$chatwoot?.hasLoaded,
+      // Allow chatwoot to complete loading before removing fake widget
+      () => setTimeout(() => setState('complete'), 2000)
+    )
+  }
 }
 
 const open = (): void => {
+  window.chatwootSettings = window.chatwootSettings || {}
+  window.chatwootSettings.showPopoutButton = true
   window.addEventListener('chatwoot:ready', function() {
     window.$chatwoot.toggle()
   })
