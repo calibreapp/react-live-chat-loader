@@ -1,6 +1,7 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -37,6 +38,9 @@ Under the hood React Live Chat Loader makes use of `requestIdleCallback` to
 track how long the page has been idle for and checks if the user is on a slow
 connection (using `navigator.connection.effectiveType`) or has data-saver enabled
 (using `navigator.connection.saveData`) to prevent loading.
+
+Please note: Some chat widget providers open automatically based on the users
+interaction from their last session.
 
 ## Installation
 
