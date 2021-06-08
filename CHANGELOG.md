@@ -1,3 +1,8 @@
+### 2.5.0 - 2021-05-24
+
+- Add `Chatwoot` component (thanks @motiko)
+- Update how we detect if a provider has loaded
+
 ### 2.4.0 - 2021-05-24
 
 - Build additional module version of the package (thanks @jaska120)
