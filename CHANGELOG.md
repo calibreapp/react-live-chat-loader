@@ -1,4 +1,8 @@
-### 2.5.0 - 2021-05-24
+### 2.5.1 - 2021-06-09
+
+- Use relative paths for library imports to ensure types can be found
+
+### 2.5.0 - 2021-06-08
 
 - Add `Chatwoot` component (thanks @motiko)
 - Update how we detect if a provider has loaded
