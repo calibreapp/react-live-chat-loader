@@ -1,4 +1,4 @@
-import { State } from 'types'
+import { State } from '../types'
 
 const domain = 'https://beacon-v2.helpscout.net'
 

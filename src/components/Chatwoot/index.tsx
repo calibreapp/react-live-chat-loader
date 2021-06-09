@@ -1,5 +1,6 @@
-import useChat from 'hooks/useChat'
 import React, { CSSProperties } from 'react'
+
+import useChat from '../../hooks/useChat'
 
 const styles: {
   button: CSSProperties

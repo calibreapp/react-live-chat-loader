@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { Provider } from 'types'
-import { LiveChatLoaderContext } from 'context'
+
+import { Provider } from '../types'
+import { LiveChatLoaderContext } from '../context'
 
 const useProvider = (): {
   provider: Provider

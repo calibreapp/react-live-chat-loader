@@ -1,4 +1,4 @@
-import { State } from 'types'
+import { State } from '../types'
 import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'

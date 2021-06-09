@@ -1,6 +1,7 @@
 import React, { CSSProperties, useEffect, useState } from 'react'
-import useChat from 'hooks/useChat'
-import useWindowHeight from 'hooks/useWindowHeight'
+
+import useChat from '../../hooks/useChat'
+import useWindowHeight from '../../hooks/useWindowHeight'
 
 const styles: {
   wrapper: CSSProperties
