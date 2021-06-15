@@ -16,13 +16,13 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 
 ## 🖇️ Table of Contents
 
-1. [How it Works](#how-it-works)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Supported Providers](#supported-providers)
-5. [Adding a Provider](#adding-a-provider)
-6. [Contributing](#contributing)
-7. [Examples](#examples)
+1. [How it Works](#-how-it-works)
+2. [Installation](#-installation)
+3. [Usage](#-usage)
+4. [Supported Providers](#-supported-providers)
+5. [Adding a Provider](#-adding-a-provider)
+6. [Contributing](#-contributing)
+7. [Examples](#-examples)
 
 ## 💡 How it Works 
 
@@ -40,8 +40,7 @@ track how long the page has been idle for and checks if the person is on a slow
 connection (using `navigator.connection.effectiveType`) or has data-saver enabled
 (using `navigator.connection.saveData`) to prevent loading.
 
-:warning: **Please note:** Some chat widget providers open automatically based on the people’s
-interaction from their last session.
+> ⚠️ **Please note**: Some chat widget providers open automatically based on the people’s interaction from their last session.
 
 ## 📥 Installation 
 
@@ -124,8 +123,8 @@ export const LoadChatButton = () => {
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
-- `provider`: Choose from `helpScout`, `intercom`, `drift` or `messenger` ([see below](#providers))
-- `providerKey`: Provider API Key ([see below](#providers))
+- `provider`: Choose from `helpScout`, `intercom`, `drift` or `messenger` ([see below](#-supported-providers))
+- `providerKey`: Provider API Key ([see below](#-supported-providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
@@ -195,7 +194,7 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-User or Company context data can be set using `window.intercomSettings`. See the [offical Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
+User or Company context data can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
 </details>
 
@@ -244,9 +243,7 @@ You can customise the Messenger widget by passing the following props to the
 
 For a list of options, refer to [Facebook Customer Chat Plugin documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin#customization).
 
-:warning: **Please note**: Facebook Messenger will not load on localhost and you will need
-to configure your domain through the setup wizard in Facebook for it to load
-correctly.
+> ⚠️ **Please note**: Facebook Messenger will not load on localhost and you will need to configure your domain through the setup wizard in Facebook for it to load correctly.
 
 </details>
 
@@ -343,7 +340,7 @@ You can customise the Chatwoot Widget by passing the following props to the
 </details>
 
 ## ➕ Adding a Provider
-To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#adding-a-provider).
+To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
 
 ## 🙌 Contributing
 Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).

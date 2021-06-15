@@ -5,10 +5,10 @@ Thank you for your interest in contributing to React Live Chat Loader! 🙌🏻 
 ## 🖇️ Table of Contents
 
 1. [Code of Conduct](CODE_OF_CONDUCT.md)
-2. [Reporting Bugs](#reporting-bugs)
-3. [Suggesting Features](#suggesting-features)
-4. [Creating Pull Requests](#creating-pull-requests)
-5. [Adding a Provider](#adding-a-provider)
+2. [Reporting Bugs](#-reporting-bugs)
+3. [Suggesting Features](#-suggesting-features)
+4. [Creating Pull Requests](#-creating-pull-requests)
+5. [Adding a Provider](#-adding-a-provider)
 
 ## 📣 Code of Conduct
 This project and everyone participating in it are governed by this [Code of Conduct](CODE_OF_CONDUCT.md). By participating, we expect you to act accordingly to this code. Please report unacceptable behaviour to hello@calibreapp.com. 
@@ -166,7 +166,7 @@ Export the component from `src/index.js`
 
 ### 3. Update README
 
-Add your new provider to this README under [Supported Providers](#supported-providers).
+Add your new provider to this README under [Supported Providers](README.md#-supported-providers).
 
 ### 4. Add an example page
 
