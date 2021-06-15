@@ -6,7 +6,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md) 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md) 
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
@@ -14,16 +14,17 @@ until the page has become idle or users are ready to interact with chat. Current
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
-## Table of Contents
+## 🖇️ Table of Contents
 
 1. [How it Works](#how-it-works)
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Supported Providers](#supported-providers)
 5. [Adding a Provider](#adding-a-provider)
-6. [Examples](#examples)
+6. [Contributing](#contributing)
+7. [Examples](#examples)
 
-## How it Works
+## 💡 How it Works 
 
 Chat widgets rely heavily on JavaScript which comes at a cost. Given the
 significant impact that comes from the download, parse, compile and execution of
@@ -42,7 +43,7 @@ connection (using `navigator.connection.effectiveType`) or has data-saver enable
 :warning: **Please note:** Some chat widget providers open automatically based on the people’s
 interaction from their last session.
 
-## Installation
+## 📥 Installation 
 
 To download react-live-chat-loader run:
 
@@ -56,7 +57,7 @@ Or if you're using yarn, run:
 yarn add react-live-chat-loader
 ```
 
-## Usage
+## 🛠 Usage
 
 To allow you to trigger a single live chat within your application, React Live
 Chat Loader has a `Context Provider` which should be added at the root level of
@@ -129,7 +130,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
 
-## Supported Providers
+## 💬 Supported Providers
 
 Currently there are six supported providers:
 
@@ -341,150 +342,22 @@ You can customise the Chatwoot Widget by passing the following props to the
 
 </details>
 
-## Adding a provider
+## ➕ Adding a Provider
+To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#adding-a-provider).
 
-To contribute a new provider, follow these steps:
+## 🙌 Contributing
+Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).
 
-#### 1. Create provider file
-
-Create a new provider file at `src/providers/providerName.js` using the
-following as a template:
-
-<details>
-<summary>Provider Template</summary>
-
-```js
-const domain = 'https://provider.domain.com'
-
-const loadScript = () => {
-  // Detect the provider is already loaded and return early
-  if (alreadyLoaded) return
-
-  // Call provider script here
-}
-
-const load = ({ providerKey }) => {
-  loadScript()
-  // Initialise provider script
-}
-
-const open = () => // Open provider
-const close = () => // Close provider
-
-export default {
-  domain,
-  load,
-  open,
-  close
-}
-```
-
-</details>
-
-The provider must export the following:
-
-- `domain`: A string of the domain where the provider script is loaded from
-  that will be used in a `preconnect` link.
-- `load`: Function which when called will load and initialize the provider
-  script. It should accept props and use the `providerKey` as the `app_id` or
-  `api_key`. For consistency, it should call a `loadScript` function.
-- `open`: Function which when called will open the provider chat.
-- `close`: Function which when called will close the provider chat.
-
-Import the new file in `src/providers/index.js` and add it to `Providers`.
-
-The name of this file will be the `providerKey` used in the
-`LiveChatLoaderProvider`.
-
-#### 2. Create component
-
-Create a new component in `src/Components/ProviderName/index.js` which
-replicates the chat widget, using the following as a template:
-
-<details>
-<summary>Component Template</summary>
-
-```jsx
-import React from 'react'
-
-import { useChat } from '../../'
-import STATES from '../../utils/states'
-
-const styles = {
-  // Add widget styles here
-  button: {
-    // Add button styles here
-  }
-}
-
-const Provider = ({ color }) => {
-  const [state, loadChat] = useChat({ loadWhenIdle: true })
-
-  if (state === STATES.COMPLETE) return null
-
-  return (
-    <div>
-      <button
-        onClick={() => loadChat({ open: true })}
-        onMouseEnter={() => loadChat({ open: false })}
-        style={{
-          ...styles.button,
-          backgroundColor: color
-        }}
-      >
-        Button
-      </button>
-    </div>
-  )
-}
-
-Provider.defaultProps = {
-  color: '#976ad4'
-}
-
-export default Provider
-```
-
-</details>
-
-Do not worry about loading animations as the widget
-will be shown instantly on page load. Increase the `z-index` by `1` so the fake
-widget sits immediately above the chat widget that is being replaced.
-
-Export the component from `src/index.js`
-
-#### 3. Update README
-
-Add your new provider to this README under [Supported Providers](#supported-providers).
-
-#### 4. Add an example page
-
-Add a new page to `website/pages/` which showcases the provider. If you don't want to include your `providerKey` leave this blank and the maintainers will set one up.
-
-The new provider page can be tested locally by creating a distribution version of the package and referencing this from the `website`.
-
-Unfortunately if you try to include the package locally from source you'll most likely run into a [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) error.
-
-To create the distribution version and reference it, do the following:
-
-- In the root of the project, run `npm run build` to build the package into `dist`
-- Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../"`
-- In the `website` directory run `npm install`
-- In the `website` directory run the server with `npm run dev`
-- Add a new page to `website/pages/` which includes the new component
-- Add a link to the provider in `website/pages/index.js`
-- Add a link to the provider in `website/components/exampleLinks.js`
-
-## Examples
+## 🖥️ Examples
 
 - [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
 
-## Resources
+## 📚 Resources
 
 - [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
 - [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
 
-## Contributors ✨
+## ✨ Contributors 
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 

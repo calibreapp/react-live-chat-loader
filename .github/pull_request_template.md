@@ -1,6 +1,6 @@
 👋🏻 Hi there! 
 
-This template will help you describe the work you’ve done, so one of the project owners can review and potentially accept it promptly. Please fill relevant sections below and feel free to delete what does not apply to your work (including this comment).
+This template will help you describe the work you’ve done, so one of the project maintainers can review and potentially accept it promptly. Please fill relevant sections below and feel free to delete what does not apply to your work (including this comment).
 
 Thank you for helping us improve React Live Chat Loader! ⚡️
 
@@ -24,7 +24,7 @@ Learn more about linking Pull Requests to issues [here](https://docs.github.com/
 If this work introduces any visual changes, add screenshots to portray them.
 
 ## Reviewers
-Mention one or more project owners here or request review directly in the right sidebar in the Reviewers section:
+Mention one or more project maintainers here or request review directly in the right sidebar in the Reviewers section:
 
 - @benschwarz or @mikedijkstra for engineering review
 - @thefoxis for content and copy review

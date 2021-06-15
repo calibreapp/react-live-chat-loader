@@ -7,14 +7,14 @@ assignees: ''
 
 ---
 
-👋🏻 Hi there! This template will help you file a complete bug report for React Live Chat Loader, so one of the project owners can triage and respond to it promptly. Please fill relevant sections below and feel free to delete what does not apply to the issue you are seeing (including this comment).
+👋🏻 Hi there! This template will help you file a complete bug report for React Live Chat Loader, so one of the project maintainers can triage and respond to it promptly. Please fill relevant sections below and feel free to delete what does not apply to the issue you are seeing (including this comment).
 
 Thank you for helping us improve React Live Chat Loader! ⚡️
 
 ***
 
 ## Describe the bug
-Please provide a clear and concise description of what the bug is.
+Please provide a clear and concise description of what the bug is. Include relevant operating system, browser and other environment information.
 
 ## How To Reproduce
 Steps to reproduce the behavior:
