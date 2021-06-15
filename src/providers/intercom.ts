@@ -12,7 +12,7 @@ declare global {
 }
 
 /* eslint-disable */
-const loadScript = (): boolean => {
+const loadScript = (appId: string): boolean => {
   if (window.Intercom) return false
   ;(function() {
     var w = window
@@ -34,7 +34,7 @@ const loadScript = (): boolean => {
         var s = d.createElement('script')
         s.type = 'text/javascript'
         s.async = true
-        s.src = `${domain}/widget/3qmk5gyg`
+        s.src = `${domain}/widget/${appId}`
         var x = d.getElementsByTagName('script')[0]
         x.parentNode?.insertBefore(s, x)
       }
@@ -52,7 +52,7 @@ const load = ({
   providerKey: string
   setState: (state: State) => void
 }): boolean => {
-  const loaded = loadScript()
+  const loaded = loadScript(providerKey)
 
   // Continue as long as userlike hasn’t already been initialised.
   if (loaded) {
