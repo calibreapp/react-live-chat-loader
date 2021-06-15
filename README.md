@@ -8,38 +8,36 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger) and [Userlike](#userlike).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike) and [Chatwoot](#chatwoot).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
-### Table of Contents
+## Table of Contents
 
-1. [How it works](#how-it-works)
+1. [How it Works](#how-it-works)
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Supported Providers](#supported-providers)
-5. [Adding a provider](#adding-a-provider)
+5. [Adding a Provider](#adding-a-provider)
 6. [Examples](#examples)
 
----
-
-## How it works
+## How it Works
 
 Chat widgets rely heavily on JavaScript which comes at a cost. Given the
 significant impact that comes from the download, parse, compile and execution of
 chat JavaScript, React Live Chat Loader implements a "fake", fast loading button
 and waits for one of the following events before loading the actual widget:
 
-- User hovers over the fake button
-- User clicks the fake button
+- Person hovers over the fake button
+- Person clicks the fake button
 - The page has been idle for a significant amount of time
 
 Under the hood React Live Chat Loader makes use of `requestIdleCallback` to
-track how long the page has been idle for and checks if the user is on a slow
+track how long the page has been idle for and checks if the person is on a slow
 connection (using `navigator.connection.effectiveType`) or has data-saver enabled
 (using `navigator.connection.saveData`) to prevent loading.
 
-Please note: Some chat widget providers open automatically based on the users
+:warning: **Please note:** Some chat widget providers open automatically based on the people’s
 interaction from their last session.
 
 ## Installation
@@ -235,15 +233,15 @@ You can customise the Messenger widget by passing the following props to the
 `Messenger` component:
 
 - `color`: The theme color of the widget
-- `loggedInGreeting`: The greeting text that will be displayed if the user is currently logged in to Facebook.
-- `loggedOutGreeting`: The greeting text that will be displayed if the user is
+- `loggedInGreeting`: The greeting text that will be displayed if the person is currently logged in to Facebook.
+- `loggedOutGreeting`: The greeting text that will be displayed if the person is
   currently not logged in to Facebook.
 - `greetingDialogDisplay`: Sets how the greeting dialog will be displayed.
 - `greetingDialogDelay`: Sets the number of seconds of delay before the greeting dialog is shown after the plugin is loaded.
 
 For a list of options, refer to [Facebook Customer Chat Plugin documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin#customization).
 
-**Please note**: Facebook Messenger will not load on localhost and you will need
+:warning: **Please note**: Facebook Messenger will not load on localhost and you will need
 to configure your domain through the setup wizard in Facebook for it to load
 correctly.
 
@@ -461,7 +459,7 @@ Add your new provider to this README under [Supported Providers](#supported-prov
 
 Add a new page to `website/pages/` which showcases the provider. If you don't want to include your `providerKey` leave this blank and the maintainers will set one up.
 
-The new provider page can be tested locally by creating a distribution version of the package and referencing this from the `wesbite`.
+The new provider page can be tested locally by creating a distribution version of the package and referencing this from the `website`.
 
 Unfortunately if you try to include the package locally from source you'll most likely run into a [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) error.
 
