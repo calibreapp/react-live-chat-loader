@@ -174,12 +174,9 @@ Add a new page to `website/pages/` which showcases the provider. If you don't wa
 
 The new provider page can be tested locally by creating a distribution version of the package and referencing this from the `website`.
 
-Unfortunately if you try to include the package locally from source you'll most likely run into a [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) error.
-
 To create the distribution version and reference it, do the following:
 
-- In the root of the project, run `npm run build` to build the package into `dist`
-- Update `website/package.json` to reference the `dist` build: `"react-live-chat-loader": "../"`
+- In the root of the project, run `npm run build`
 - In the `website` directory run `npm install`
 - In the `website` directory run the server with `npm run dev`
 - Add a new page to `website/pages/` which includes the new component
