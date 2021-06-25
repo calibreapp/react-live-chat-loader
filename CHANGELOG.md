@@ -1,3 +1,7 @@
+### 2.5.2 - 2021-06-25
+
+- Bug fix for using `loadChat` to open a widget
+
 ### 2.5.1 - 2021-06-09
 
 - Use relative paths for library imports to ensure types can be found
