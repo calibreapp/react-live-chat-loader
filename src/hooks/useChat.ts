@@ -88,10 +88,10 @@ const useChat = (
 
       if (open) {
         chatProvider.open()
-        setState('open')
+        if (state !== 'complete') setState('open')
       }
     },
-    []
+    [state]
   )
 
   return [state, loadChat]
