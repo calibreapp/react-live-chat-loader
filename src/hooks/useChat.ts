@@ -71,7 +71,7 @@ const useChat = (
   const chatProvider = Providers[provider]
 
   const loadChat = useCallback<(args: { open: boolean }) => void>(
-    ({ open = true }) => {
+    ({ open = true } = { open: true }) => {
       if (!providerKey) {
         //eslint-disable-next-line no-console
         console.error('No api key given to react-live-chat-loader')
@@ -88,10 +88,10 @@ const useChat = (
 
       if (open) {
         chatProvider.open()
-        setState('open')
+        if (state !== 'complete') setState('open')
       }
     },
-    []
+    [state]
   )
 
   return [state, loadChat]
