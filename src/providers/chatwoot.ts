@@ -39,15 +39,25 @@ const load = ({
   providerKey,
   locale = 'en',
   setState,
-  baseUrl = domain
+  baseUrl = domain,
+  beforeInit = () => undefined,
+  onReady = () => undefined
 }: {
   providerKey: string
   locale?: string
   setState: (state: State) => void
   baseUrl?: string
+  beforeInit?: () => void
+  onReady?: () => void
 }): void => {
   const loaded = loadScript(function() {
-    setTimeout(() => setState('complete'), 1000)
+    beforeInit()
+
+    setTimeout(() => {
+      setState('complete')
+      onReady()
+    }, 1000)
+
     window.chatwootSDK.run({
       websiteToken: providerKey,
       baseUrl,

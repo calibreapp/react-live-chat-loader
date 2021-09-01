@@ -36,15 +36,20 @@ const loadScript = (locale: string): boolean => {
 const load = ({
   appID,
   locale = 'en_US',
-  setState
+  setState,
+  beforeInit = () => undefined,
+  onReady = () => undefined
 }: {
   appID?: string
   locale?: string
   setState: (state: State) => void
+  beforeInit?: () => void
+  onReady?: () => void
 }): boolean => {
   const loaded = loadScript(locale)
   // Continue as long as messenger hasn’t already been initialised.
   if (loaded) {
+    beforeInit()
     window.fbAsyncInit = function() {
       window.FB.init(
         Object.assign(
@@ -58,7 +63,10 @@ const load = ({
       )
       window.FB.Event.subscribe('customerchat.load', () =>
         // Allow messenger to complete loading before removing fake widget
-        setTimeout(() => setState('complete'), 3000)
+        setTimeout(() => {
+          setState('complete')
+          onReady()
+        }, 3000)
       )
     }
   }
