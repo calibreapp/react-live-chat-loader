@@ -208,6 +208,7 @@ const HelpScout = ({
       }}
     >
       <button
+        aria-label="Load"
         onClick={() => loadChat({ open: true })}
         onMouseEnter={() => loadChat({ open: false })}
         style={{
