@@ -1,9 +1,7 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
@@ -377,6 +375,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/stramel"><img src="https://avatars.githubusercontent.com/u/855184?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Stramel</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=stramel" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/myleslinder"><img src="https://avatars.githubusercontent.com/u/4735451?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Myles Linder</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=myleslinder" title="Code">💻</a></td>
   </tr>
 </table>
 
