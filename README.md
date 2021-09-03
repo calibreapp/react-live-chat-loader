@@ -1,10 +1,12 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md) 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
@@ -22,7 +24,7 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 6. [Contributing](#-contributing)
 7. [Examples](#-examples)
 
-## 💡 How it Works 
+## 💡 How it Works
 
 Chat widgets rely heavily on JavaScript which comes at a cost. Given the
 significant impact that comes from the download, parse, compile and execution of
@@ -40,7 +42,7 @@ connection (using `navigator.connection.effectiveType`) or has data-saver enable
 
 > ⚠️ **Please note**: Some chat widget providers open automatically based on the people’s interaction from their last session.
 
-## 📥 Installation 
+## 📥 Installation
 
 To download react-live-chat-loader run:
 
@@ -126,6 +128,8 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
+- `beforeInit`: A function to be called after the script has loaded, but before the chat provider has been initialized (optional)
+- `onReady`: A function to be called once the script has been loaded, the chat provider has been initialized and is ready for use (optional)
 
 ## 💬 Supported Providers
 
@@ -338,9 +342,11 @@ You can customise the Chatwoot Widget by passing the following props to the
 </details>
 
 ## ➕ Adding a Provider
+
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
 
 ## 🙌 Contributing
+
 Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).
 
 ## 🖥️ Examples
@@ -352,7 +358,7 @@ Happy to hear you’re interested in contributing to React Live Chat Loader! Ple
 - [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
 - [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
 
-## ✨ Contributors 
+## ✨ Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 

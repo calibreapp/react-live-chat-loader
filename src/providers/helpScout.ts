@@ -39,19 +39,27 @@ const loadScript = (): boolean => {
 
 const load = ({
   providerKey,
-  setState
+  setState,
+  beforeInit = () => undefined,
+  onReady = () => undefined
 }: {
   providerKey: string
   setState: (state: State) => void
+  beforeInit?: () => void
+  onReady?: () => void
 }): boolean => {
   const loaded = loadScript()
 
   // Continue as long as helpscout hasn’t already been initialised.
   if (loaded) {
+    beforeInit()
     window.Beacon('init', providerKey)
     window.Beacon('once', 'ready', () =>
       // Allow helpscout to complete loading before removing fake widget
-      setTimeout(() => setState('complete'), 2000)
+      setTimeout(() => {
+        setState('complete')
+        onReady()
+      }, 2000)
     )
   }
 
