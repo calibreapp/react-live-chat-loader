@@ -11,6 +11,8 @@ interface Context {
   locale?: string
   idlePeriod?: number
   baseUrl?: string
+  beforeInit?: () => void
+  onReady?: () => void
 }
 
 export const LiveChatLoaderContext = createContext<Context>({} as Context)

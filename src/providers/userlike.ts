@@ -35,18 +35,27 @@ const loadScript = (providerKey: string): boolean => {
 
 const load = ({
   providerKey,
-  setState
+  setState,
+  beforeInit = () => undefined,
+  onReady = () => undefined
 }: {
   providerKey: string
   setState: (state: State) => void
+  beforeInit?: () => void
+  onReady?: () => void
 }): boolean => {
   const loaded = loadScript(providerKey)
   // Continue as long as userlike hasn’t already been initialised.
   if (loaded) {
+    beforeInit()
     waitForLoad(
       () => !!window.userlike,
       // Allow userlike to complete loading before removing fake widget
-      () => setTimeout(() => setState('complete'), 2000)
+      () =>
+        setTimeout(() => {
+          setState('complete')
+          onReady()
+        }, 2000)
     )
   }
 
