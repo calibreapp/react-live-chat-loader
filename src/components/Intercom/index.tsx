@@ -105,14 +105,14 @@ const Intercom = ({
     return null
   }
 
-  // check padding values must be greater than 20
-
+  const yPadding = Math.max(20, verticalPadding)
+  const xPadding = Math.max(20, horizontalPadding)
   return (
     <div
       style={{
         ...styles.wrapper,
-        bottom: `${verticalPadding}px`,
-        [alignment]: `${horizontalPadding}px`,
+        bottom: `${yPadding}px`,
+        [alignment]: `${xPadding}px`,
         background: color
       }}
     >
