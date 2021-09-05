@@ -89,15 +89,15 @@ const styles: {
 interface Props {
   color?: string
   alignment?: 'left' | 'right'
-  vertical_padding?: number
-  horizontal_padding?: number
+  verticalPadding?: number
+  horizontalPadding?: number
 }
 
 const Intercom = ({
   color = '#333333',
   alignment = 'right',
-  vertical_padding = 20,
-  horizontal_padding = 20
+  verticalPadding = 20,
+  horizontalPadding = 20
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
@@ -111,8 +111,8 @@ const Intercom = ({
     <div
       style={{
         ...styles.wrapper,
-        bottom: `${vertical_padding}px`,
-        [alignment]: `${horizontal_padding}px`,
+        bottom: `${verticalPadding}px`,
+        [alignment]: `${horizontalPadding}px`,
         background: color
       }}
     >
@@ -172,8 +172,8 @@ const Intercom = ({
 Intercom.defaultProps = {
   color: '#333333',
   alignment: 'left',
-  vertical_padding: 20,
-  horizontal_padding: 20
+  verticalPadding: 20,
+  horizontalPadding: 20
 }
 
 export default Intercom
