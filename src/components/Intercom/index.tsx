@@ -12,9 +12,7 @@ const styles: {
   wrapper: {
     zIndex: 2147483004, // 1 more than the actual widget
     position: 'fixed',
-    bottom: '20px',
     display: 'block',
-    right: '20px',
     width: '60px',
     height: '60px',
     borderRadius: '50%',
@@ -90,19 +88,31 @@ const styles: {
 
 interface Props {
   color?: string
+  alignment?: 'left' | 'right'
+  vertical_padding?: number
+  horizontal_padding?: number
 }
 
-const Intercom = ({ color }: Props): JSX.Element | null => {
+const Intercom = ({
+  color = '#333333',
+  alignment = 'right',
+  vertical_padding = 20,
+  horizontal_padding = 20
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') {
     return null
   }
 
+  // check padding values must be greater than 20
+
   return (
     <div
       style={{
         ...styles.wrapper,
+        bottom: `${vertical_padding}px`,
+        [alignment]: `${horizontal_padding}px`,
         background: color
       }}
     >
@@ -138,7 +148,13 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
               transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
             }}
           >
-            <svg focusable="false" viewBox="0 0 16 14" width="28" height="25" style={{ width : '16px' }}>
+            <svg
+              focusable="false"
+              viewBox="0 0 16 14"
+              width="28"
+              height="25"
+              style={{ width: '16px' }}
+            >
               <path
                 fill="rgb(255, 255, 255)"
                 fillRule="evenodd"
@@ -154,7 +170,10 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
 }
 
 Intercom.defaultProps = {
-  color: '#333333'
+  color: '#333333',
+  alignment: 'left',
+  vertical_padding: 20,
+  horizontal_padding: 20
 }
 
 export default Intercom
