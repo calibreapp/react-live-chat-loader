@@ -1,6 +1,7 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 
 import useChat from '../../hooks/useChat'
+import useWindowWidth from '../../hooks/useWindowWidth'
 
 const styles: {
   wrapper: CSSProperties
@@ -93,20 +94,46 @@ interface Props {
   horizontalPadding?: number
 }
 
+const DEFAULT_PADDING = 20
+const DEFAULT_ALIGNMENT = 'right'
+const INTERCOM_MOBILE_WIDTH = 900
+
 const Intercom = ({
   color = '#333333',
-  alignment = 'right',
-  verticalPadding = 20,
-  horizontalPadding = 20
+  alignment = DEFAULT_ALIGNMENT,
+  verticalPadding = DEFAULT_PADDING,
+  horizontalPadding = DEFAULT_PADDING
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
+
+  const [{ xPadding, yPadding }, setPaddingValues] = useState({
+    yPadding: Math.max(DEFAULT_PADDING, verticalPadding),
+    xPadding: Math.max(DEFAULT_PADDING, horizontalPadding)
+  })
+  const windowWidth = useWindowWidth()
+
+  useEffect(() => {
+    window.intercomSettings = {
+      ...(window.intercomSettings ?? {}),
+      alignment,
+      background_color: color,
+      vertical_padding: yPadding,
+      horizontal_padding: xPadding
+    }
+  }, [])
+
+  useEffect(() => {
+    let padding = { yPadding: verticalPadding, xPadding: horizontalPadding }
+    if (windowWidth <= INTERCOM_MOBILE_WIDTH) {
+      padding = { yPadding: DEFAULT_PADDING, xPadding: DEFAULT_PADDING }
+    }
+    setPaddingValues(padding)
+  }, [windowWidth])
 
   if (state === 'complete') {
     return null
   }
 
-  const yPadding = Math.max(20, verticalPadding)
-  const xPadding = Math.max(20, horizontalPadding)
   return (
     <div
       style={{
@@ -171,9 +198,9 @@ const Intercom = ({
 
 Intercom.defaultProps = {
   color: '#333333',
-  alignment: 'left',
-  verticalPadding: 20,
-  horizontalPadding: 20
+  alignment: DEFAULT_ALIGNMENT,
+  verticalPadding: DEFAULT_PADDING,
+  horizontalPadding: DEFAULT_PADDING
 }
 
 export default Intercom
