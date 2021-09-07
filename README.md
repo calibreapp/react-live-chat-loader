@@ -191,8 +191,8 @@ export default class App extends React.Component {
 }
 ```
 
-You can customise the color of the Intercom widget by passing `color`, `alignment`, `verticalPadding`, or `horizontalPadding` props to
-the `Intercom` component.
+You can customise the Intercom widget by passing `color`, `alignment`, `verticalPadding`, or `horizontalPadding` props to
+the `Intercom` component. Any props provided to the Intercom component are set on `window.intercomSettings` to ensure there is no style mismatch between the facade and the loaded widget. To mirror [the loaded widget behavior](https://www.intercom.com/help/en/articles/2894-customize-the-intercom-messenger-technical) on screen sizes smaller than 900px wide the vertical and horizontal padding will be the default of 20px.
 
 User or Company context data can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
