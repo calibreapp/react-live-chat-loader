@@ -114,7 +114,7 @@ const Intercom = ({
 
   useEffect(() => {
     window.intercomSettings = {
-      ...(window.intercomSettings ?? {}),
+      ...(window.intercomSettings || {}),
       alignment,
       background_color: color,
       vertical_padding: yPadding,
