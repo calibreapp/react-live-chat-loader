@@ -7,7 +7,7 @@ declare global {
   interface Window {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     Intercom: any
-    intercomSettings: () => void
+    intercomSettings: Record<string, unknown>
   }
 }
 

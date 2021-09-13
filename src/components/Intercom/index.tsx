@@ -1,6 +1,7 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 
 import useChat from '../../hooks/useChat'
+import useWindowWidth from '../../hooks/useWindowWidth'
 
 const styles: {
   wrapper: CSSProperties
@@ -12,9 +13,7 @@ const styles: {
   wrapper: {
     zIndex: 2147483004, // 1 more than the actual widget
     position: 'fixed',
-    bottom: '20px',
     display: 'block',
-    right: '20px',
     width: '60px',
     height: '60px',
     borderRadius: '50%',
@@ -90,10 +89,46 @@ const styles: {
 
 interface Props {
   color?: string
+  alignment?: 'left' | 'right'
+  verticalPadding?: number
+  horizontalPadding?: number
 }
 
-const Intercom = ({ color }: Props): JSX.Element | null => {
+const DEFAULT_PADDING = 20
+const DEFAULT_ALIGNMENT = 'right'
+const INTERCOM_MOBILE_WIDTH = 900
+
+const Intercom = ({
+  color = '#333333',
+  alignment = DEFAULT_ALIGNMENT,
+  verticalPadding = DEFAULT_PADDING,
+  horizontalPadding = DEFAULT_PADDING
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
+
+  const [{ xPadding, yPadding }, setPaddingValues] = useState({
+    yPadding: Math.max(DEFAULT_PADDING, verticalPadding),
+    xPadding: Math.max(DEFAULT_PADDING, horizontalPadding)
+  })
+  const windowWidth = useWindowWidth()
+
+  useEffect(() => {
+    window.intercomSettings = {
+      ...(window.intercomSettings || {}),
+      alignment,
+      background_color: color,
+      vertical_padding: yPadding,
+      horizontal_padding: xPadding
+    }
+  }, [])
+
+  useEffect(() => {
+    let padding = { yPadding: verticalPadding, xPadding: horizontalPadding }
+    if (windowWidth <= INTERCOM_MOBILE_WIDTH) {
+      padding = { yPadding: DEFAULT_PADDING, xPadding: DEFAULT_PADDING }
+    }
+    setPaddingValues(padding)
+  }, [windowWidth])
 
   if (state === 'complete') {
     return null
@@ -103,6 +138,8 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
     <div
       style={{
         ...styles.wrapper,
+        bottom: `${yPadding}px`,
+        [alignment]: `${xPadding}px`,
         background: color
       }}
     >
@@ -138,7 +175,13 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
               transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
             }}
           >
-            <svg focusable="false" viewBox="0 0 16 14" width="28" height="25" style={{ width : '16px' }}>
+            <svg
+              focusable="false"
+              viewBox="0 0 16 14"
+              width="28"
+              height="25"
+              style={{ width: '16px' }}
+            >
               <path
                 fill="rgb(255, 255, 255)"
                 fillRule="evenodd"
@@ -154,7 +197,10 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
 }
 
 Intercom.defaultProps = {
-  color: '#333333'
+  color: '#333333',
+  alignment: DEFAULT_ALIGNMENT,
+  verticalPadding: DEFAULT_PADDING,
+  horizontalPadding: DEFAULT_PADDING
 }
 
 export default Intercom
