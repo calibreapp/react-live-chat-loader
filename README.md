@@ -128,6 +128,8 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
+- `beforeInit`: A function to be called after the script has loaded, but before the chat provider has been initialized (optional)
+- `onReady`: A function to be called once the script has been loaded, the chat provider has been initialized and is ready for use (optional)
 
 ## 💬 Supported Providers
 
@@ -375,6 +377,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/stramel"><img src="https://avatars.githubusercontent.com/u/855184?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Stramel</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=stramel" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/myleslinder"><img src="https://avatars.githubusercontent.com/u/4735451?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Myles Linder</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=myleslinder" title="Code">💻</a></td>
   </tr>
 </table>
 

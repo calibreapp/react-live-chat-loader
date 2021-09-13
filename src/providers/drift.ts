@@ -69,19 +69,25 @@ const loadScript = (): boolean => {
 
 const load = ({
   providerKey,
-  setState
+  setState,
+  beforeInit = () => undefined,
+  onReady = () => undefined
 }: {
   providerKey: string
   setState: (state: State) => void
+  beforeInit?: () => void
+  onReady?: () => void
 }): boolean => {
   const loaded = loadScript()
 
   // Continue as long as drift hasn’t already been initialised.
   if (loaded) {
+    beforeInit()
     window.drift.load(providerKey)
     window.drift.SNIPPET_VERSION = '0.3.1'
     window.drift.on('ready', () => {
       setState('complete')
+      onReady()
     })
   }
 

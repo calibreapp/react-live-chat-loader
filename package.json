@@ -1,6 +1,6 @@
 {
   "name": "react-live-chat-loader",
-  "version": "2.5.2",
+  "version": "2.6.1",
   "description": "Implement live chat in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "module": "module/index.js",
@@ -22,7 +22,14 @@
   "keywords": [
     "performance",
     "react",
-    "chat"
+    "chat",
+    "helpscout", 
+    "intercom", 
+    "drift", 
+    "chatwoot", 
+    "userlike",
+    "facebook messenger",
+    "messenger"
   ],
   "author": "calibreapp.com",
   "license": "MIT",

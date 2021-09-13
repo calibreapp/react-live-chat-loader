@@ -3,20 +3,24 @@ import * as Providers from '../providers'
 import { State, Provider } from '../types'
 import { LiveChatLoaderContext } from '../context'
 
-export const LiveChatLoaderProvider = ({
-  provider,
-  children,
-  idlePeriod = 5000,
-  baseUrl,
-  ...props
-}: {
+interface LiveChatLoaderProps {
   provider: Provider
   children: JSX.Element
   idlePeriod?: number
   providerKey: string
   appID?: string
   baseUrl?: string
-}): JSX.Element | null => {
+  beforeInit?: () => void
+  onReady?: () => void
+}
+
+export const LiveChatLoaderProvider = ({
+  provider,
+  children,
+  idlePeriod = 5000,
+  baseUrl,
+  ...props
+}: LiveChatLoaderProps): JSX.Element | null => {
   const [state, setState] = useState<State>('initial')
   const value = {
     provider,

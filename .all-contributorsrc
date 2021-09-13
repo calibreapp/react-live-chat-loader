@@ -77,6 +77,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "myleslinder",
+      "name": "Myles Linder",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4735451?v=4",
+      "profile": "https://github.com/myleslinder",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

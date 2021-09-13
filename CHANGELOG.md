@@ -1,3 +1,7 @@
+### 2.6.0 - 2021-09-03
+
+- Add `beforeInit` and `onReady` callbacks (thanks @myleslinder)
+
 ### 2.5.2 - 2021-06-25
 
 - Bug fix for using `loadChat` to open a widget
