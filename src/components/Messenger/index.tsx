@@ -57,7 +57,11 @@ const CustomerChat = memo(
       greeting_dialog_delay: greetingDialogDelay
     }
 
-    return <div><div className="fb-customerchat" {...fields} /></div>
+    return (
+      <div>
+        <div className="fb-customerchat" {...fields} />
+      </div>
+    )
   }
 )
 
@@ -71,6 +75,9 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
   return (
     <div
       style={styles}
+      aria-label="Load Chat"
+      aria-busy="true"
+      aria-live="polite"
       onClick={() => loadChat({ open: true })}
       onMouseEnter={() => loadChat({ open: false })}
     >

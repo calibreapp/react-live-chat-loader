@@ -108,6 +108,9 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
     >
       <div style={styles.region}>
         <div
+          aria-label="Load Chat"
+          aria-busy="true"
+          aria-live="polite"
           onClick={() => loadChat({ open: true })}
           onMouseEnter={() => loadChat({ open: false })}
           style={styles.launcher}
@@ -138,7 +141,13 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
               transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
             }}
           >
-            <svg focusable="false" viewBox="0 0 16 14" width="28" height="25" style={{ width : '16px' }}>
+            <svg
+              focusable="false"
+              viewBox="0 0 16 14"
+              width="28"
+              height="25"
+              style={{ width: '16px' }}
+            >
               <path
                 fill="rgb(255, 255, 255)"
                 fillRule="evenodd"
