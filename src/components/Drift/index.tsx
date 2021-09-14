@@ -75,6 +75,9 @@ const Drift = ({
     <div style={positionStyles}>
       <div style={styles.container}>
         <div
+          aria-label="Load Chat"
+          aria-busy="true"
+          aria-live="polite"
           onClick={() => loadChat({ open: true })}
           onMouseEnter={() => loadChat({ open: false })}
           style={{

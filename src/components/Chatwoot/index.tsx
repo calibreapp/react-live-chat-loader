@@ -25,12 +25,12 @@ const styles: {
     width: '24px'
   },
   close: {
-    backgroundColor: "#fff",
-    height: "24px",
-    left: "32px",
-    position: "absolute",
-    top: "20px",
-    width: "2px",
+    backgroundColor: '#fff',
+    height: '24px',
+    left: '32px',
+    position: 'absolute',
+    top: '20px',
+    width: '2px'
   }
 }
 
@@ -46,6 +46,9 @@ const Provider = ({ color }: Props): JSX.Element | null => {
   return (
     <div>
       <div
+        aria-label="Load Chat"
+        aria-busy="true"
+        aria-live="polite"
         onClick={() => loadChat({ open: true })}
         onMouseEnter={() => loadChat({ open: false })}
         style={{
@@ -61,8 +64,8 @@ const Provider = ({ color }: Props): JSX.Element | null => {
           />
         ) : (
           <>
-            <div style={{ ...styles.close, transform: "rotate(45deg)" }} />
-            <div style={{ ...styles.close, transform: "rotate(-45deg)" }} />
+            <div style={{ ...styles.close, transform: 'rotate(45deg)' }} />
+            <div style={{ ...styles.close, transform: 'rotate(-45deg)' }} />
           </>
         )}
       </div>
