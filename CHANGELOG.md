@@ -1,3 +1,8 @@
+### 2.7.0 - 2021-09-14
+
+- Update `peerDependencies` to remove warning for React 17 (thanks @38ri581oq480)
+- Add aria labels for accessibility attributes to provider buttons (thanks @lauGutierrezz)
+
 ### 2.6.0 - 2021-09-03
 
 - Add `beforeInit` and `onReady` callbacks (thanks @myleslinder)
