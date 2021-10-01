@@ -75,6 +75,7 @@ const Drift = ({
     <div style={positionStyles}>
       <div style={styles.container}>
         <div
+          role="button"
           aria-label="Load Chat"
           aria-busy="true"
           aria-live="polite"
@@ -97,7 +98,7 @@ const Drift = ({
                 height="20"
                 viewBox="0 0 20 20"
                 focusable="false"
-                aria-hidden="true"
+                aria-hid  den="true"
                 style={{
                   display: state === 'initial' ? 'initial' : 'none'
                 }}

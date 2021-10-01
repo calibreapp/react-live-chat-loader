@@ -108,6 +108,7 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
     >
       <div style={styles.region}>
         <div
+          role="button"
           aria-label="Load Chat"
           aria-busy="true"
           aria-live="polite"

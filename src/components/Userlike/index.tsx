@@ -68,6 +68,7 @@ const Userlike = ({
   return (
     <div style={{ ...styles.container, ...positionStyles, ...shapeStyle }}>
       <button
+        role="button"
         aria-label="Load Chat"
         aria-busy="true"
         aria-live="polite"

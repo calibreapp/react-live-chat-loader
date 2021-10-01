@@ -46,6 +46,7 @@ const Provider = ({ color }: Props): JSX.Element | null => {
   return (
     <div>
       <div
+        role="button"
         aria-label="Load Chat"
         aria-busy="true"
         aria-live="polite"
