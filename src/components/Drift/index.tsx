@@ -98,7 +98,7 @@ const Drift = ({
                 height="20"
                 viewBox="0 0 20 20"
                 focusable="false"
-                aria-hid  den="true"
+                aria-hidden="true"
                 style={{
                   display: state === 'initial' ? 'initial' : 'none'
                 }}
