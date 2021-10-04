@@ -104,6 +104,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "luisrudge",
+      "name": "Luís Rudge",
+      "avatar_url": "https://avatars.githubusercontent.com/u/941075?v=4",
+      "profile": "http://luisrudge.net",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
