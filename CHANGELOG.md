@@ -1,3 +1,7 @@
+### 2.7.2 - 2021-10-05
+
+- Update aria role on provider buttons to improve accessibility (@luisrudge)
+
 ### 2.7.0 - 2021-09-14
 
 - Update `peerDependencies` to remove warning for React 17 (thanks @38ri581oq480)
