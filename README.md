@@ -1,7 +1,7 @@
 # React Live Chat Loader
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
@@ -378,6 +378,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/myleslinder"><img src="https://avatars.githubusercontent.com/u/4735451?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Myles Linder</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=myleslinder" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/lauGutierrezz"><img src="https://avatars.githubusercontent.com/u/52488696?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Laura Gutiérrez López de la Franca</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=lauGutierrezz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/38ri581oq480"><img src="https://avatars.githubusercontent.com/u/64654807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kirill Vakalov</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=38ri581oq480" title="Code">💻</a></td>
+    <td align="center"><a href="http://luisrudge.net"><img src="https://avatars.githubusercontent.com/u/941075?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luís Rudge</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=luisrudge" title="Code">💻</a></td>
   </tr>
 </table>
 
