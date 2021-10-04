@@ -75,6 +75,7 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
   return (
     <div
       style={styles}
+      role="button"
       aria-label="Load Chat"
       aria-busy="true"
       aria-live="polite"

@@ -75,6 +75,7 @@ const Drift = ({
     <div style={positionStyles}>
       <div style={styles.container}>
         <div
+          role="button"
           aria-label="Load Chat"
           aria-busy="true"
           aria-live="polite"

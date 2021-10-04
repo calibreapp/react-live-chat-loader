@@ -208,6 +208,7 @@ const HelpScout = ({
       }}
     >
       <button
+        role="button"
         aria-label="Load Chat"
         aria-busy="true"
         aria-live="polite"
