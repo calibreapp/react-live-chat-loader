@@ -70,8 +70,11 @@ const open = (): void => {
   )
 }
 
+const isOpen = () => false
+
 export default {
   domain,
   load,
-  open
+  open,
+  isOpen
 }

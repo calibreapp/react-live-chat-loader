@@ -21,7 +21,8 @@ export const LiveChatLoaderProvider = ({
   baseUrl,
   ...props
 }: LiveChatLoaderProps): JSX.Element | null => {
-  const [state, setState] = useState<State>('initial')
+  const chatProvider = Providers[provider]
+  const [state, setState] = useState<State>(chatProvider.isOpen() ? 'open' : 'initial')
   const value = {
     provider,
     idlePeriod,
@@ -31,7 +32,6 @@ export const LiveChatLoaderProvider = ({
     ...props
   }
 
-  const chatProvider = Providers[provider]
 
   if (!chatProvider) {
     //eslint-disable-next-line no-console

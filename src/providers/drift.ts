@@ -99,8 +99,11 @@ const open = (): void =>
     api.showWelcomeMessage()
   )
 
+const isOpen = () => false
+
 export default {
   domain,
   load,
-  open
+  open,
+  isOpen
 }

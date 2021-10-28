@@ -68,8 +68,11 @@ const load = ({
 
 const open = (): void => window.Beacon('open')
 
+const isOpen = () => false
+
 export default {
   domain,
   load,
-  open
+  open,
+  isOpen
 }

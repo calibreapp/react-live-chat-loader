@@ -78,8 +78,11 @@ const load = ({
 
 const open = (): void => window.Intercom('show')
 
+const isOpen = () => Boolean(typeof window !== "undefined" && window.document.querySelector('iframe[name=intercom-messenger-frame]'))
+
 export default {
   domain,
   load,
-  open
+  open,
+  isOpen
 }
