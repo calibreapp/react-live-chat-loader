@@ -36,7 +36,7 @@ export const LiveChatLoaderProvider = ({
   if (!chatProvider) {
     //eslint-disable-next-line no-console
     console.error(
-      `Unkown provider given to react-live-chat-loader: ${provider}`
+      `Unknown provider given to react-live-chat-loader: ${provider}`
     )
     return null
   }
