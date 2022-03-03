@@ -336,7 +336,7 @@ You can customise the Chatwoot Widget by passing the following props to the
 `Chatwoot` component:
 
 - `color`: The background color, set to same color value you choose in Chatwoot dashboard.
-- `launcherTitle`: The text used for the [Expanded Bubble](https://www.chatwoot.com/docs/product/channels/live-chat/sdk/setup#widget-designs) design. Setting to any non-empty string will enable expanded bubble design automatically. Default to null.
+- `launcherTitle`: The text used for the [Expanded Bubble](https://www.chatwoot.com/docs/product/channels/live-chat/sdk/setup#widget-designs) design. Setting to any non-empty string will enable expanded bubble design automatically. Default value: `null`.
 
 </details>
 
