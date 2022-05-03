@@ -7,3 +7,4 @@ export type Provider =
   | 'drift'
   | 'userlike'
   | 'chatwoot'
+  | 'hubSpot'
