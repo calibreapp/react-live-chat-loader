@@ -1,10 +1,9 @@
 # React Live Chat Loader
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![NPM package](https://img.shields.io/npm/v/react-live-chat-loader?color=informational)](https://www.npmjs.com/package/react-live-chat-loader)
+[![License](https://img.shields.io/github/license/calibreapp/react-live-chat-loader?color=informational)](https://github.com/calibreapp/react-live-chat-loader/blob/main/LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-success)](CODE_OF_CONDUCT.md)
+[![Contribution guidelines](https://img.shields.io/badge/PRs-welcome-success)](CONTRIBUTING.md)
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
@@ -21,6 +20,8 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 5. [Adding a Provider](#-adding-a-provider)
 6. [Contributing](#-contributing)
 7. [Examples](#-examples)
+8. [Resources](#-resources)
+9. [License](#-license)
 
 ## 💡 How it Works
 
@@ -347,16 +348,7 @@ To add a new live chat provider, follow the steps in [Contributing: Adding a Pro
 
 Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).
 
-## 🖥️ Examples
-
-- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
-
-## 📚 Resources
-
-- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
-- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
-
-## ✨ Contributors
+### Past Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -388,3 +380,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## 🖥️ Examples
+
+- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
+
+## 📚 Resources
+
+- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
+- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
+
+## 💼 License
+This project is [MIT licensed](LICENSE).
