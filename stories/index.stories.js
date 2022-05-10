@@ -9,8 +9,8 @@ import {
   Intercom,
   Messenger,
   Drift,
-  useChat,
-} from '../src'
+  useChat
+} from '..'
 
 const Button = () => {
   const [state, loadChat] = useChat()

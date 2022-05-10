@@ -68,6 +68,5 @@
   "files": [
     "dist/*",
     "module/*"
-  ],
-  "dependencies": {}
+  ]
 }
