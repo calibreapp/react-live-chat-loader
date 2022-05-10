@@ -2,7 +2,7 @@
 
 [![NPM package](https://img.shields.io/npm/v/react-live-chat-loader?color=informational)](https://www.npmjs.com/package/react-live-chat-loader)
 [![License](https://img.shields.io/github/license/calibreapp/react-live-chat-loader?color=informational)](https://github.com/calibreapp/react-live-chat-loader/blob/main/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-success)](CODE_OF_CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-success)](CODE_OF_CONDUCT.md)
 [![Contribution guidelines](https://img.shields.io/badge/PRs-welcome-success)](CONTRIBUTING.md)
 
 An npm module that allows you to mitigate the negative performance and user
