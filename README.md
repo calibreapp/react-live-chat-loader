@@ -195,7 +195,7 @@ export default class App extends React.Component {
 You can customise the color of the Intercom widget by passing a `color` prop to
 the `Intercom` component.
 
-User or Company context data can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
+Messenger Settings, User context and Company context settings can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
 </details>
 
