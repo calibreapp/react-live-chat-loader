@@ -1,3 +1,7 @@
+### 2.7.3 - 2022-07-24
+
+- Updated package restriction to support react ^18 (@cbschuld)
+
 ### 2.7.2 - 2021-10-05
 
 - Update aria role on provider buttons to improve accessibility (@luisrudge)
