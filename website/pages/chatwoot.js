@@ -24,7 +24,7 @@ const Page = () => (
           </p>
         </div>
       </div>
-      <Chatwoot />
+      <Chatwoot launcherTitle="Get help" />
     </Layout>
   </LiveChatLoaderProvider>
 )
