@@ -1,6 +1,10 @@
-### 2.7.3 - 2022-07-24
+### 2.7.4 - 2022-09-13
 
 - Updated package restriction to support react ^18 (@cbschuld)
+
+### 2.7.3 - 2022-01-08
+
+- No update. Release updated package-lock.json to version 2. 
 
 ### 2.7.2 - 2021-10-05
 
