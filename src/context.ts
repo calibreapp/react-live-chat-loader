@@ -4,7 +4,7 @@ import { Provider, State } from './types'
 
 interface Context {
   provider: Provider
-  providerKey: string
+  providerKey: Provider
   state: State
   setState: (state: State) => void
   appID?: string

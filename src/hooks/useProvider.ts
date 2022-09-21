@@ -5,7 +5,7 @@ import { LiveChatLoaderContext } from '../context'
 
 const useProvider = (): {
   provider: Provider
-  providerKey: string
+  providerKey: Provider
 } => {
   const { provider, providerKey } = useContext(LiveChatLoaderContext)
 

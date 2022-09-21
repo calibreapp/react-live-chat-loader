@@ -1,4 +1,4 @@
-import { State } from '../types'
+import { Provider, State } from '../types'
 
 const domain = 'https://js.driftt.com'
 
@@ -73,7 +73,7 @@ const load = ({
   beforeInit = () => undefined,
   onReady = () => undefined
 }: {
-  providerKey: string
+  providerKey: Provider
   setState: (state: State) => void
   beforeInit?: () => void
   onReady?: () => void

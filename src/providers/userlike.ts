@@ -1,4 +1,4 @@
-import { State } from '../types'
+import { Provider, State } from '../types'
 import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com'
@@ -15,7 +15,7 @@ declare global {
 }
 
 /* eslint-disable */
-const loadScript = (providerKey: string): boolean => {
+const loadScript = (providerKey: Provider): boolean => {
   if (window.userlike) return false
 
   var d = document
@@ -39,7 +39,7 @@ const load = ({
   beforeInit = () => undefined,
   onReady = () => undefined
 }: {
-  providerKey: string
+  providerKey: Provider
   setState: (state: State) => void
   beforeInit?: () => void
   onReady?: () => void

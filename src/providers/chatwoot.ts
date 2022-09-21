@@ -1,4 +1,4 @@
-import { State } from '../types'
+import { Provider, State } from '../types'
 import waitForLoad from '../utils/waitForLoad'
 
 const domain = 'https://app.chatwoot.com'
@@ -43,7 +43,7 @@ const load = ({
   beforeInit = () => undefined,
   onReady = () => undefined
 }: {
-  providerKey: string
+  providerKey: Provider
   locale?: string
   setState: (state: State) => void
   baseUrl?: string

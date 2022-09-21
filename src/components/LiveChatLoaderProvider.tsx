@@ -6,7 +6,7 @@ import { LiveChatLoaderContext } from '../context'
 type LiveChatLoaderProps = PropsWithChildren<{
   provider: Provider
   idlePeriod?: number
-  providerKey: string
+  providerKey: Provider
   appID?: string
   baseUrl?: string
   beforeInit?: () => void
