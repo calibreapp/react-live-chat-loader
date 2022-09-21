@@ -8,6 +8,7 @@ type LiveChatLoaderProps = PropsWithChildren<{
   idlePeriod?: number
   providerKey: Provider
   appID?: string
+  locale?: string
   baseUrl?: string
   beforeInit?: () => void
   onReady?: () => void
