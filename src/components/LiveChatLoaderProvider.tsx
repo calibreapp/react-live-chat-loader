@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
 import * as Providers from '../providers'
 import { State, Provider } from '../types'
 import { LiveChatLoaderContext } from '../context'
 
-interface LiveChatLoaderProps {
+type LiveChatLoaderProps = PropsWithChildren<{
   provider: Provider
-  children: JSX.Element
   idlePeriod?: number
   providerKey: string
   appID?: string
   baseUrl?: string
   beforeInit?: () => void
   onReady?: () => void
-}
+}>
 
 export const LiveChatLoaderProvider = ({
   provider,
@@ -28,7 +27,7 @@ export const LiveChatLoaderProvider = ({
     state,
     setState,
     baseUrl,
-    ...props
+    ...props,
   }
 
   const chatProvider = Providers[provider]
