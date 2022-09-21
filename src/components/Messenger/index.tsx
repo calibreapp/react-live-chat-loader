@@ -27,7 +27,6 @@ const styles: CSSProperties = {
 
 interface Props {
   providerKey?: Provider
-  themeColor?: string
   loggedInGreeting?: string
   loggedOutGreeting?: string
   show?: string
