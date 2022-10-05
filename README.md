@@ -358,7 +358,7 @@ The following scripts in the example app will then be available:
 
 Visit [react-live-chat-loader.vercel.app](https://react-live-chat-loader.vercel.app/) for a hosted version of the example app.
 
-> 📝  Note that some providers require safe-listed, publicly accessible domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can can help achieve this locally.
+> 📝  Note that some providers require safe-listed, publicly accessible domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can help achieve this locally.
 
 ## 🙌 Contributing
 
