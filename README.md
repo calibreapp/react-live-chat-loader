@@ -348,7 +348,7 @@ To add a new live chat provider, follow the steps in [Contributing: Adding a Pro
 
 The [website](https://github.com/calibreapp/react-live-chat-loader/tree/master/website) directory of this repository includes a [Next.js](https://nextjs.org) app with example implementations of all currently supported providers.
 
-For initial setup of the example app, be sure to first run `npm install` + `npm run build` in the root level of the repository, before running `npm install` in the `website` directory.
+For the initial setup of the example app, be sure first to run `npm install` + `npm run build` in the root level of the repository before running `npm install` in the `website` directory.
 
 The following scripts in example app will then be available:
 
