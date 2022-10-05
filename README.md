@@ -350,7 +350,7 @@ The [website](https://github.com/calibreapp/react-live-chat-loader/tree/master/w
 
 For the initial setup of the example app, be sure first to run `npm install` + `npm run build` in the root level of the repository before running `npm install` in the `website` directory.
 
-The following scripts in example app will then be available:
+The following scripts in the example app will then be available:
 
 - `npm run dev` (run a local server)
 - `npm run build` (run next build)
