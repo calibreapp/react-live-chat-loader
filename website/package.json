@@ -13,6 +13,7 @@
     "react-live-chat-loader": "../"
   },
   "devDependencies": {
-    "@types/node": "18.8.2"
+    "@types/node": "18.8.2",
+    "eslint-config-next": "^12.3.1"
   }
 }
