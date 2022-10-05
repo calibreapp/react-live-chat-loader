@@ -1,9 +1,11 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider provider="messenger" providerKey="100594861551567">
     <Layout title="React Live Chat Loader: Facebook Messenger">
       <div className="wrapper">

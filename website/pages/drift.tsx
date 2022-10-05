@@ -1,19 +1,18 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Drift } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
 
-const Page = () => (
-  <LiveChatLoaderProvider
-    provider="chatwoot"
-    providerKey="E33wn9ftxMDHZx18AaBkfPvY"
-  >
-    <Layout title="React Live Chat Loader: Chatwoot">
+const Page: NextPage = () => (
+  <LiveChatLoaderProvider provider="drift" providerKey="fv5fpb4nmax7">
+    <Layout title="React Live Chat Loader: Drift">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader: Chatwoot</h1>
+          <h1>React Live Chat Loader: Drift</h1>
           <p>
-            This is an example implementation of the Chatwoot widget using{' '}
+            This is an example implementation of the Drift chat widget using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
@@ -24,7 +23,7 @@ const Page = () => (
           </p>
         </div>
       </div>
-      <Chatwoot />
+      <Drift icon="A" color="#0176ff" />
     </Layout>
   </LiveChatLoaderProvider>
 )

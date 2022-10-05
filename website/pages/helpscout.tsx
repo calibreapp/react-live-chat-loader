@@ -1,16 +1,21 @@
 import React from 'react'
+import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Intercom } from 'react-live-chat-loader'
 
-const Page = () => (
-  <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
-    <Layout title="React Live Chat Loader: Intercom">
+const Page: NextPage = () => (
+  <LiveChatLoaderProvider
+    provider="helpScout"
+    providerKey="b9ae6939-6c02-41de-b270-7f492379dc50"
+  >
+    <Layout title="React Live Chat Loader: Help Scout">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader: Intercom</h1>
+          <h1>React Live Chat Loader: Help Scout</h1>
           <p>
-            This is an example implementation of the Intercom chat widget using{' '}
+            This is an example implementation of the Help Scout beacon using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
@@ -21,7 +26,7 @@ const Page = () => (
           </p>
         </div>
       </div>
-      <Intercom color="#333333" />
+      <HelpScout color="#527ceb" />
     </Layout>
   </LiveChatLoaderProvider>
 )
