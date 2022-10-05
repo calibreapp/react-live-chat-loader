@@ -135,7 +135,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 Currently there are six supported providers:
 
 <details>
-<summary>Help Scout</summary>
+<summary id="help-scout">Help Scout</summary>
 
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
 as `helpScout` and the `providerKey` prop as your Beacon API Key.
