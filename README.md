@@ -18,8 +18,8 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 3. [Usage](#-usage)
 4. [Supported Providers](#-supported-providers)
 5. [Adding a Provider](#-adding-a-provider)
-6. [Contributing](#-contributing)
-7. [Examples](#-examples)
+6. [Examples](#-examples)
+7. [Contributing](#-contributing)
 8. [Resources](#-resources)
 9. [License](#-license)
 
@@ -344,6 +344,22 @@ You can customise the Chatwoot Widget by passing the following props to the
 
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
 
+## 🖥️ Examples
+
+The [/website](https://github.com/calibreapp/react-live-chat-loader/tree/master/website) directory of this repository includes a [Next.js](https://nextjs.org) app with example implementations of all currently supported providers.
+
+For initial setup of the example website, be sure to first run `npm install` + `npm run build` in the root level of the repository, before running `npm install` in the `/website` directory.
+
+The following scripts in `/website` will then be available:
+
+- `npm run dev` (run a local server)
+- `npm run build` (run next build)
+- `npm run start` (run next start)
+
+> 📝  Some provides require whitelisted publically accessable domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can be helpful in acheiving this locally
+
+Visit [react-live-chat-loader.vercel.app](https://react-live-chat-loader.vercel.app/) for a hosted version of the examples.
+
 ## 🙌 Contributing
 
 Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).
@@ -381,14 +397,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## 🖥️ Examples
-
-- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
-
 ## 📚 Resources
 
 - [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
 - [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
 
 ## 💼 License
+
 This project is [MIT licensed](LICENSE).
