@@ -11,8 +11,6 @@
     "build": "npm run lint && tsc --emitDeclarationOnly && npm run build:cjs && npm run build:module",
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "build:module": "BABEL_ENV=module babel src --out-dir module --extensions \".ts,.tsx\" --source-maps inline",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "dev": "tsc --noEmit --watch"
   },
   "prettier": {
@@ -48,11 +46,6 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-knobs": "^5.2.6",
-    "@storybook/addon-links": "^6.5.11",
-    "@storybook/addons": "^6.5.11",
-    "@storybook/react": "^5.1.9",
     "@types/react": "^17.0.3",
     "@types/requestidlecallback": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
