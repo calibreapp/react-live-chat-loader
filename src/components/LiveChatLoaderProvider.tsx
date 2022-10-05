@@ -5,7 +5,7 @@ import { LiveChatLoaderContext } from '../context'
 
 interface LiveChatLoaderProps {
   provider: Provider
-  children: JSX.Element
+  children: React.ReactNode
   idlePeriod?: number
   providerKey: string
   appID?: string
