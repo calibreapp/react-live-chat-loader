@@ -10,6 +10,7 @@ interface LiveChatLoaderProps {
   providerKey: string
   appID?: string
   baseUrl?: string
+  locale?: string
   beforeInit?: () => void
   onReady?: () => void
 }
