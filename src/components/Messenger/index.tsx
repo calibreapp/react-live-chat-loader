@@ -34,6 +34,7 @@ interface Props {
   greetingDialogDelay?: string
   greetingDialogDisplay?: string
   color?: string
+  className?: string
 }
 
 interface ChatProps extends Props {
@@ -67,7 +68,13 @@ const CustomerChat = memo(
   }
 )
 
-const Widget = ({ color }: { color: string }): JSX.Element | null => {
+const Widget = ({
+  color,
+  className
+}: {
+  color: string
+  className: string
+}): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') {
@@ -76,6 +83,7 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
 
   return (
     <div
+      className={className}
       style={styles}
       role="button"
       aria-label="Load Chat"
@@ -104,13 +112,17 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
   )
 }
 
-const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
+const Messenger = ({
+  color = '',
+  className = 'live-chat-loader-placeholder',
+  ...props
+}: Props): JSX.Element => {
   const { providerKey } = useProvider()
 
   return (
     <>
       <CustomerChat color={color} providerKey={providerKey} {...props} />
-      <Widget color={color} />
+      <Widget color={color} className={className} />
     </>
   )
 }
