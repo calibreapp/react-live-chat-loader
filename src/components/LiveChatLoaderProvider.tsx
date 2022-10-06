@@ -5,11 +5,13 @@ import { LiveChatLoaderContext } from '../context'
 
 interface LiveChatLoaderProps {
   provider: Provider
-  children: JSX.Element
+  children: React.ReactNode
   idlePeriod?: number
   providerKey: string
   appID?: string
   baseUrl?: string
+  // locale is only relevant to certain providers, e.g. Messenger and Chatwoot
+  locale?: string
   beforeInit?: () => void
   onReady?: () => void
 }

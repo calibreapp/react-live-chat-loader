@@ -1,6 +1,5 @@
 import React, { CSSProperties, memo } from 'react'
 
-import { Provider } from '../../types'
 import useProvider from '../../hooks/useProvider'
 import useChat from '../../hooks/useChat'
 
@@ -26,7 +25,6 @@ const styles: CSSProperties = {
 }
 
 interface Props {
-  providerKey: Provider | undefined
   themeColor?: string
   loggedInGreeting?: string
   loggedOutGreeting?: string
@@ -38,6 +36,10 @@ interface Props {
   color?: string
 }
 
+interface ChatProps extends Props {
+  providerKey: string
+}
+
 // eslint-disable-next-line react/display-name
 const CustomerChat = memo(
   ({
@@ -47,7 +49,7 @@ const CustomerChat = memo(
     loggedOutGreeting,
     greetingDialogDisplay,
     greetingDialogDelay
-  }: Props) => {
+  }: ChatProps) => {
     const fields = {
       page_id: providerKey,
       theme_color: color,

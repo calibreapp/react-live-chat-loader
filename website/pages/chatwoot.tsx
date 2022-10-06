@@ -1,19 +1,21 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider
-    provider="userlike"
-    providerKey="bf05626502af40b6b1035d7e3c73d22cc8cc0e9c2dd94b73aac33b62e93efcfc"
+    provider="chatwoot"
+    providerKey="E33wn9ftxMDHZx18AaBkfPvY"
   >
-    <Layout title="React Live Chat Loader: Userlike">
+    <Layout title="React Live Chat Loader: Chatwoot">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader: Userlike</h1>
+          <h1>React Live Chat Loader: Chatwoot</h1>
           <p>
-            This is an example implementation of the Userlike chat widget using{' '}
+            This is an example implementation of the Chatwoot widget using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
@@ -24,7 +26,7 @@ const Page = () => (
           </p>
         </div>
       </div>
-      <Userlike vOffset="47px" hOffset="49px" />
+      <Chatwoot />
     </Layout>
   </LiveChatLoaderProvider>
 )
