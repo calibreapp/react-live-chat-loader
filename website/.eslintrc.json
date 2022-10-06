@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next"
+  ],
+  "settings": {
+    "next": {
+      "rootDir": "website/"
+    }
+  }
+}

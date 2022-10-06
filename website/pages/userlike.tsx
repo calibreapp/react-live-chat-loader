@@ -1,19 +1,21 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider
-    provider="helpScout"
-    providerKey="b9ae6939-6c02-41de-b270-7f492379dc50"
+    provider="userlike"
+    providerKey="bf05626502af40b6b1035d7e3c73d22cc8cc0e9c2dd94b73aac33b62e93efcfc"
   >
-    <Layout title="React Live Chat Loader: Help Scout">
+    <Layout title="React Live Chat Loader: Userlike">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader: Help Scout</h1>
+          <h1>React Live Chat Loader: Userlike</h1>
           <p>
-            This is an example implementation of the Help Scout beacon using{' '}
+            This is an example implementation of the Userlike chat widget using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
@@ -24,7 +26,7 @@ const Page = () => (
           </p>
         </div>
       </div>
-      <HelpScout color="#527ceb" />
+      <Userlike vOffset="47px" hOffset="49px" />
     </Layout>
   </LiveChatLoaderProvider>
 )

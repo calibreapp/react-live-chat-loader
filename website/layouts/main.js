@@ -7,36 +7,36 @@ export default ({ title, children }) => (
       <meta name="title" content={title} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <link rel="icon" href="/static/favicon.ico" />
-      <link color="#3b97d3" href="/static/spade.svg" rel="mask-icon" />
+      <link rel="icon" href="/favicon.ico" />
+      <link color="#3b97d3" href="/spade.svg" rel="mask-icon" />
       <link
         rel="apple-touch-icon"
         type="image/png"
-        href="/static/apple-touch-icon-76-76.png"
+        href="/apple-touch-icon-76-76.png"
         sizes="76x76"
       />
       <link
         rel="apple-touch-icon"
         type="image/png"
-        href="/static/apple-touch-icon-120-120.png"
+        href="/apple-touch-icon-120-120.png"
         sizes="120x120"
       />
       <link
         rel="apple-touch-icon"
         type="image/png"
-        href="/static/apple-touch-icon-152-152.png"
+        href="/apple-touch-icon-152-152.png"
         sizes="152x152"
       />
       <link
         rel="apple-touch-icon"
         type="image/png"
-        href="/static/apple-touch-icon-167-167.png"
+        href="/apple-touch-icon-167-167.png"
         sizes="167x167"
       />
       <link
         rel="apple-touch-icon"
         type="image/png"
-        href="/static/apple-touch-icon-180-180.png"
+        href="/apple-touch-icon-180-180.png"
         sizes="180x180"
       />
     </Head>

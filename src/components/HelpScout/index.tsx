@@ -160,8 +160,8 @@ const getIcon = (icon: HelpScoutIcon): JSX.Element => {
 interface Props {
   color?: string
   icon?: HelpScoutIcon
-  zIndex: string
-  horizontalPosition: 'left' | 'right'
+  zIndex?: string
+  horizontalPosition?: 'left' | 'right'
 }
 
 const HelpScout = ({
