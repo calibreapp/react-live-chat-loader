@@ -18,8 +18,8 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 3. [Usage](#-usage)
 4. [Supported Providers](#-supported-providers)
 5. [Adding a Provider](#-adding-a-provider)
-6. [Contributing](#-contributing)
-7. [Examples](#-examples)
+6. [Examples](#%EF%B8%8F-examples)
+7. [Contributing](#-contributing)
 8. [Resources](#-resources)
 9. [License](#-license)
 
@@ -135,7 +135,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 Currently there are six supported providers:
 
 <details>
-<summary>Help Scout</summary>
+<summary id="help-scout">Help Scout</summary>
 
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
 as `helpScout` and the `providerKey` prop as your Beacon API Key.
@@ -170,7 +170,7 @@ Currently the Help Scout component only supports the icon button style.
 </details>
 
 <details>
-<summary>Intercom</summary>
+<summary id="intercom">Intercom</summary>
 
 To use Intercom import the `LiveChatLoaderProvider` and set the `provider` prop
 as `intercom` and the `providerKey` prop as your Intercom App ID.
@@ -200,7 +200,7 @@ the `Intercom` component.
 </details>
 
 <details>
-<summary>Messenger</summary>
+<summary id="messenger">Messenger</summary>
 
 To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger` and the `providerKey` prop as your Facebook Page ID.
 
@@ -249,7 +249,7 @@ For a list of options, refer to [Facebook Customer Chat Plugin documentation](ht
 </details>
 
 <details>
-<summary>Drift</summary>
+<summary id="drift">Drift</summary>
 
 To use Drift import the `LiveChatLoaderProvider` and set the `provider` prop
 as `drift` and the `providerKey` prop as your Drift App ID.
@@ -276,7 +276,7 @@ You can customise the Drift Messenger by passing the following props to the
 </details>
 
 <details>
-<summary>Userlike</summary>
+<summary id="userlike">Userlike</summary>
 
 To use Userlike import the `LiveChatLoaderProvider` and set the `provider` prop
 as `userlike` and the `providerKey` prop as your Userlike Widget secret.
@@ -310,7 +310,7 @@ You can customise the Userlike Widget by passing the following props to the
 </details>
 
 <details>
-<summary> Chatwoot </summary>
+<summary id="chatwoot">Chatwoot</summary>
 
 To use Chatwoot import the `LiveChatLoaderProvider` and set the `provider` prop
 as `chatwoot` and the `providerKey` prop as your Chatwoot secret.
@@ -343,6 +343,22 @@ You can customise the Chatwoot Widget by passing the following props to the
 ## ➕ Adding a Provider
 
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
+
+## 🖥️ Examples
+
+The [website](https://github.com/calibreapp/react-live-chat-loader/tree/master/website) directory of this repository includes a [Next.js](https://nextjs.org) app with example implementations of all currently supported providers.
+
+For the initial setup of the example app, be sure first to run `npm install` + `npm run build` in the root level of the repository before running `npm install` in the `website` directory.
+
+The following scripts in the example app will then be available:
+
+- `npm run dev` (run a local server)
+- `npm run build` (run next build)
+- `npm run start` (run next start)
+
+Visit [react-live-chat-loader.vercel.app](https://react-live-chat-loader.vercel.app/) for a hosted version of the example app.
+
+> 📝  Note that some providers require safe-listed, publicly accessible domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can help achieve this locally.
 
 ## 🙌 Contributing
 
@@ -381,14 +397,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## 🖥️ Examples
-
-- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
-
 ## 📚 Resources
 
 - [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
 - [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
 
 ## 💼 License
+
 This project is [MIT licensed](LICENSE).
