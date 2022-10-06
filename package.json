@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@types/react": "^17.0.3",
+    "@types/react": "^18.0.21",
     "@types/requestidlecallback": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
