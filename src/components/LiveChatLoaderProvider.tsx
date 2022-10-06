@@ -10,6 +10,7 @@ interface LiveChatLoaderProps {
   providerKey: string
   appID?: string
   baseUrl?: string
+  // locale is only relevant to certain providers, e.g. Messenger and Chatwoot
   locale?: string
   beforeInit?: () => void
   onReady?: () => void
