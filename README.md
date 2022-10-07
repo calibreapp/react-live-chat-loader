@@ -157,13 +157,14 @@ export default class App extends React.Component {
 }
 ```
 
-You can customise the Help Scout beacon by passing the following props to the
+You can customise the Help Scout placeholder by passing the following props to the
 `HelpScout` component:
 
-- `color`: The background color of the beacon
+- `color`: The background color of the placeholder
 - `icon`: Choose from `message`, `antenna`, `search`, `question`, `beacon`
-- `zIndex`: Changes the CSS index value of how the Beacon relates to other objects
+- `zIndex`: Changes the CSS index value of how the placeholder relates to other objects
 - `horizontalPosition`: Choose from `left` or `right`
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 Currently the Help Scout component only supports the icon button style.
 
@@ -192,8 +193,10 @@ export default class App extends React.Component {
 }
 ```
 
-You can customise the color of the Intercom widget by passing a `color` prop to
-the `Intercom` component.
+You can customise the Intercom placeholder icon by passing the following props to the `Intercom` component:
+
+- `color`: The background color of the placeholder widget
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 [Messenger Settings](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#messenger-attributes), User context and Company context settings can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
@@ -241,6 +244,7 @@ You can customise the Messenger widget by passing the following props to the
   currently not logged in to Facebook.
 - `greetingDialogDisplay`: Sets how the greeting dialog will be displayed.
 - `greetingDialogDelay`: Sets the number of seconds of delay before the greeting dialog is shown after the plugin is loaded.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 For a list of options, refer to [Facebook Customer Chat Plugin documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin#customization).
 
@@ -267,11 +271,12 @@ export default () => (
 )
 ```
 
-You can customise the Drift Messenger by passing the following props to the
+You can customise the Drift placeholder by passing the following props to the
 `Drift` component:
 
-- `color`: The background color of the messenger
+- `color`: The background color of the placeholder
 - `icon`: Choose from `A`, `B`, `C`, `D`; you're presented with these preset icons when signing up for Drift, or in the "Drift Widget > Design > Widget icon" entry under the "App Settings" header on the Drift settings page.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
@@ -297,7 +302,7 @@ export default () => (
 )
 ```
 
-You can customise the Userlike Widget by passing the following props to the
+You can customise the Userlike placeholder by passing the following props to the
 `Userlike` component:
 
 - `color`: The contrasting color, can be `black` or `white`.
@@ -306,6 +311,7 @@ You can customise the Userlike Widget by passing the following props to the
 - `vOffset`: The amount of vertical margin.
 - `hOffset`: The amount of horizontal margin.
 - `style`: The shape style, can be `round` or `square`.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
@@ -333,10 +339,11 @@ export default () => (
 )
 ```
 
-You can customise the Chatwoot Widget by passing the following props to the
+You can customise the Chatwoot placeholder by passing the following props to the
 `Chatwoot` component:
 
 - `color`: The background color, set to same color value you choose in Chatwoot dashboard.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
