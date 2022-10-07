@@ -1,3 +1,10 @@
+export enum ClassNames {
+  container = 'live-chat-loader-placeholder'
+}
+export interface ProviderProps {
+  containerClass?: string
+}
+
 export type State = 'initial' | 'open' | 'complete'
 
 export type Provider =

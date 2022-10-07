@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   container: CSSProperties
@@ -34,7 +35,7 @@ const styles: {
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
   backgroundColor?: string
   position?: string
@@ -49,7 +50,8 @@ const Userlike = ({
   position = 'right',
   vOffset = '24px',
   hOffset = '24px',
-  style = 'round'
+  style = 'round',
+  containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const positionStyles = {
@@ -66,7 +68,10 @@ const Userlike = ({
   }
 
   return (
-    <div style={{ ...styles.container, ...positionStyles, ...shapeStyle }}>
+    <div
+      className={containerClass}
+      style={{ ...styles.container, ...positionStyles, ...shapeStyle }}
+    >
       <button
         role="button"
         aria-label="Load Chat"

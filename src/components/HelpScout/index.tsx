@@ -2,6 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react'
 
 import useChat from '../../hooks/useChat'
 import useWindowHeight from '../../hooks/useWindowHeight'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   wrapper: CSSProperties
@@ -157,7 +158,7 @@ const getIcon = (icon: HelpScoutIcon): JSX.Element => {
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
   icon?: HelpScoutIcon
   zIndex?: string
@@ -168,7 +169,8 @@ const HelpScout = ({
   color = '#976ad4',
   icon = 'beacon',
   zIndex = '1050',
-  horizontalPosition = 'left'
+  horizontalPosition = 'left',
+  containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowHeight = useWindowHeight()
@@ -201,6 +203,7 @@ const HelpScout = ({
 
   return (
     <div
+      className={containerClass}
       style={{
         ...styles.wrapper,
         ...positionStyles,

@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   button: CSSProperties
@@ -34,17 +35,20 @@ const styles: {
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
 }
 
-const Provider = ({ color }: Props): JSX.Element | null => {
+const Provider = ({
+  color,
+  containerClass = ClassNames.container
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') return null
 
   return (
-    <div>
+    <div className={containerClass}>
       <div
         role="button"
         aria-label="Load Chat"
