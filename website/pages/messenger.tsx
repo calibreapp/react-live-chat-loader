@@ -19,9 +19,8 @@ const Page: NextPage = () => (
             </a>
             .
           </p>
-          <p>
-            View other demos: <ExampleLinks />
-          </p>
+          <p>View other demos:</p>
+          <ExampleLinks />
         </div>
       </div>
       <Messenger

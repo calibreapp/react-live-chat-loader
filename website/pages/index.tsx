@@ -25,9 +25,8 @@ const Page: NextPage = () => (
             Built by the team at Calibre <span>→</span>
           </a>
         </p>
-        <p>
-          View demos: <ExampleLinks />
-        </p>
+        <p>View demos:</p>
+        <ExampleLinks />
       </div>
     </div>
   </Layout>
