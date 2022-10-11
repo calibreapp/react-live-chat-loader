@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   wrapper: CSSProperties
@@ -88,11 +89,14 @@ const styles: {
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
 }
 
-const Intercom = ({ color }: Props): JSX.Element | null => {
+const Intercom = ({
+  color,
+  containerClass = ClassNames.container
+}: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') {
@@ -101,6 +105,7 @@ const Intercom = ({ color }: Props): JSX.Element | null => {
 
   return (
     <div
+      className={containerClass}
       style={{
         ...styles.wrapper,
         background: color

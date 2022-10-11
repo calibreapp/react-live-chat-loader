@@ -2,6 +2,7 @@ import React, { useState, useEffect, CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
 import useWindowWidth from '../../hooks/useWindowWidth'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   container: CSSProperties
@@ -40,14 +41,15 @@ const styles: {
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
   icon?: 'A' | 'B' | 'C' | 'D'
 }
 
 const Drift = ({
   color = '#0176ff',
-  icon = 'A'
+  icon = 'A',
+  containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const windowWidth = useWindowWidth()
@@ -72,7 +74,7 @@ const Drift = ({
   }
 
   return (
-    <div style={positionStyles}>
+    <div className={containerClass} style={positionStyles}>
       <div style={styles.container}>
         <div
           role="button"

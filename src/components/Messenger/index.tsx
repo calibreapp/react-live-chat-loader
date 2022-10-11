@@ -2,6 +2,7 @@ import React, { CSSProperties, memo } from 'react'
 
 import useProvider from '../../hooks/useProvider'
 import useChat from '../../hooks/useChat'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: CSSProperties = {
   appearance: 'none',
@@ -24,7 +25,7 @@ const styles: CSSProperties = {
   userSelect: 'none'
 }
 
-interface Props {
+interface Props extends ProviderProps {
   themeColor?: string
   loggedInGreeting?: string
   loggedOutGreeting?: string
@@ -67,7 +68,13 @@ const CustomerChat = memo(
   }
 )
 
-const Widget = ({ color }: { color: string }): JSX.Element | null => {
+const Widget = ({
+  color,
+  containerClass
+}: {
+  color: string
+  containerClass: string
+}): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
   if (state === 'complete') {
@@ -76,6 +83,7 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
 
   return (
     <div
+      className={containerClass}
       style={styles}
       role="button"
       aria-label="Load Chat"
@@ -104,13 +112,17 @@ const Widget = ({ color }: { color: string }): JSX.Element | null => {
   )
 }
 
-const Messenger = ({ color = '', ...props }: Props): JSX.Element => {
+const Messenger = ({
+  color = '',
+  containerClass = ClassNames.container,
+  ...props
+}: Props): JSX.Element => {
   const { providerKey } = useProvider()
 
   return (
     <>
       <CustomerChat color={color} providerKey={providerKey} {...props} />
-      <Widget color={color} />
+      <Widget color={color} containerClass={containerClass} />
     </>
   )
 }
