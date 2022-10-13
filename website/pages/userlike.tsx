@@ -25,7 +25,7 @@ const Page: NextPage = () => (
           <ExampleLinks />
         </div>
       </div>
-      <Userlike vOffset="47px" hOffset="49px" />
+      <Userlike />
     </Layout>
   </LiveChatLoaderProvider>
 )
