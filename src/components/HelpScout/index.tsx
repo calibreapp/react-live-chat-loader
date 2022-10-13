@@ -181,17 +181,17 @@ const HelpScout = ({
 
   useEffect(() => {
     setPositionStyles({
-      bottom: windowHeight < 740 ? '10px' : '40px',
+      bottom: windowHeight <= 740 ? '10px' : '40px',
       right:
         horizontalPosition === 'left'
           ? 'auto'
-          : windowHeight < 740
+          : windowHeight <= 740
           ? '20px'
           : '40px',
       left:
         horizontalPosition === 'right'
           ? 'auto'
-          : windowHeight < 740
+          : windowHeight <= 740
           ? '20px'
           : '40px'
     })
