@@ -166,10 +166,10 @@ interface Props extends ProviderProps {
 }
 
 const HelpScout = ({
-  color = '#976ad4',
-  icon = 'beacon',
+  color = '#527ceb',
+  icon = 'message',
   zIndex = '1050',
-  horizontalPosition = 'left',
+  horizontalPosition = 'right',
   containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
@@ -181,17 +181,17 @@ const HelpScout = ({
 
   useEffect(() => {
     setPositionStyles({
-      bottom: windowHeight < 740 ? '10px' : '40px',
+      bottom: windowHeight <= 740 ? '10px' : '40px',
       right:
         horizontalPosition === 'left'
           ? 'auto'
-          : windowHeight < 740
+          : windowHeight <= 740
           ? '20px'
           : '40px',
       left:
         horizontalPosition === 'right'
           ? 'auto'
-          : windowHeight < 740
+          : windowHeight <= 740
           ? '20px'
           : '40px'
     })
