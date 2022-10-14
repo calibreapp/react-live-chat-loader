@@ -4,14 +4,14 @@
 
 - Add optional `containerClass` prop to provider components [#184](https://github.com/calibreapp/react-live-chat-loader/pull/184)
 - Realign `react-live-chat-loader` default styling with the current default styling of each provider’s chat beacon [#186](https://github.com/calibreapp/react-live-chat-loader/pull/186)
-- Fix Typescript definitions (thanks @tien) [#182](https://github.com/calibreapp/react-live-chat-loader/pull/182)
+- Fix Typescript definitions [#182](https://github.com/calibreapp/react-live-chat-loader/pull/182)
 - Improve example website: convert to Typescript, fix local environment, remove invalid markup, address Next CLI warnings [#177](https://github.com/calibreapp/react-live-chat-loader/pull/177), [#182](https://github.com/calibreapp/react-live-chat-loader/pull/182), [#183](https://github.com/calibreapp/react-live-chat-loader/pull/183)
 - Remove Storybook [#181](https://github.com/calibreapp/react-live-chat-loader/pull/181)
 - Update dependencies
 
 ### Credits
 
-Thanks to @cmstroscio, @IngoVals and @tien for raising issues or pull requests that assisted with this release.
+Thanks to @IngoVals, @Undistraction and @tien for raising issues, comments or pull requests that assisted with this release.
 
 ## 2.7.4 - 2022-09-13
 
