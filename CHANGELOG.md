@@ -18,7 +18,7 @@
 
 ### 💞 Credits
 
-Thanks to [@IngoVals](https://githyb.com/IngoVals), [@Undistraction](https://githyb.com/Undistraction) and [@tien](https://githyb.com/tien) for raising issues, comments and pull requests that assisted with this release!
+Thanks to [@IngoVals](https://github.com/IngoVals), [@Undistraction](https://github.com/Undistraction) and [@tien](https://github.com/tien) for raising issues, comments and pull requests that assisted with this release!
 
 ## 2.7.4 (2022-09-13)
 
