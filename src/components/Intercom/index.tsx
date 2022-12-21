@@ -34,7 +34,6 @@ const styles: {
     maxHeight: '48px',
     height: '48px',
     borderRadius: '50%',
-    background: '#333333',
     cursor: 'pointer',
     boxShadow:
       '0 1px 6px 0 rgba(0, 0, 0, 0.06), 0 2px 32px 0 rgba(0, 0, 0, 0.16)',
@@ -78,8 +77,7 @@ const Intercom = ({
     <div
       className={containerClass}
       style={{
-        ...styles.wrapper,
-        background: color
+        ...styles.wrapper
       }}
     >
       <div
@@ -89,7 +87,10 @@ const Intercom = ({
         aria-live="polite"
         onClick={() => loadChat({ open: true })}
         onMouseEnter={() => loadChat({ open: false })}
-        style={styles.launcher}
+        style={{
+          ...styles.launcher,
+          background: color
+        }}
       >
         <div
           style={{
