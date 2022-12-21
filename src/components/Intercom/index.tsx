@@ -5,87 +5,58 @@ import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   wrapper: CSSProperties
-  region: CSSProperties
   launcher: CSSProperties
+  icon: CSSProperties
   logo: CSSProperties
   close: CSSProperties
 } = {
   wrapper: {
-    zIndex: 2147483004, // 1 more than the actual widget
-    position: 'fixed',
-    bottom: '20px',
-    display: 'block',
-    right: '20px',
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
-    boxShadow:
-      'rgba(0, 0, 0, 0.0588235) 0px 1px 6px 0px, rgba(0, 0, 0, 0.156863) 0px 2px 32px 0px'
-  },
-  region: {
     fontFamily:
-      "intercom-font, 'Helvetica Neue', 'Apple Color Emoji', Helvetica, Arial, sans-serif",
-    fontSize: '100%',
-    fontStyle: 'normal',
-    letterSpacing: 'normal',
-    fontStretch: 'normal',
-    fontVariantLigatures: 'normal',
-    fontVariantCaps: 'normal',
-    fontVariantEastAsian: 'normal',
-    fontVariantPosition: 'normal',
-    fontWeight: 'normal',
-    textAlign: 'left',
-    textDecorationLine: 'none',
-    textDecorationStyle: 'initial',
-    textDecorationColor: 'initial',
-    textDecoration: 'none',
-    textIndent: '0px',
-    textShadow: 'none',
-    textTransform: 'none',
-    boxSizing: 'content-box',
-    WebkitTextEmphasisStyle: 'none',
-    WebkitTextEmphasisColor: 'initial',
-    WebkitFontSmoothing: 'antialiased',
-    lineHeight: 1
-  },
-  launcher: {
-    position: 'absolute',
-    top: '0px',
-    left: '0px',
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
-    cursor: 'pointer',
-    transformOrigin: 'center',
-    overflowX: 'hidden',
-    overflowY: 'hidden',
-    WebkitBackfaceVisibility: 'hidden',
+      'intercom-font, "Helvetica Neue", "Apple Color Emoji", Helvetica, Arial, sans-serif',
+    color: 'white',
+    fontSize: '16px',
+    lineHeight: 1.5,
+    WebkitTextSizeAdjust: '100%',
     WebkitFontSmoothing: 'antialiased'
   },
-  logo: {
+  launcher: {
+    position: 'fixed',
+    // z-index is 1 more than Intercom's actual launcher as when the real widget loads
+    // it might not initially reflect the fake icon's current state (open/closed)
+    zIndex: 2147483004,
+    padding: '0 !important',
+    margin: '0 !important',
+    border: 'none',
+    bottom: '20px',
+    right: '20px',
+    maxWidth: '48px',
+    width: '48px',
+    maxHeight: '48px',
+    height: '48px',
+    borderRadius: '50%',
+    background: '#333333',
+    cursor: 'pointer',
+    boxShadow:
+      '0 1px 6px 0 rgba(0, 0, 0, 0.06), 0 2px 32px 0 rgba(0, 0, 0, 0.16)',
+    transition: 'transform 167ms cubic-bezier(0.33, 0.00, 0.00, 1.00)',
+    boxSizing: 'content-box'
+  },
+  icon: {
     display: 'flex',
-    WebkitBoxAlign: 'center',
     alignItems: 'center',
-    WebkitBoxPack: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: '0px',
-    bottom: '0px',
-    width: '100%',
-    transform: 'rotate(0deg) scale(1)',
-    transition: 'transform 0.16s linear 0s, opacity 0.08s linear 0s'
+    top: '0',
+    left: '0',
+    width: '48px',
+    height: '48px',
+    transition: 'transform 100ms linear, opacity 80ms linear'
+  },
+  logo: {
+    transform: 'rotate(0deg) scale(1)'
   },
   close: {
-    display: 'flex',
-    WebkitBoxAlign: 'center',
-    alignItems: 'center',
-    WebkitBoxPack: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: '0px',
-    bottom: '0px',
-    width: '100%',
-    transition: 'transform 0.16s linear 0s, opacity 0.08s linear 0s'
+    transform: 'rotate(-60deg) scale(0)'
   }
 }
 
@@ -94,7 +65,7 @@ interface Props extends ProviderProps {
 }
 
 const Intercom = ({
-  color,
+  color = '#333333',
   containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
@@ -111,66 +82,62 @@ const Intercom = ({
         background: color
       }}
     >
-      <div style={styles.region}>
+      <div
+        role="button"
+        aria-label="Load Chat"
+        aria-busy="true"
+        aria-live="polite"
+        onClick={() => loadChat({ open: true })}
+        onMouseEnter={() => loadChat({ open: false })}
+        style={styles.launcher}
+      >
         <div
-          role="button"
-          aria-label="Load Chat"
-          aria-busy="true"
-          aria-live="polite"
-          onClick={() => loadChat({ open: true })}
-          onMouseEnter={() => loadChat({ open: false })}
-          style={styles.launcher}
+          style={{
+            ...styles.icon,
+            ...styles.logo,
+            opacity: state === 'initial' ? 1 : 0
+          }}
         >
-          <div
-            style={{
-              ...styles.logo,
-              opacity: state === 'initial' ? 1 : 0
-            }}
+          <svg
+            height="24px"
+            width="24px"
+            focusable="false"
+            aria-hidden="true"
+            viewBox="0 0 28 32"
           >
-            <svg
-              height="32px"
-              width="28px"
-              focusable="false"
-              aria-hidden="true"
-              viewBox="0 0 28 32"
-            >
-              <path
-                fill="rgb(255, 255, 255)"
-                d="M28,32 C28,32 23.2863266,30.1450667 19.4727818,28.6592 L3.43749107,28.6592 C1.53921989,28.6592 0,27.0272 0,25.0144 L0,3.6448 C0,1.632 1.53921989,0 3.43749107,0 L24.5615088,0 C26.45978,0 27.9989999,1.632 27.9989999,3.6448 L27.9989999,22.0490667 L28,22.0490667 L28,32 Z M23.8614088,20.0181333 C23.5309223,19.6105242 22.9540812,19.5633836 22.5692242,19.9125333 C22.5392199,19.9392 19.5537934,22.5941333 13.9989999,22.5941333 C8.51321617,22.5941333 5.48178311,19.9584 5.4277754,19.9104 C5.04295119,19.5629428 4.46760991,19.6105095 4.13759108,20.0170667 C3.97913051,20.2124916 3.9004494,20.4673395 3.91904357,20.7249415 C3.93763774,20.9825435 4.05196575,21.2215447 4.23660523,21.3888 C4.37862552,21.5168 7.77411059,24.5386667 13.9989999,24.5386667 C20.2248893,24.5386667 23.6203743,21.5168 23.7623946,21.3888 C23.9467342,21.2215726 24.0608642,20.9827905 24.0794539,20.7254507 C24.0980436,20.4681109 24.0195551,20.2135019 23.8614088,20.0181333 Z"
-              />
-            </svg>
-          </div>
-          <div
-            style={{
-              ...styles.close,
-              opacity: state === 'initial' ? 0 : 1,
-              transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
-            }}
+            <path
+              fill="white"
+              d="M28 32s-4.714-1.855-8.527-3.34H3.437C1.54 28.66 0 27.026 0 25.013V3.644C0 1.633 1.54 0 3.437 0h21.125c1.898 0 3.437 1.632 3.437 3.645v18.404H28V32zm-4.139-11.982a.88.88 0 00-1.292-.105c-.03.026-3.015 2.681-8.57 2.681-5.486 0-8.517-2.636-8.571-2.684a.88.88 0 00-1.29.107 1.01 1.01 0 00-.219.708.992.992 0 00.318.664c.142.128 3.537 3.15 9.762 3.15 6.226 0 9.621-3.022 9.763-3.15a.992.992 0 00.317-.664 1.01 1.01 0 00-.218-.707z"
+            ></path>
+          </svg>
+        </div>
+        <div
+          style={{
+            ...styles.icon,
+            ...styles.close,
+            opacity: state === 'initial' ? 0 : 1,
+            transform: state === 'initial' ? 'rotate(-30deg)' : 'rotate(0deg)'
+          }}
+        >
+          <svg
+            focusable="false"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              focusable="false"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z"
-                fill="white"
-              ></path>
-            </svg>
-          </div>
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z"
+              fill="white"
+            ></path>
+          </svg>
         </div>
       </div>
     </div>
   )
-}
-
-Intercom.defaultProps = {
-  color: '#333333'
 }
 
 export default Intercom
