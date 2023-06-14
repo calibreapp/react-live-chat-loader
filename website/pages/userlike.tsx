@@ -1,9 +1,11 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Userlike } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider
     provider="userlike"
     providerKey="bf05626502af40b6b1035d7e3c73d22cc8cc0e9c2dd94b73aac33b62e93efcfc"
@@ -19,12 +21,11 @@ const Page = () => (
             </a>
             .
           </p>
-          <p>
-            View other demos: <ExampleLinks />
-          </p>
+          <p>View other demos:</p>
+          <ExampleLinks />
         </div>
       </div>
-      <Userlike vOffset="47px" hOffset="49px" />
+      <Userlike />
     </Layout>
   </LiveChatLoaderProvider>
 )

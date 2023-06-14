@@ -1,9 +1,10 @@
 import React from 'react'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
-import Link from 'next/link'
 import ExampleLinks from '../components/exampleLinks'
 
-const Page = () => (
+const Page: NextPage = () => (
   <Layout title="React Live Chat Loader">
     <div className="wrapper">
       <div className="inner">
@@ -24,9 +25,8 @@ const Page = () => (
             Built by the team at Calibre <span>→</span>
           </a>
         </p>
-        <p>
-          View demos: <ExampleLinks />
-        </p>
+        <p>View demos:</p>
+        <ExampleLinks />
       </div>
     </div>
   </Layout>

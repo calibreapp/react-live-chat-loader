@@ -1,10 +1,9 @@
 # React Live Chat Loader
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![NPM package](https://img.shields.io/npm/v/react-live-chat-loader?color=informational)](https://www.npmjs.com/package/react-live-chat-loader)
+[![License](https://img.shields.io/github/license/calibreapp/react-live-chat-loader?color=informational)](https://github.com/calibreapp/react-live-chat-loader/blob/main/LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-success)](CODE_OF_CONDUCT.md)
+[![Contribution guidelines](https://img.shields.io/badge/PRs-welcome-success)](CONTRIBUTING.md)
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
@@ -19,8 +18,10 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 3. [Usage](#-usage)
 4. [Supported Providers](#-supported-providers)
 5. [Adding a Provider](#-adding-a-provider)
-6. [Contributing](#-contributing)
-7. [Examples](#-examples)
+6. [Examples](#%EF%B8%8F-examples)
+7. [Contributing](#-contributing)
+8. [Resources](#-resources)
+9. [License](#-license)
 
 ## 💡 How it Works
 
@@ -134,7 +135,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 Currently there are six supported providers:
 
 <details>
-<summary>Help Scout</summary>
+<summary id="help-scout">Help Scout</summary>
 
 To use Help Scout import the `LiveChatLoaderProvider` and set the `provider` prop
 as `helpScout` and the `providerKey` prop as your Beacon API Key.
@@ -156,20 +157,21 @@ export default class App extends React.Component {
 }
 ```
 
-You can customise the Help Scout beacon by passing the following props to the
+You can customise the Help Scout placeholder by passing the following props to the
 `HelpScout` component:
 
-- `color`: The background color of the beacon
+- `color`: The background color of the placeholder
 - `icon`: Choose from `message`, `antenna`, `search`, `question`, `beacon`
-- `zIndex`: Changes the CSS index value of how the Beacon relates to other objects
+- `zIndex`: Changes the CSS index value of how the placeholder relates to other objects
 - `horizontalPosition`: Choose from `left` or `right`
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 Currently the Help Scout component only supports the icon button style.
 
 </details>
 
 <details>
-<summary>Intercom</summary>
+<summary id="intercom">Intercom</summary>
 
 To use Intercom import the `LiveChatLoaderProvider` and set the `provider` prop
 as `intercom` and the `providerKey` prop as your Intercom App ID.
@@ -191,15 +193,17 @@ export default class App extends React.Component {
 }
 ```
 
-You can customise the color of the Intercom widget by passing a `color` prop to
-the `Intercom` component.
+You can customise the Intercom placeholder icon by passing the following props to the `Intercom` component:
 
-User or Company context data can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
+- `color`: The background color of the placeholder widget
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
+
+[Messenger Settings](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#messenger-attributes), User context and Company context settings can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
 </details>
 
 <details>
-<summary>Messenger</summary>
+<summary id="messenger">Messenger</summary>
 
 To use Messenger, import the `LiveChatLoaderProvider` and then set the `provider` prop as `messenger` and the `providerKey` prop as your Facebook Page ID.
 
@@ -240,6 +244,7 @@ You can customise the Messenger widget by passing the following props to the
   currently not logged in to Facebook.
 - `greetingDialogDisplay`: Sets how the greeting dialog will be displayed.
 - `greetingDialogDelay`: Sets the number of seconds of delay before the greeting dialog is shown after the plugin is loaded.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 For a list of options, refer to [Facebook Customer Chat Plugin documentation](https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin#customization).
 
@@ -248,7 +253,7 @@ For a list of options, refer to [Facebook Customer Chat Plugin documentation](ht
 </details>
 
 <details>
-<summary>Drift</summary>
+<summary id="drift">Drift</summary>
 
 To use Drift import the `LiveChatLoaderProvider` and set the `provider` prop
 as `drift` and the `providerKey` prop as your Drift App ID.
@@ -266,16 +271,17 @@ export default () => (
 )
 ```
 
-You can customise the Drift Messenger by passing the following props to the
+You can customise the Drift placeholder by passing the following props to the
 `Drift` component:
 
-- `color`: The background color of the messenger
+- `color`: The background color of the placeholder
 - `icon`: Choose from `A`, `B`, `C`, `D`; you're presented with these preset icons when signing up for Drift, or in the "Drift Widget > Design > Widget icon" entry under the "App Settings" header on the Drift settings page.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
 <details>
-<summary>Userlike</summary>
+<summary id="userlike">Userlike</summary>
 
 To use Userlike import the `LiveChatLoaderProvider` and set the `provider` prop
 as `userlike` and the `providerKey` prop as your Userlike Widget secret.
@@ -296,7 +302,7 @@ export default () => (
 )
 ```
 
-You can customise the Userlike Widget by passing the following props to the
+You can customise the Userlike placeholder by passing the following props to the
 `Userlike` component:
 
 - `color`: The contrasting color, can be `black` or `white`.
@@ -305,11 +311,12 @@ You can customise the Userlike Widget by passing the following props to the
 - `vOffset`: The amount of vertical margin.
 - `hOffset`: The amount of horizontal margin.
 - `style`: The shape style, can be `round` or `square`.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
 <details>
-<summary> Chatwoot </summary>
+<summary id="chatwoot">Chatwoot</summary>
 
 To use Chatwoot import the `LiveChatLoaderProvider` and set the `provider` prop
 as `chatwoot` and the `providerKey` prop as your Chatwoot secret.
@@ -332,10 +339,11 @@ export default () => (
 )
 ```
 
-You can customise the Chatwoot Widget by passing the following props to the
+You can customise the Chatwoot placeholder by passing the following props to the
 `Chatwoot` component:
 
 - `color`: The background color, set to same color value you choose in Chatwoot dashboard.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
 
@@ -343,20 +351,27 @@ You can customise the Chatwoot Widget by passing the following props to the
 
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
 
+## 🖥️ Examples
+
+The [website](https://github.com/calibreapp/react-live-chat-loader/tree/master/website) directory of this repository includes a [Next.js](https://nextjs.org) app with example implementations of all currently supported providers.
+
+For the initial setup of the example app, be sure first to run `npm install` + `npm run build` in the root level of the repository before running `npm install` in the `website` directory.
+
+The following scripts in the example app will then be available:
+
+- `npm run dev` (run a local server)
+- `npm run build` (run next build)
+- `npm run start` (run next start)
+
+Visit [react-live-chat-loader.vercel.app](https://react-live-chat-loader.vercel.app/) for a hosted version of the example app.
+
+> 📝  Note that some providers require safe-listed, publicly accessible domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can help achieve this locally.
+
 ## 🙌 Contributing
 
 Happy to hear you’re interested in contributing to React Live Chat Loader! Please find our contribution guidelines [here](CONTRIBUTING.md).
 
-## 🖥️ Examples
-
-- [react-live-chat-loader-example-app](https://github.com/calibreapp/react-live-chat-loader/tree/master/website): example [Next.js](https://nextjs.org) application
-
-## 📚 Resources
-
-- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
-- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
-
-## ✨ Contributors
+### Past Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -388,3 +403,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## 📚 Resources
+
+- [How to avoid performance regressions when using live chat tools](https://calibreapp.com/blog/fast-live-chat)
+- [Reducing the Intercom Messenger bundle size by 65%](https://www.intercom.com/blog/reducing-intercom-messenger-bundle-size/)
+
+## 💼 License
+
+This project is [MIT licensed](LICENSE).

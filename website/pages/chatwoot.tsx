@@ -1,9 +1,11 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider
     provider="chatwoot"
     providerKey="E33wn9ftxMDHZx18AaBkfPvY"
@@ -19,9 +21,8 @@ const Page = () => (
             </a>
             .
           </p>
-          <p>
-            View other demos: <ExampleLinks />
-          </p>
+          <p>View other demos:</p>
+          <ExampleLinks />
         </div>
       </div>
       <Chatwoot />

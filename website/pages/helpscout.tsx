@@ -1,9 +1,11 @@
 import React from 'react'
+import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, HelpScout } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider
     provider="helpScout"
     providerKey="b9ae6939-6c02-41de-b270-7f492379dc50"
@@ -19,12 +21,11 @@ const Page = () => (
             </a>
             .
           </p>
-          <p>
-            View other demos: <ExampleLinks />
-          </p>
+          <p>View other demos:</p>
+          <ExampleLinks />
         </div>
       </div>
-      <HelpScout color="#527ceb" />
+      <HelpScout />
     </Layout>
   </LiveChatLoaderProvider>
 )

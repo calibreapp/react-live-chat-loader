@@ -1,6 +1,6 @@
 {
   "name": "react-live-chat-loader",
-  "version": "2.7.3",
+  "version": "2.8.1",
   "description": "Implement live chat in your react app without taking a performance hit.",
   "main": "dist/index.js",
   "module": "module/index.js",
@@ -11,13 +11,13 @@
     "build": "npm run lint && tsc --emitDeclarationOnly && npm run build:cjs && npm run build:module",
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "build:module": "BABEL_ENV=module babel src --out-dir module --extensions \".ts,.tsx\" --source-maps inline",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "dev": "tsc --noEmit --watch"
   },
   "prettier": {
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
   },
   "keywords": [
     "performance",
@@ -38,36 +38,30 @@
     "url": "https://github.com/calibreapp/react-live-chat-loader.git"
   },
   "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.13.0",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-knobs": "^5.2.6",
-    "@storybook/addon-links": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9",
-    "@types/react": "^17.0.3",
-    "@types/requestidlecallback": "^0.3.1",
-    "@typescript-eslint/eslint-plugin": "^4.17.0",
-    "@typescript-eslint/parser": "^4.17.0",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.22.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-react": "^7.22.0",
-    "prettier": "1.19.1",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.2.3"
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.19.4",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/react": "^18.0.21",
+    "@types/requestidlecallback": "^0.3.5",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "babel-loader": "^9.1.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
+    "prettier": "2.8.8",
+    "ts-loader": "^9.4.1",
+    "typescript": "^5.0.4"
   },
   "files": [
     "dist/*",
     "module/*"
-  ],
-  "dependencies": {}
+  ]
 }

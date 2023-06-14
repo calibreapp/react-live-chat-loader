@@ -1,68 +1,159 @@
-### 2.7.2 - 2021-10-05
+## 2.8.1 (2022-12-22)
 
-- Update aria role on provider buttons to improve accessibility (@luisrudge)
+### 📦 Dependencies
 
-### 2.7.0 - 2021-09-14
+- Updates dependencies.
 
-- Update `peerDependencies` to remove warning for React 17 (thanks @38ri581oq480)
-- Add aria labels for accessibility attributes to provider buttons (thanks @lauGutierrezz)
+### 🐛 Bugs
 
-### 2.6.0 - 2021-09-03
+- Realign `react-live-chat-loader` placeholder styling with Intercom's new default styling ([#215](https://github.com/calibreapp/react-live-chat-loader/pull/215)).
 
-- Add `beforeInit` and `onReady` callbacks (thanks @myleslinder)
+## 2.8.0 (2022-10-19)
 
-### 2.5.2 - 2021-06-25
+### 🛠 Core
 
-- Bug fix for using `loadChat` to open a widget
+- Adds optional `containerClass` prop to provider components ([#184](https://github.com/calibreapp/react-live-chat-loader/pull/184)).
+- Realigns `react-live-chat-loader` default styling with the current default styling of each provider’s chat beacon ([#186](https://github.com/calibreapp/react-live-chat-loader/pull/186)).
+- Improves the example website ([#177](https://github.com/calibreapp/react-live-chat-loader/pull/177), [#182](https://github.com/calibreapp/react-live-chat-loader/pull/182), [#183](https://github.com/calibreapp/react-live-chat-loader/pull/183)):
+  - converts to Typescript
+  - fixes the local environment
+  - removes invalid markup
+  - addresses Next CLI warnings
+- Removes Storybook ([#181](https://github.com/calibreapp/react-live-chat-loader/pull/181)).
 
-### 2.5.1 - 2021-06-09
+### 📦 Dependencies
 
-- Use relative paths for library imports to ensure types can be found
+- Updates dependencies.
 
-### 2.5.0 - 2021-06-08
+### 🐛 Bugs
 
-- Add `Chatwoot` component (thanks @motiko)
-- Update how we detect if a provider has loaded
+- Fixes Typescript definitions ([#182](https://github.com/calibreapp/react-live-chat-loader/pull/182)).
 
-### 2.4.0 - 2021-05-24
+### 💞 Credits
 
-- Build additional module version of the package (thanks @jaska120)
+Thanks to [@IngoVals](https://github.com/IngoVals), [@Undistraction](https://github.com/Undistraction) and [@tien](https://github.com/tien) for raising issues, comments and pull requests that assisted with this release!
 
-### 2.3.3 - 2021-05-10
+## 2.7.4 (2022-09-13)
 
-- Fix default params for `useChat` hook (thanks @elmoeleven)
-- Bundle Type Definitions (thanks @elmoeleven)
+### 🛠 Core
 
-### 2.3.0 - 2021-04-27
+- Updates package restriction to support React ^18 (thanks to [@cbschuld](https://github.com/cbschuld)).
 
-- Convert library to Typescript (thanks @elmoeleven)
+## 2.7.3 (2022-01-08)
 
-### 2.2.0 - 2021-03-30
+### 🛠 Core
 
-- Add `Userlike` component (thanks @gazpachu)
+- No update. Release updated `package-lock.json` to version 2.
 
-### 2.1.3 - 2020-07-21
+## 2.7.2 (2021-10-05)
 
-- Update dependencies
+### ♿️ Accessibility
 
-### 2.1.2 - 2020-04-28
+- Updates `aria role` on provider buttons to improve accessibility (thanks to [@luisrudge](https://github.com/luisrudge)).
 
-- Update appearance of messenger (thanks @FateXRebirth)
+## 2.7.0 (2021-09-14)
 
-### 2.1.0 - 2020-04-21
+### 📦 Dependencies
 
-- Add `Drift` component (thanks @mirshko)
+- Updates `peerDependencies` to remove warning for React 17 (thanks to [@38ri581oq480](https://github.com/38ri581oq480)).
 
-### 2.0.5 - 2020-03-30
+### ♿️ Accessibility
 
-- Fix `Messenger` options missing [#25](https://github.com/calibreapp/react-live-chat-loader/pull/25)
+- Adds `aria` labels for accessibility attributes to provider buttons (thanks to [@lauGutierrezz](https://github.com/lauGutierrezz)).
 
-### 2.0.3 - 2020-03-30
+## 2.6.0 (2021-09-03)
 
-- Fix `Messenger` loading error [#22](https://github.com/calibreapp/react-live-chat-loader/issues//22)
-- Fix `Messenger` not opening when clicked before load [#11 comment](https://github.com/calibreapp/react-live-chat-loader/pull/11#discussion_r390098110)
+### 🛠 Core
 
-### 2.0.0 - 2020-03-23
+- Adds `beforeInit` and `onReady` callbacks (thanks to [@myleslinder](https://github.com/myleslinder)).
 
-- Add `Messenger` component (thanks @FateXRebirth)
-- Fix SSR: ReferenceError: window is not defined in `useWindowHeight` hook
+## 2.5.2 (2021-06-25)
+
+### 🐛 Bugs
+
+- Fixes using `loadChat` to open a widget.
+
+## 2.5.1 (2021-06-09)
+
+### 🛠 Core
+
+- Uses relative paths for library imports to ensure types can be found.
+
+## 2.5.0 (2021-06-08)
+
+### 🆕 New provider
+
+- Adds `Chatwoot` component (thanks to [@motiko](https://github.com/motiko))
+
+### 🛠 Core
+
+- Updates how we detect if a provider has loaded.
+
+## 2.4.0 (2021-05-24)
+
+### 🛠 Core
+
+- Builds additional module version of the package (thanks to [@jaska120](https://github.com/jaska120)).
+
+## 2.3.3 (2021-05-10)
+
+### 🛠 Core
+
+- Bundles Type Definitions (thanks to [@elmoeleven](https://github.com/elmoeleven)).
+
+### 🐛 Bugs
+
+- Fixes default params for `useChat` hook (thanks to [@elmoeleven](https://github.com/elmoeleven)).
+
+## 2.3.0 (2021-04-27)
+
+### 🛠 Core
+
+- Converts library to Typescript (thanks to [@elmoeleven](https://github.com/elmoeleven)).
+
+## 2.2.0 (2021-03-30)
+
+### 🆕 New provider
+
+- Adds `Userlike` component (thanks to [@gazpachu](https://github.com/gazpachu)).
+
+## 2.1.3 (2020-07-21)
+
+### 📦 Dependencies
+
+- Updates dependencies.
+
+## 2.1.2 (2020-04-28)
+
+### 🛠 Core
+
+- Updates appearance of messenger (thanks to [@FateXRebirth](https://github.com/FateXRebirth)).
+
+## 2.1.0 (2020-04-21)
+
+### 🆕 New provider
+
+- Adds `Drift` component (thanks to [@mirshko](https://github.com/mirshko)).
+
+## 2.0.5 (2020-03-30)
+
+### 🐛 Bugs
+
+- Fixes `Messenger` options missing ([#25](https://github.com/calibreapp/react-live-chat-loader/pull/25)).
+
+## 2.0.3 (2020-03-30)
+
+### 🐛 Bugs
+
+- Fixes `Messenger` loading error ([#22](https://github.com/calibreapp/react-live-chat-loader/issues//22)).
+- Fixes `Messenger` not opening when clicked before load ([#11 comment](https://github.com/calibreapp/react-live-chat-loader/pull/11#discussion_r390098110)).
+
+## 2.0.0 (2020-03-23)
+
+### 🆕 New provider
+
+- Adds `Messenger` component (thanks to [@FateXRebirth](https://github.com/FateXRebirth)).
+
+### 🐛 Bugs
+
+- Fixes SSR: ReferenceError: window is not defined in `useWindowHeight` hook.

@@ -1,9 +1,11 @@
 import React from 'react'
+import { LiveChatLoaderProvider, Drift } from 'react-live-chat-loader'
+import type { NextPage } from 'next'
+
 import Layout from '../layouts/main'
 import ExampleLinks from '../components/exampleLinks'
-import { LiveChatLoaderProvider, Drift } from 'react-live-chat-loader'
 
-const Page = () => (
+const Page: NextPage = () => (
   <LiveChatLoaderProvider provider="drift" providerKey="fv5fpb4nmax7">
     <Layout title="React Live Chat Loader: Drift">
       <div className="wrapper">
@@ -16,9 +18,8 @@ const Page = () => (
             </a>
             .
           </p>
-          <p>
-            View other demos: <ExampleLinks />
-          </p>
+          <p>View other demos:</p>
+          <ExampleLinks />
         </div>
       </div>
       <Drift icon="A" color="#0176ff" />

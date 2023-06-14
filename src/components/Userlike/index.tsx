@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
+import { ProviderProps, ClassNames } from '../../types'
 
 const styles: {
   container: CSSProperties
@@ -30,11 +31,11 @@ const styles: {
     border: '0'
   },
   icon: {
-    fontSize: '36px'
+    fontSize: '40px'
   }
 }
 
-interface Props {
+interface Props extends ProviderProps {
   color?: string
   backgroundColor?: string
   position?: string
@@ -47,9 +48,10 @@ const Userlike = ({
   color = 'white',
   backgroundColor = '#0d8cff',
   position = 'right',
-  vOffset = '24px',
-  hOffset = '24px',
-  style = 'round'
+  vOffset = 'calc(0% + 20px)',
+  hOffset = 'calc(0% + 24px)',
+  style = 'round',
+  containerClass = ClassNames.container
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
   const positionStyles = {
@@ -66,7 +68,10 @@ const Userlike = ({
   }
 
   return (
-    <div style={{ ...styles.container, ...positionStyles, ...shapeStyle }}>
+    <div
+      className={containerClass}
+      style={{ ...styles.container, ...positionStyles, ...shapeStyle }}
+    >
       <button
         role="button"
         aria-label="Load Chat"
@@ -83,16 +88,14 @@ const Userlike = ({
         <svg
           width="1em"
           height="1em"
-          viewBox="0 0 36 36"
+          viewBox="0 0 40 40"
           fill="none"
           style={{ ...styles.icon, color }}
         >
           <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M18 36c2.893 0 5.626-.682 8.047-1.895h5.11a2 2 0 002-2v-4.393A17.916 17.916 0 0036 18c0-9.941-8.059-18-18-18S0 8.059 0 18s8.059 18 18 18zM9.5 22a1.5 1.5 0 000 3h17a1.5 1.5 0 000-3h-17zm1.5-4a1.5 1.5 0 011.5-1.5h14a1.5 1.5 0 010 3h-14A1.5 1.5 0 0111 18zm-1.5-7a1.5 1.5 0 000 3h17a1.5 1.5 0 000-3h-17z"
+            d="M37.4 30.7c-.1-.5 0-.9.2-1.4 1.5-2.8 2.3-6 2.3-9.4C40 9 31 0 20 0 9 0 0 9 0 20s9 20 20 20c3.3 0 6.5-.9 9.4-2.3.4-.2.9-.3 1.4-.2l6.8 1.3c.7.1 1.3-.5 1.2-1.2l-1.4-6.9zM21 29h-8c-1.1 0-2-.9-2-2s.9-2 2-2h8c1.1 0 2 .9 2 2s-.9 2-2 2zm6-7H13c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zm0-7H13c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2z"
             fill="currentColor"
-          />
+          ></path>
         </svg>
       </button>
     </div>

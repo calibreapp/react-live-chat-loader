@@ -11,7 +11,7 @@ Thank you for your interest in contributing to React Live Chat Loader! 🙌🏻 
 5. [Adding a Provider](#-adding-a-provider)
 
 ## 📣 Code of Conduct
-This project and everyone participating in it are governed by this [Code of Conduct](CODE_OF_CONDUCT.md). By participating, we expect you to act accordingly to this code. Please report unacceptable behaviour to hello@calibreapp.com. 
+This project and everyone participating in it are governed by this [Code of Conduct](CODE_OF_CONDUCT.md). By participating, we expect you to act accordingly to this code. Please report unacceptable behaviour to [support@calibreapp.com](mailto:support@calibreapp.com). 
 
 ## 🐛 Reporting Bugs
 Before creating a bug report, see if the problem [has already been reported](https://github.com/calibreapp/react-live-chat-loader/issues). If yes, and **the issue is still open**, add a comment to the existing issue instead of creating a new one.
@@ -46,9 +46,12 @@ We welcome contributions to React Live Chat Loader that:
 
 Please follow these steps to have your contribution considered by the maintainers:
 
-1. Follow instructions in the [pull request template](.github/pull_request_template.md).
-2. Sign a CLA.
-3. Verify that checks are passing.
+1. Fork and clone this repository.
+2. Create a new branch: `git checkout -b my-branch-name`.
+3. Make your changes and verify that the checks are still passing.
+4. Push to your fork and submit a pull request accordingly to [the guidelines](.github/pull_request_template.md).
+5. Sign a CLA (if present).
+6. Wait till your changes are reviewed and merged. 🥳
 
 You must meet the above requirements to have your pull request reviewed. The maintainer(s) may ask you to complete additional work, tests, or other changes before your pull request is accepted and merged.
 
