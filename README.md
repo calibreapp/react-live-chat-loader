@@ -132,7 +132,7 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 
 ## 💬 Supported Providers
 
-Currently there are six supported providers:
+Currently there are seven supported providers:
 
 <details>
 <summary id="help-scout">Help Scout</summary>
@@ -346,6 +346,39 @@ You can customise the Chatwoot placeholder by passing the following props to the
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 </details>
+
+<details>
+<summary id="hubspot">Hubspot</summary>
+
+To use Hubspot import the `LiveChatLoaderProvider` and set the `provider` prop
+as `hubSpot` and the `providerKey` prop as your Hubspot API Key.
+
+Then import the `Hubspot` component.
+
+```jsx
+import { LiveChatLoaderProvider, Hubspot } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="hubspot">
+        /* ... */
+        <Hubspot />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
+
+You can customise the Hubspot placeholder by passing the following props to the
+`Hubspot` component:
+
+- `backgroundColor`: The background color of the placeholder
+- `loader`: A react component shown while the Hubspot libraries are loading
+
+</details>
+
+<details>
 
 ## ➕ Adding a Provider
 
