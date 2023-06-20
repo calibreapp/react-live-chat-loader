@@ -96,7 +96,8 @@ const HubSpot = ({
               position: 'relative',
               borderRadius: '50%',
               height: '60px',
-              width: '60px'
+              width: '60px',
+              cursor: 'pointer'
             }}
           >
             <div
