@@ -43,7 +43,7 @@ const HubSpot = ({
   backgroundColor?: string
   loader?: ReactElement
 }): JSX.Element | null => {
-  const [state, loadChat] = useChat({ loadWhenIdle: false })
+  const [state, loadChat] = useChat({ loadWhenIdle: true })
   const [isLoading, setIsLoading] = useState(false)
   if (state === 'complete') {
     return null
