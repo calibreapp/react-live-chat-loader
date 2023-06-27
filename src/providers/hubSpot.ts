@@ -13,7 +13,7 @@ declare global {
   }
 }
 
-const isWidgetDefined = () => window.HubSpotConversations && window.HubSpotConversations.widget;
+const isHubspotWidgetDefined = () => window.HubSpotConversations && window.HubSpotConversations.widget;
 
 const loadScript = (hsId: string) => {
   // Detect the provider is already loaded and return early
@@ -56,7 +56,7 @@ const load = ({
 }): boolean => {
   window.hsConversationsOnReady = [
     () => {
-      isWidgetDefined() && window.HubSpotConversations.widget.load()
+      isHubspotWidgetDefined() && window.HubSpotConversations.widget.load()
     }
   ]
   const loaded = loadScript(providerKey)
@@ -66,13 +66,13 @@ const load = ({
     waitForLoad(
       () => {
         return Boolean(
-          isWidgetDefined() &&
+          isHubspotWidgetDefined() &&
             window.HubSpotConversations.widget.status().loaded
         )
       },
       // Allow hubspot to complete loading before removing fake widget
       () => {
-        isWidgetDefined() && window.HubSpotConversations.widget.open()
+        isHubspotWidgetDefined() && window.HubSpotConversations.widget.open()
         setState('complete')
         onReady()
       }
@@ -82,16 +82,16 @@ const load = ({
 }
 
 const open = (): unknown => {
-  isWidgetDefined() && 
+  isHubspotWidgetDefined() && 
     !window.HubSpotConversations.widget.status().loaded &&
     window.HubSpotConversations.widget.load()
 
   return (
-    isWidgetDefined() && 
+    isHubspotWidgetDefined() && 
     window.HubSpotConversations.widget.open()
   )
 } // Open provider
-const close = (): unknown => isWidgetDefined() && window.HubSpotConversations.widget.close() // Close provider
+const close = (): unknown => isHubspotWidgetDefined() && window.HubSpotConversations.widget.close() // Close provider
 
 export default {
   load,
