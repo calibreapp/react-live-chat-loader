@@ -15,7 +15,6 @@ declare global {
 
 const loadScript = (hsId: string) => {
   // Detect the provider is already loaded and return early
-  console.debug({ loadScript: window.HubSpotConversations })
   if (window.HubSpotConversations) {
     return false
   }
@@ -56,10 +55,6 @@ const load = ({
   window.hsConversationsOnReady = [
     () => {
       window.HubSpotConversations.widget.load()
-      console.debug({
-        hsConversationsOnReady: 'ready',
-        widgetStatus: window.HubSpotConversations.widget.status()
-      })
     }
   ]
   const loaded = loadScript(providerKey)
@@ -68,30 +63,17 @@ const load = ({
 
     waitForLoad(
       () => {
-        console.debug({
-          waitForLoad: {
-            HubSpotConversations: window.HubSpotConversations,
-            widget: window.HubSpotConversations?.widget
-          }
-        })
         return Boolean(
           window.HubSpotConversations &&
             window.HubSpotConversations.widget &&
             window.HubSpotConversations.widget.status().loaded
         )
       },
-      // Allow intercom to complete loading before removing fake widget
+      // Allow hubspot to complete loading before removing fake widget
       () => {
-        console.debug({
-          loadComplete: window.HubSpotConversations,
-          widgetStatus: window.HubSpotConversations.widget.status()
-        })
         window.HubSpotConversations.widget.open()
         setState('complete')
         onReady()
-        console.debug({
-          widgetStatusAfterTimeout: window.HubSpotConversations.widget.status()
-        })
       }
     )
   }
@@ -99,7 +81,6 @@ const load = ({
 }
 
 const open = (): unknown => {
-  console.debug({ open: 'called' })
   window.HubSpotConversations &&
     window.HubSpotConversations.widget &&
     !window.HubSpotConversations.widget.status().loaded &&
