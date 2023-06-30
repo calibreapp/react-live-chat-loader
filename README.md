@@ -378,8 +378,6 @@ You can customise the Hubspot placeholder by passing the following props to the
 
 </details>
 
-<details>
-
 ## ➕ Adding a Provider
 
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
