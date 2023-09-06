@@ -27,7 +27,7 @@ const styles: {
     padding: '0 !important',
     margin: '0 !important',
     border: 'none',
-    bottom: '60px',
+    bottom: '20px',
     right: '20px',
     maxWidth: '48px',
     width: '48px',
