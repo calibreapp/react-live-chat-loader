@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 export enum ClassNames {
   container = 'live-chat-loader-placeholder'
 }

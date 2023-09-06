@@ -61,11 +61,13 @@ const styles: {
 
 interface Props extends ProviderProps {
   color?: string
+  wrapperStyleProps?: CSSProperties
 }
 
 const Intercom = ({
   color = '#333333',
-  containerClass = ClassNames.container
+  containerClass = ClassNames.container,
+  wrapperStyleProps
 }: Props): JSX.Element | null => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
 
@@ -77,7 +79,8 @@ const Intercom = ({
     <div
       className={containerClass}
       style={{
-        ...styles.wrapper
+        ...styles.wrapper,
+        ...wrapperStyleProps
       }}
     >
       <div
