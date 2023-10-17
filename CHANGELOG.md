@@ -1,3 +1,17 @@
+## 2.8.2 (2023-10-17)
+
+### 📦 Dependencies
+
+- Updates dependencies.
+
+### 🐛 Bugs
+
+- Adjusts `targets` value in `.babelrc` to ensure build is transpiled to ES5 ([#228](https://github.com/calibreapp/react-live-chat-loader/issues/228)).
+
+### 💞 Credits
+
+Thanks to [nzjames](https://github.com/nzjames) for reporting, debugging and offering up a solution to the dropped ES5 compatibility bug.
+
 ## 2.8.1 (2022-12-22)
 
 ### 📦 Dependencies
