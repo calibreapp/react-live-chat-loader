@@ -47,8 +47,8 @@ const load = ({
     beforeInit()
 
     window.FrontChat('init', {
-      chatId: providerKey,
-      useDefaultLauncher: false // optional. Read more: https://dev.frontapp.com/docs/chat-sdk-reference#frontchatinit-options
+      chatId: providerKey
+      //Read more: https://dev.frontapp.com/docs/chat-sdk-reference
     })
   })
 
