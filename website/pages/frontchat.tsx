@@ -13,9 +13,9 @@ const Page: NextPage = () => (
     <Layout title="React Live Chat Loader: FrontChat">
       <div className="wrapper">
         <div className="inner">
-          <h1>React Live Chat Loader: Intercom</h1>
+          <h1>React Live Chat Loader: FrontChat</h1>
           <p>
-            This is an example implementation of the Intercom chat widget using{' '}
+            This is an example implementation of the FrontChat chat widget using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
