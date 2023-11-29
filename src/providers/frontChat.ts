@@ -1,3 +1,6 @@
+// Website: https://front.com/product/live-chat
+// Documentation: https://help.front.com/
+
 import { State } from '../types'
 import waitForLoad from '../utils/waitForLoad'
 
@@ -43,10 +46,9 @@ const load = ({
   const loaded = loadScript(() => {
     beforeInit()
 
-    // console.log('WINDOW', window)
     window.FrontChat('init', {
       chatId: providerKey,
-      useDefaultLauncher: true // optional
+      useDefaultLauncher: false // optional. Read more: https://dev.frontapp.com/docs/chat-sdk-reference#frontchatinit-options
     })
   })
 

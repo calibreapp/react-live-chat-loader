@@ -25,7 +25,7 @@ const Page: NextPage = () => (
           <ExampleLinks />
         </div>
       </div>
-      <FrontChat color="red" />
+      <FrontChat color="#333333" />
     </Layout>
   </LiveChatLoaderProvider>
 )

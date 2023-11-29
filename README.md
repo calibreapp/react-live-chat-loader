@@ -122,7 +122,7 @@ export const LoadChatButton = () => {
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
-- `provider`: Choose from `helpScout`, `intercom`, `drift` or `messenger` ([see below](#-supported-providers))
+- `provider`: Choose from `helpScout`, `intercom`, `drift`, `frontChat` or `messenger` ([see below](#-supported-providers))
 - `providerKey`: Provider API Key ([see below](#-supported-providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
@@ -344,6 +344,39 @@ You can customise the Chatwoot placeholder by passing the following props to the
 
 - `color`: The background color, set to same color value you choose in Chatwoot dashboard.
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
+
+</details>
+
+<details>
+<summary id="frontChat">FrontChat</summary>
+
+To use FrontChat import the `LiveChatLoaderProvider` and set the `provider` prop
+as `frontChat` and the `providerKey` prop as your FrontChat `chatId`.
+
+Then import the `FrontChat` component.
+
+```jsx
+import { LiveChatLoaderProvider, FrontChat } from 'react-live-chat-loader'
+
+export default () => {
+  return (
+    <LiveChatLoaderProvider
+      providerKey="YourFrontChat-chatId"
+      provider="frontChat"
+    >
+      /* ... */
+      <FrontChat />
+    </LiveChatLoaderProvider>
+  )
+}
+```
+
+You can customise the FrontChat placeholder icon by passing the following props to the `FrontChat` component:
+
+- `color`: The background color of the placeholder widget.
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
+
+See the [official Intercom documentation](https://help.front.com/) for more details.
 
 </details>
 
