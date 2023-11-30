@@ -7,7 +7,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [FrontChat](#frontChat) and [Chatwoot](#chatwoot).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#frontChat) and [Chatwoot](#chatwoot).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -376,7 +376,7 @@ You can customise the FrontChat placeholder icon by passing the following props 
 - `color`: The background color of the placeholder widget.
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
-See the [official Intercom documentation](https://help.front.com/) for more details.
+See the [official Front documentation](https://help.front.com/) for more details.
 
 </details>
 
