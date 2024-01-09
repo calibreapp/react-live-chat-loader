@@ -33,6 +33,11 @@ const ExampleLinks = () => (
         <a>Chatwoot</a>
       </Link>
     </li>
+    <li>
+      <Link href="/hubspot">
+        <a>HubSpot</a>
+      </Link>
+    </li>
   </ul>
 )
 
