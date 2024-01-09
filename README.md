@@ -393,7 +393,7 @@ import { LiveChatLoaderProvider, Hubspot } from 'react-live-chat-loader'
 export default class App extends React.Component {
   render() {
     return (
-      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="hubspot">
+      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="hubSpot">
         /* ... */
         <Hubspot />
       </LiveChatLoaderProvider>
