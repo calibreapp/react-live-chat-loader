@@ -377,7 +377,9 @@ You can customise the Front placeholder icon by passing the following props to t
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 See the [official Front documentation](https://help.front.com/) for more details.
+</details>
 
+<details>
 <summary id="hubspot">Hubspot</summary>
 
 To use Hubspot import the `LiveChatLoaderProvider` and set the `provider` prop
