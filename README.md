@@ -7,7 +7,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#front) and [Chatwoot](#chatwoot).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#front), [Chatwoot](#chatwoot) and [Hubspot](#hubspot).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -377,7 +377,9 @@ You can customise the Front placeholder icon by passing the following props to t
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
 
 See the [official Front documentation](https://help.front.com/) for more details.
+</details>
 
+<details>
 <summary id="hubspot">Hubspot</summary>
 
 To use Hubspot import the `LiveChatLoaderProvider` and set the `provider` prop
@@ -391,7 +393,7 @@ import { LiveChatLoaderProvider, Hubspot } from 'react-live-chat-loader'
 export default class App extends React.Component {
   render() {
     return (
-      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="hubspot">
+      <LiveChatLoaderProvider providerKey="asdjkasl123123" provider="hubSpot">
         /* ... */
         <Hubspot />
       </LiveChatLoaderProvider>
