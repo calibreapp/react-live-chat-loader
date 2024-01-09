@@ -1,3 +1,9 @@
+## 2.9.1 (2024-01-10)
+
+### 🛠 Core
+
+- No updates. Reinstates build files missing from previous release. 
+
 ## 2.9.0 (2024-01-09)
 
 ### 🆕 New providers
