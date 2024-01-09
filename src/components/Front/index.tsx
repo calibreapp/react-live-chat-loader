@@ -47,7 +47,7 @@ interface Props extends ProviderProps {
 }
 
 const Front = ({
-  color = '#333333',
+  color = '#5151E1',
   containerClass = ClassNames.container
 }: Props) => {
   const [state, loadChat] = useChat({ loadWhenIdle: true })
