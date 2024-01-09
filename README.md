@@ -7,7 +7,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#frontChat) and [Chatwoot](#chatwoot).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#front) and [Chatwoot](#chatwoot).
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -122,7 +122,7 @@ export const LoadChatButton = () => {
 
 You can pass the following props to the `LiveChatLoaderProvider` provider:
 
-- `provider`: Choose from `helpScout`, `intercom`, `drift`, `frontChat` or `messenger` ([see below](#-supported-providers))
+- `provider`: Choose from `helpScout`, `intercom`, `drift`, `front` or `messenger` ([see below](#-supported-providers))
 - `providerKey`: Provider API Key ([see below](#-supported-providers))
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
@@ -348,30 +348,30 @@ You can customise the Chatwoot placeholder by passing the following props to the
 </details>
 
 <details>
-<summary id="frontChat">FrontChat</summary>
+<summary id="front">Front</summary>
 
-To use FrontChat import the `LiveChatLoaderProvider` and set the `provider` prop
-as `frontChat` and the `providerKey` prop as your FrontChat `chatId`.
+To use Front import the `LiveChatLoaderProvider` and set the `provider` prop
+as `front` and the `providerKey` prop as your Front Chat `chatId`.
 
-Then import the `FrontChat` component.
+Then import the `Front` component.
 
 ```jsx
-import { LiveChatLoaderProvider, FrontChat } from 'react-live-chat-loader'
+import { LiveChatLoaderProvider, Front } from 'react-live-chat-loader'
 
 export default () => {
   return (
     <LiveChatLoaderProvider
-      providerKey="YourFrontChat-chatId"
-      provider="frontChat"
+      providerKey="your-front-chat-chatId"
+      provider="front"
     >
       /* ... */
-      <FrontChat />
+      <Front />
     </LiveChatLoaderProvider>
   )
 }
 ```
 
-You can customise the FrontChat placeholder icon by passing the following props to the `FrontChat` component:
+You can customise the Front placeholder icon by passing the following props to the `Front` component:
 
 - `color`: The background color of the placeholder widget.
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`

@@ -10,8 +10,7 @@ const styles: {
 } = {
   wrapper: {
     position: 'fixed',
-    // z-index is 1 more than FrontChat's actual launcher as when the real widget loads
-    // it might not initially reflect the fake icon's current state (open/closed)
+    // z-index is 1 more than Front's actual launcher as when the real widget loads
     zIndex: 100000000,
     bottom: '20px',
     right: '20px',
@@ -47,7 +46,7 @@ interface Props extends ProviderProps {
   color?: string
 }
 
-const FrontChat = ({
+const Front = ({
   color = '#333333',
   containerClass = ClassNames.container
 }: Props) => {
@@ -115,4 +114,4 @@ const FrontChat = ({
   )
 }
 
-export default FrontChat
+export default Front

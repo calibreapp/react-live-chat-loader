@@ -34,8 +34,8 @@ const ExampleLinks = () => (
       </Link>
     </li>
     <li>
-      <Link href="/frontchat">
-        <a>FrontChat</a>
+      <Link href="/front">
+        <a>Front</a>
       </Link>
     </li>
   </ul>

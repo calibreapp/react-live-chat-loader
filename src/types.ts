@@ -14,4 +14,4 @@ export type Provider =
   | 'drift'
   | 'userlike'
   | 'chatwoot'
-  | 'frontChat'
+  | 'front'
