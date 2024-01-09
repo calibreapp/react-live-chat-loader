@@ -1,3 +1,23 @@
+## 2.9.0 (2024-01-09)
+
+### 🆕 New providers
+
+- Adds `HubSpot` as a provider ([#281](https://github.com/calibreapp/react-live-chat-loader/pull/281))
+- Adds `Front` as a provider ([#345](https://github.com/calibreapp/react-live-chat-loader/pull/345))
+
+### 📦 Dependencies
+
+- Updates dependencies
+- Removes unnessary dependencies ([#341](https://github.com/calibreapp/react-live-chat-loader/pull/341))
+
+### 🐛 Bugs
+
+- Updates `module` targets in `.babelrc` to ensure all builds are transpiled to ES5 ([#341](https://github.com/calibreapp/react-live-chat-loader/pull/341))
+
+### 💞 Credits
+
+Thanks to [altaywtf](https://github.com/altaywtf) for module targets bugfix and dependency cleanup; [jucallej](https://github.com/jucallej) and [drwlrsn](https://github.com/drwlrsn) for their work on adding `HubSpot` as a provider; and [IlirEdis](https://github.com/IlirEdis) for the addition of `Front` as a provider.
+
 ## 2.8.2 (2023-10-17)
 
 ### 📦 Dependencies
