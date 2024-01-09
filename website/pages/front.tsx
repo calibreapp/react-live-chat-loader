@@ -8,7 +8,7 @@ import ExampleLinks from '../components/exampleLinks'
 const Page: NextPage = () => (
   <LiveChatLoaderProvider
     provider="front"
-    providerKey="68cdc08b45c2d546d827398bb8d0d857"
+    providerKey="b2b8dcd0c63c934d363e6704cfa6af86"
   >
     <Layout title="React Live Chat Loader: Front">
       <div className="wrapper">
@@ -25,7 +25,7 @@ const Page: NextPage = () => (
           <ExampleLinks />
         </div>
       </div>
-      <Front color="#6366f1" />
+      <Front />
     </Layout>
   </LiveChatLoaderProvider>
 )
