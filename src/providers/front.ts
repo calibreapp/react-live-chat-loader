@@ -47,26 +47,26 @@ const load = ({
     beforeInit()
 
     window.FrontChat('init', {
-      chatId: providerKey
+      chatId: providerKey,
+      onInitCompleted: () => {
+        setState('complete')
+        onReady()
+        // 👇 Add state to Track when Front is fully initialized
+        window.FrontChat.hasInitialized = true
+      }
       //Read more: https://dev.frontapp.com/docs/chat-sdk-reference
     })
   })
-
-  // Continue as long as frontchat hasn’t already been initialised.
-  if (loaded) {
-    waitForLoad(
-      () => window.FrontChat,
-      // Allow frontchat to complete loading before removing fake widget
-      () =>
-        setTimeout(() => {
-          setState('complete')
-          onReady()
-        }, 2000)
-    )
-  }
   return loaded
 }
-const open = () => window.FrontChat('show')
+
+const open = (): void => {
+  waitForLoad(
+    () => window.FrontChat?.hasInitialized,
+    () => window.FrontChat('show')
+  )
+}
+
 export default {
   domain,
   load,
