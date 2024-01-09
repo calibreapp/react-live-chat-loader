@@ -15,3 +15,4 @@ export type Provider =
   | 'userlike'
   | 'chatwoot'
   | 'front'
+  | 'hubSpot'

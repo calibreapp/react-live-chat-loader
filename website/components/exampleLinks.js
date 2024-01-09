@@ -38,6 +38,11 @@ const ExampleLinks = () => (
         <a>Front</a>
       </Link>
     </li>
+    <li>
+      <Link href="/hubspot">
+        <a>HubSpot</a>
+      </Link>
+    </li>
   </ul>
 )
 

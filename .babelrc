@@ -24,9 +24,7 @@
             },
             "extensions": [".ts", ".tsx"]
           }
-        ],
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-object-rest-spread"
+        ]
       ]
     },
     "module": {
@@ -36,7 +34,7 @@
           "@babel/preset-env",
           {
             "targets": {
-              "node": true
+              "browsers": "last 2 versions"
             },
             "modules": false
           }
@@ -54,9 +52,7 @@
             },
             "extensions": [".ts", ".tsx"]
           }
-        ],
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-object-rest-spread"
+        ]
       ]
     }
   }
