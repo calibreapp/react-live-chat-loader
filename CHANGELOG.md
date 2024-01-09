@@ -8,7 +8,7 @@
 ### 📦 Dependencies
 
 - Updates dependencies
-- Removes unnessary dependencies ([#341](https://github.com/calibreapp/react-live-chat-loader/pull/341))
+- Removes unnecessary dependencies ([#341](https://github.com/calibreapp/react-live-chat-loader/pull/341))
 
 ### 🐛 Bugs
 
