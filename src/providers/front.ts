@@ -6,8 +6,14 @@ import waitForLoad from '../utils/waitForLoad'
 
 declare global {
   interface Window {
-    //eslint-disable-next-line @typescript-eslint/no-explicit-any
-    FrontChat: any
+    FrontChat?: {
+      (
+        command: string,
+        params?: Record<string, string | boolean | object>
+      ): void
+      // This isn't part of the FrontChat API; we add it to track when Front is fully initialized
+      hasInitialized: boolean
+    }
   }
 }
 
@@ -46,13 +52,12 @@ const load = ({
   const loaded = loadScript(() => {
     beforeInit()
 
-    window.FrontChat('init', {
+    window.FrontChat?.('init', {
       chatId: providerKey,
       onInitCompleted: () => {
         setState('complete')
         onReady()
-        // 👇 Add state to Track when Front is fully initialized
-        window.FrontChat.hasInitialized = true
+        if (window.FrontChat) window.FrontChat.hasInitialized = true
       }
       //Read more: https://dev.frontapp.com/docs/chat-sdk-reference
     })
@@ -62,8 +67,8 @@ const load = ({
 
 const open = (): void => {
   waitForLoad(
-    () => window.FrontChat?.hasInitialized,
-    () => window.FrontChat('show')
+    () => !!window.FrontChat?.hasInitialized,
+    () => window.FrontChat?.('show')
   )
 }
 
