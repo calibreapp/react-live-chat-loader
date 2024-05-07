@@ -23,6 +23,7 @@ const useChat = (
     provider,
     providerKey,
     idlePeriod,
+    maxIdlePeriod,
     state,
     setState,
     appID,
@@ -65,6 +66,7 @@ const useChat = (
 
     if (requestIdleCallback) {
       requestIdleCallback(scheduleLoadChat)
+      setTimeout(() => loadChat({ open: false }), maxIdlePeriod)
     } else {
       setTimeout(() => loadChat({ open: false }), idlePeriod)
     }

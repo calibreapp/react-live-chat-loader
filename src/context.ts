@@ -10,6 +10,7 @@ interface Context {
   appID?: string
   locale?: string
   idlePeriod?: number
+  maxIdlePeriod?: number
   baseUrl?: string
   beforeInit?: () => void
   onReady?: () => void

@@ -7,6 +7,7 @@ interface LiveChatLoaderProps {
   provider: Provider
   children: React.ReactNode
   idlePeriod?: number
+  maxIdlePeriod?: number
   providerKey: string
   appID?: string
   baseUrl?: string
@@ -20,6 +21,7 @@ export const LiveChatLoaderProvider = ({
   provider,
   children,
   idlePeriod = 5000,
+  maxIdlePeriod = 5000,
   baseUrl,
   ...props
 }: LiveChatLoaderProps): JSX.Element | null => {
@@ -27,6 +29,7 @@ export const LiveChatLoaderProvider = ({
   const value = {
     provider,
     idlePeriod,
+    maxIdlePeriod,
     state,
     setState,
     baseUrl,
