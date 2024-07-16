@@ -7,6 +7,12 @@ interface LiveChatLoaderProps {
   provider: Provider
   children: React.ReactNode
   idlePeriod?: number
+  /**
+   * determines whether to create a link tag that preconnect to the chat provider's domain
+   *
+   * @default true
+   */
+  preconnect?: boolean
   providerKey: string
   appID?: string
   baseUrl?: string
@@ -20,6 +26,7 @@ export const LiveChatLoaderProvider = ({
   provider,
   children,
   idlePeriod = 5000,
+  preconnect = true,
   baseUrl,
   ...props
 }: LiveChatLoaderProps): JSX.Element | null => {
@@ -45,11 +52,13 @@ export const LiveChatLoaderProvider = ({
 
   return (
     <LiveChatLoaderContext.Provider value={value}>
-      <link
-        href={baseUrl || chatProvider.domain}
-        rel="preconnect"
-        crossOrigin=""
-      />
+      {preconnect && (
+        <link
+          href={baseUrl || chatProvider.domain}
+          rel="preconnect"
+          crossOrigin=""
+        />
+      )}
       {children}
     </LiveChatLoaderContext.Provider>
   )
