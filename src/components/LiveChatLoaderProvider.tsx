@@ -45,11 +45,6 @@ export const LiveChatLoaderProvider = ({
 
   return (
     <LiveChatLoaderContext.Provider value={value}>
-      <link
-        href={baseUrl || chatProvider.domain}
-        rel="preconnect"
-        crossOrigin=""
-      />
       {children}
     </LiveChatLoaderContext.Provider>
   )
