@@ -127,7 +127,6 @@ You can pass the following props to the `LiveChatLoaderProvider` provider:
 - `idlePeriod`: How long to wait in ms before loading the provider. Default is
   `2000`. Set to `0` to never load. This value is used in a `setTimeout` in
   browsers that don't support `requestIdleCallback`.
-- `preconnect`: Determines whether a `link` tag with `rel=preconnect` is created. Default is `true`.
 - `beforeInit`: A function to be called after the script has loaded, but before the chat provider has been initialized (optional)
 - `onReady`: A function to be called once the script has been loaded, the chat provider has been initialized and is ready for use (optional)
 
