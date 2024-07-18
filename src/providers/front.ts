@@ -9,7 +9,7 @@ declare global {
     FrontChat?: {
       (
         command: string,
-        params?: Record<string, string | boolean | object>
+        params?: Record<string, string | boolean | unknown>
       ): void
       // This isn't part of the FrontChat API; we add it to track when Front is fully initialized
       hasInitialized: boolean
