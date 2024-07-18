@@ -1,3 +1,13 @@
+## 2.9.2 (2024-07-18)
+
+### 🛠 Core
+
+- Remove unneeded `preconnect` link ([#426](https://github.com/calibreapp/react-live-chat-loader/pull/426))
+
+### 📦 Dependencies
+
+- Update numerous dependencies
+
 ## 2.9.1 (2024-01-10)
 
 ### 🛠 Core
