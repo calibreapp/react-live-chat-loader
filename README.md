@@ -11,6 +11,12 @@ until the page has become idle or users are ready to interact with chat. Current
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
+> [!IMPORTANT]  
+> This project is looking for collaborators, maintainers and/or new stewardship.
+
+Since introducing `react-live-chat-loader` in 2019 we've welcomed the addition of several chat provider tools, with thanks to numerous contributors. As a group the Calibre team have taken this library as far as we can, and we're looking for someone to take the reigns. If you, your buddies or team can help, please create a new issue to start discussion. 💬
+
+
 ## 🖇️ Table of Contents
 
 1. [How it Works](#-how-it-works)
