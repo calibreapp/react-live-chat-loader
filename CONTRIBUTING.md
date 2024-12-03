@@ -23,7 +23,7 @@ When creating a bug report, please **provide as much information and context as 
 3. **Outline the expected behaviour.** Describe what you expected to happen clearly and concisely.
 4. **Add screenshots.** If applicable, add screenshots to help explain the problem.
 
-You will be [guided to provide relevant information](.github/ISSUE_TEMPLATE/---bug-report.md) as you create the issue.
+You will be [guided to provide relevant information](.github/ISSUE_TEMPLATE/bug-report.yml) as you create the issue.
 
 ## 💡 Suggesting Features
 
@@ -35,7 +35,7 @@ When filing a feature request, please **provide as much information and context 
 2. **Describe the solution you’d like to see.** A clear and concise description of what you would like to happen. Are you willing to work on implementing this solution?
 3. **Describe alternatives you’ve considered.** A clear and concise description of any alternative solutions or features you’ve considered.
 
-You will be [guided to provide relevant information](.github/ISSUE_TEMPLATE/---feature-request.md) as you create the feature request.
+You will be [guided to provide relevant information](.github/ISSUE_TEMPLATE/feature-request.yml) as you create the feature request.
 
 ## 📝 Creating Pull Requests
 We welcome contributions to React Live Chat Loader that:
