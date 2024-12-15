@@ -1,4 +1,4 @@
-import React, { ReactElement, SSProperties } from 'react'
+import React, { ReactElement, CSSProperties } from 'react'
 
 import useChat from '../../hooks/useChat'
 import { ProviderProps, ClassNames } from '../../types'
