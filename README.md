@@ -16,7 +16,6 @@ Made by the team at [♠ Calibre](https://calibreapp.com/), your performance com
 
 Since introducing `react-live-chat-loader` in 2019 we've welcomed the addition of several chat provider tools, with thanks to numerous contributors. As a group the Calibre team have taken this library as far as we can, and we're looking for someone to take the reigns. If you, your buddies or team can help, please create a new issue to start discussion. 💬
 
-
 ## 🖇️ Table of Contents
 
 1. [How it Works](#-how-it-works)
@@ -203,6 +202,7 @@ You can customise the Intercom placeholder icon by passing the following props t
 
 - `color`: The background color of the placeholder widget
 - `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
+- `icon`: Override the default Intercom icon, can be any JSX element.
 
 [Messenger Settings](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#messenger-attributes), User context and Company context settings can be set using `window.intercomSettings`. See the [official Intercom documentation](https://developers.intercom.com/installing-intercom/docs/javascript-api-attributes-objects#section-data-attributes) for more details.
 
