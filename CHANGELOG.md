@@ -1,3 +1,13 @@
+## 2.10.0 (2025-01-03)
+
+### 🛠 Core
+
+- Added ability to set custom icon element for Intercom provider ([#467](https://github.com/calibreapp/react-live-chat-loader/pull/467)) by @leviceccato
+
+### 📦 Dependencies
+
+- Updated dependencies
+
 ## 2.9.2 (2024-07-18)
 
 ### 🛠 Core
