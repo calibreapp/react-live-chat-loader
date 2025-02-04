@@ -1,5 +1,5 @@
 // cannot use 'next/link' here because it will do client-side navigation
-// it will cause multiple provider icons to stack on top of each other
+// which will cause multiple provider icons to stack on top of each other
 // real applications won't use more than one provider
 export default function ExampleLinks() {
   return (
