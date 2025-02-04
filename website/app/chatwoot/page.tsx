@@ -1,16 +1,12 @@
+'use client';
 import React from 'react'
 import { LiveChatLoaderProvider, Chatwoot } from 'react-live-chat-loader'
-import type { NextPage } from 'next'
+import ExampleLinks from '../../components/exampleLinks'
 
-import Layout from '../layouts/main'
-import ExampleLinks from '../components/exampleLinks'
+export default function ChatwootPage() {
+  return (
+    <LiveChatLoaderProvider provider="chatwoot" providerKey="E33wn9ftxMDHZx18AaBkfPvY">
 
-const Page: NextPage = () => (
-  <LiveChatLoaderProvider
-    provider="chatwoot"
-    providerKey="E33wn9ftxMDHZx18AaBkfPvY"
-  >
-    <Layout title="React Live Chat Loader: Chatwoot">
       <div className="wrapper">
         <div className="inner">
           <h1>React Live Chat Loader: Chatwoot</h1>
@@ -26,8 +22,7 @@ const Page: NextPage = () => (
         </div>
       </div>
       <Chatwoot />
-    </Layout>
-  </LiveChatLoaderProvider>
-)
 
-export default Page
+    </LiveChatLoaderProvider>
+  )
+}

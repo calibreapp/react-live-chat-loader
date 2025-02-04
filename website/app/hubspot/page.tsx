@@ -1,16 +1,11 @@
+'use client';
 import React from 'react'
 import { LiveChatLoaderProvider, HubSpot } from 'react-live-chat-loader'
-import type { NextPage } from 'next'
+import ExampleLinks from '../../components/exampleLinks'
 
-import Layout from '../layouts/main'
-import ExampleLinks from '../components/exampleLinks'
-
-const Page: NextPage = () => (
-  <LiveChatLoaderProvider
-    provider="hubSpot"
-    providerKey=""
-  >
-    <Layout title="React Live Chat Loader: Hubspot">
+export default function ChatwootPage() {
+  return (
+    <LiveChatLoaderProvider provider="hubSpot" providerKey="">
       <div className="wrapper">
         <div className="inner">
           <h1>React Live Chat Loader: Hubspot</h1>
@@ -25,9 +20,8 @@ const Page: NextPage = () => (
           <ExampleLinks />
         </div>
       </div>
-      <HubSpot backgroundColor='#017848'/>
-    </Layout>
-  </LiveChatLoaderProvider>
-)
+      <HubSpot backgroundColor='#017848' />
 
-export default Page
+    </LiveChatLoaderProvider>
+  )
+}
