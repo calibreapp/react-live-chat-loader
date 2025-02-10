@@ -11,6 +11,10 @@ interface Context {
   locale?: string
   idlePeriod?: number
   baseUrl?: string
+  // instanceId, env and geo are only relevant for Adobe Dynamic Chat
+  instanceId?: string
+  env?: string
+  geo?: string
   beforeInit?: () => void
   onReady?: () => void
 }

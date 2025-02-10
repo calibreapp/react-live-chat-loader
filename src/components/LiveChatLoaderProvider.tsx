@@ -12,6 +12,10 @@ interface LiveChatLoaderProps {
   baseUrl?: string
   // locale is only relevant to certain providers, e.g. Messenger and Chatwoot
   locale?: string
+  // instanceId, env and geo are only relevant for Adobe Dynamic Chat
+  instanceId?: string
+  env?: string
+  geo?: string
   beforeInit?: () => void
   onReady?: () => void
 }
