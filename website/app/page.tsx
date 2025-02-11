@@ -1,11 +1,8 @@
-import React from 'react'
-import type { NextPage } from 'next'
+import ExampleLinks from "../components/exampleLinks";
 
-import Layout from '../layouts/main'
-import ExampleLinks from '../components/exampleLinks'
-
-const Page: NextPage = () => (
-  <Layout title="React Live Chat Loader">
+export default function Home() {
+  
+  return (
     <div className="wrapper">
       <div className="inner">
         <h1>React Live Chat Loader</h1>
@@ -29,7 +26,5 @@ const Page: NextPage = () => (
         <ExampleLinks />
       </div>
     </div>
-  </Layout>
-)
-
-export default Page
+  );
+}

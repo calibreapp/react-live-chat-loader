@@ -1,13 +1,12 @@
+'use client';
 import React from 'react'
 import { LiveChatLoaderProvider, Intercom } from 'react-live-chat-loader'
-import type { NextPage } from 'next'
+import ExampleLinks from '../../components/exampleLinks'
 
-import Layout from '../layouts/main'
-import ExampleLinks from '../components/exampleLinks'
+export default function IntercomPage() {
+  return (
+    <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
 
-const Page: NextPage = () => (
-  <LiveChatLoaderProvider provider="intercom" providerKey="otpo7g1i">
-    <Layout title="React Live Chat Loader: Intercom">
       <div className="wrapper">
         <div className="inner">
           <h1>React Live Chat Loader: Intercom</h1>
@@ -23,8 +22,7 @@ const Page: NextPage = () => (
         </div>
       </div>
       <Intercom color="#333333" />
-    </Layout>
-  </LiveChatLoaderProvider>
-)
 
-export default Page
+    </LiveChatLoaderProvider>
+  )
+}
