@@ -10,7 +10,7 @@ export default function HelpScoutPage() {
         <div className="inner">
           <h1>React Live Chat Loader: Help Scout</h1>
           <p>
-            This is an example implementation of the Help Scout widget using{' '}
+            This is an example implementation of the Help Scout beacon using{' '}
             <a href="https://github.com/calibreapp/react-live-chat-loader">
               react-live-chat-loader
             </a>
