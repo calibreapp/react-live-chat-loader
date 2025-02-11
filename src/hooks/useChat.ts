@@ -28,6 +28,10 @@ const useChat = (
     appID,
     locale,
     baseUrl,
+    // instanceId, env and geo are only relevant for Adobe Dynamic Chat
+    instanceId,
+    env,
+    geo,
     beforeInit,
     onReady
   } = useContext(LiveChatLoaderContext)
@@ -92,6 +96,9 @@ const useChat = (
         appID,
         locale,
         baseUrl,
+        instanceId,
+        env,
+        geo,
         beforeInit,
         onReady
       })
