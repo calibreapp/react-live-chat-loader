@@ -1,3 +1,17 @@
+## 2.11.0 (2025-02-25)
+
+### 🛠 Core
+
+- Add support for React 19 ([#487](https://github.com/calibreapp/react-live-chat-loader/pull/487)) by @kai11
+
+### 🆕 New providers
+
+- Adds `Adobe Dynamic Chat` as a provider ([#488](https://github.com/calibreapp/react-live-chat-loader/pull/488)) by @enjoyjeremy-bc
+
+### 📦 Dependencies
+
+- Updated dependencies
+
 ## 2.10.0 (2025-01-03)
 
 ### 🛠 Core
@@ -22,7 +36,7 @@
 
 ### 🛠 Core
 
-- No updates. Reinstates build files missing from previous release. 
+- No updates. Reinstates build files missing from previous release.
 
 ## 2.9.0 (2024-01-09)
 
