@@ -1,61 +1,41 @@
-import React from 'react'
-import Link from 'next/link'
+export default function ExampleLinks() {
+  return (
+    <>
+      <ul>
+        <li>
+          <a href="/intercom">Intercom</a>
+        </li>
+        <li>
+          <a href="/helpscout">Help Scout</a>
+        </li>
+        <li>
+          <a href="/drift">Drift</a>
+        </li>
+        <li>
+          <a href="/messenger">Facebook Messenger</a>
+        </li>
+        <li>
+          <a href="/userlike">Userlike</a>
+        </li>
+        <li>
+          <a href="/chatwoot">Chatwoot</a>
+        </li>
+        <li>
+          <a href="/front">Front</a>
+        </li>
+        <li>
+          <a href="/hubspot">HubSpot</a>
+        </li>
+        <li>
+          <a href="/adobe-dynamic-chat">Adobe Dynamic Chat</a>
+        </li>
+      </ul>
+      <p>
+        Some providers may require the addition of a valid API key to their{' '}
+        <code>providerKey</code>
+        {''} prop in order for the demo to function correctly.
+      </p>
+    </>
+  )
+}
 
-const ExampleLinks = () => (
-  <>
-    <ul>
-      <li>
-        <Link href="/intercom">
-          <a>Intercom</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/helpscout">
-          <a>Help Scout</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/drift">
-          <a>Drift</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/messenger">
-          <a>Facebook Messenger</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/userlike">
-          <a>Userlike</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/chatwoot">
-          <a>Chatwoot</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/front">
-          <a>Front</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/hubspot">
-          <a>HubSpot</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/adobe-dynamic-chat">
-          <a>Adobe Dynamic Chat</a>
-        </Link>
-      </li>
-    </ul>
-    <p>
-      Some providers may require the addition of a valid API key to their{' '}
-      <code>providerKey</code>
-      {''} prop in order for the demo to function correctly.
-    </p>
-  </>
-)
-
-export default ExampleLinks
