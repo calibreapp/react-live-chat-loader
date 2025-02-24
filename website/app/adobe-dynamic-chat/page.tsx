@@ -1,22 +1,21 @@
+'use client'
 import React from 'react'
 import {
   LiveChatLoaderProvider,
   AdobeDynamicChat
 } from 'react-live-chat-loader'
-import type { NextPage } from 'next'
 
-import Layout from '../layouts/main'
-import ExampleLinks from '../components/exampleLinks'
+import ExampleLinks from '../../components/exampleLinks'
 
-const Page: NextPage = () => (
-  <LiveChatLoaderProvider
-    provider="adobeDynamicChat"
-    providerKey=""
-    instanceId=""
-    env=""
-    geo=""
-  >
-    <Layout title="React Live Chat Loader: Adobe Dynamic Chat">
+export default function AdobeDynamicChatPage() {
+  return (
+    <LiveChatLoaderProvider
+      provider="adobeDynamicChat"
+      providerKey=""
+      instanceId=""
+      env=""
+      geo=""
+    >
       <div className="wrapper">
         <div className="inner">
           <h1>React Live Chat Loader: Adobe Dynamic Chat</h1>
@@ -33,8 +32,6 @@ const Page: NextPage = () => (
         </div>
       </div>
       <AdobeDynamicChat />
-    </Layout>
-  </LiveChatLoaderProvider>
-)
-
-export default Page
+    </LiveChatLoaderProvider>
+  )
+}
