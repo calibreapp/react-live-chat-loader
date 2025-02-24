@@ -16,3 +16,4 @@ export type Provider =
   | 'chatwoot'
   | 'front'
   | 'hubSpot'
+  | 'adobeDynamicChat'

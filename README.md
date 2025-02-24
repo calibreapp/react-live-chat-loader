@@ -7,7 +7,7 @@
 
 An npm module that allows you to mitigate the negative performance and user
 experience impact of chat tools. `react-live-chat-loader` shows a fake widget
-until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#front), [Chatwoot](#chatwoot) and [Hubspot](#hubspot).
+until the page has become idle or users are ready to interact with chat. Currently works with [Intercom](#intercom), [Help Scout](#help-scout), [Drift](#drift), [Messenger](#messenger), [Userlike](#userlike), [Front](#front), [Chatwoot](#chatwoot), [Hubspot](#hubspot) and [Adobe Dynamic Chat](#adobe-dynamic-chat)
 
 Made by the team at [♠ Calibre](https://calibreapp.com/), your performance companion.
 
@@ -417,6 +417,46 @@ You can customise the Hubspot placeholder by passing the following props to the
 
 </details>
 
+<details>
+<summary id="adobe-dynamic-chat">Adobe Dynamic Chat</summary>
+
+To use Adobe Dynamic Chat import the `LiveChatLoaderProvider` and set the `provider` prop
+as `adobeDynamicChat` and the props for your instance as found in your Chatbot settings > Installation > Javascript snippet.
+
+For example, your script URL will look something like this:
+`<script src="https://assets.adoberesources.net/loader.js?orgId=ABCD1234ABCD1234ABCD123%40AdobeOrg&instanceId=yourinstance&env=prod&geo=va7"></script>`
+
+Then import the `AdobeDynamicChat` component.
+
+```jsx
+import { LiveChatLoaderProvider, AdobeDynamicChat } from 'react-live-chat-loader'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <LiveChatLoaderProvider 
+        providerKey="ABCD1234ABCD1234ABCD123%40AdobeOrg"  // Use "orgId" query parameter found in script URL
+        instanceId="yourinstance"                   // Use "instanceId" query parameter found in script URL
+        env="prod"                                  // Use "env" query parameter found in script URL
+        geo="va7"                                   // Use "geo" query parameter found in script URL
+        provider="adobeDynamicChat"
+      >
+        /* ... */
+        <AdobeDynamicChat />
+      </LiveChatLoaderProvider>
+    )
+  }
+}
+```
+
+You can customise the Adobe Dynamic Chat placeholder icon by passing the following props to the `AdobeDynamicChat` component:
+
+- `color`: The background color of the placeholder widget
+- `containerClass`: Class to be added to the placeholder element, defaults to `live-chat-loader-placeholder`
+- `icon`: Override the default Adobe Dynamic Chat icon, can be any JSX element.
+
+</details>
+
 ## ➕ Adding a Provider
 
 To add a new live chat provider, follow the steps in [Contributing: Adding a Provider](CONTRIBUTING.md#-adding-a-provider).
@@ -464,6 +504,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/lauGutierrezz"><img src="https://avatars.githubusercontent.com/u/52488696?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Laura Gutiérrez López de la Franca</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=lauGutierrezz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/38ri581oq480"><img src="https://avatars.githubusercontent.com/u/64654807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kirill Vakalov</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=38ri581oq480" title="Code">💻</a></td>
     <td align="center"><a href="http://luisrudge.net"><img src="https://avatars.githubusercontent.com/u/941075?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luís Rudge</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=luisrudge" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/enjoyjeremy-bc"><img src="https://avatars.githubusercontent.com/u/260613?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeremy Adam</b></sub></a><br /><a href="https://github.com/calibreapp/react-live-chat-loader/commits?author=enjoyjeremy-bc" title="Code">💻</a></td>
   </tr>
 </table>
 

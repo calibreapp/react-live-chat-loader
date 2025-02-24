@@ -1,6 +1,3 @@
-// cannot use 'next/link' here because it will do client-side navigation
-// which will cause multiple provider icons to stack on top of each other
-// real applications won't use more than one provider
 export default function ExampleLinks() {
   return (
     <>
@@ -29,6 +26,9 @@ export default function ExampleLinks() {
         <li>
           <a href="/hubspot">HubSpot</a>
         </li>
+        <li>
+          <a href="/adobe-dynamic-chat">Adobe Dynamic Chat</a>
+        </li>
       </ul>
       <p>
         Some providers may require the addition of a valid API key to their{' '}
@@ -38,3 +38,4 @@ export default function ExampleLinks() {
     </>
   )
 }
+
