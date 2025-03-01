@@ -50,7 +50,7 @@
     "@types/react": "^18.0.21",
     "@types/requestidlecallback": "^0.3.5",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^6.7.5",
+    "@typescript-eslint/parser": "^8.25.0",
     "babel-loader": "^10.0.0",
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.25.0",
