@@ -473,7 +473,7 @@ The following scripts in the example app will then be available:
 - `npm run build` (run next build)
 - `npm run start` (run next start)
 
-Visit [react-live-chat-loader.vercel.app](https://react-live-chat-loader.vercel.app/) for a hosted version of the example app.
+Visit [react-live-chat-loader.onrender.com](https://react-live-chat-loader.onrender.com/) for a hosted version of the example app.
 
 > 📝  Note that some providers require safe-listed, publicly accessible domains served over HTTPS — a service like [ngrok](https://ngrok.com/) can help achieve this locally.
 
